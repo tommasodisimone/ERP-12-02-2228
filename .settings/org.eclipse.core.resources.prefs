@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/cn/itcast/invoice/invoice/order/business/ebo/OrderEbo.java=UTF-8
 encoding//src/cn/itcast/invoice/util/format/FormatUtil.java=UTF-8
 encoding//src/cn/itcast/invoice/util/listener/LoadResourceListener.java=UTF-8
 encoding//test/cn/itcast/invoice/util/generator/GeneratorUtil.java=UTF-8

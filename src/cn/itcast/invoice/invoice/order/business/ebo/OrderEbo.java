@@ -53,24 +53,25 @@ public class OrderEbo implements OrderEbi{
 	}
 	
 	public void save(EmpModel em,OrderModel om, Long[] goodsUuids, Integer[] nums,Double[] prices) {
-		//将订单信息组织好，保存
-		//om中保存有对应供应商的uuid
-		//设置订单号:系统时间+登陆人uuid
+		//å°†è®¢å�•ä¿¡æ�¯ç»„ç»‡å¥½ï¼Œä¿�å­˜
+		//omä¸­ä¿�å­˜æœ‰å¯¹åº”ä¾›åº”å•†çš„uuid
+		//è®¾ç½®è®¢å�•å�·:ç³»ç»Ÿæ—¶é—´+ç™»é™†äººuuid
 		String orderNum = System.currentTimeMillis()+""+em.getUuid();
 		om.setOrderNum(MD5Utils.md5(orderNum));
-		//设置订单类别
+		//è®¾ç½®è®¢å�•ç±»åˆ«
 		om.setOrderType(OrderModel.ORDER_ORDERTYPE_OF_BUY);
-		//设置订单状态
+		//è®¾ç½®è®¢å�•çŠ¶æ€�
 		om.setType(OrderModel.ORDER_TYPE_OF_BUY_NO_CHECK);
-		//设置订单创建时间为当前系统时间
+		//è®¾ç½®è®¢å�•åˆ›å»ºæ—¶é—´ä¸ºå½“å‰�ç³»ç»Ÿæ—¶é—´
 		om.setCreateTime(System.currentTimeMillis());
-		//设置当前登陆人为制单人
+		//è®¾ç½®å½“å‰�ç™»é™†äººä¸ºåˆ¶å�•äºº
 		om.setCreater(em);
 		
 		Integer totalNum = 0;
 		Double totalPrice = 0.0d;
-		
-		//将订单明细信息组织包，保存
+		OrderDetailModel odm = new OrderDetailModel();
+		GoodsModel gm = new GoodsModel();
+		//å°†è®¢å�•æ˜Žç»†ä¿¡æ�¯ç»„ç»‡åŒ…ï¼Œä¿�å­˜
 		Set<OrderDetailModel> odms = new HashSet<OrderDetailModel>();
 		for(int i = 0;i<goodsUuids.length;i++){
 			Long goodsUuid = goodsUuids[i];
@@ -80,31 +81,31 @@ public class OrderEbo implements OrderEbi{
 			totalNum+=num;
 			totalPrice+=num*price;
 			
-			OrderDetailModel odm = new OrderDetailModel();
+			
 			odm.setNum(num);
-			//设置订单明细中当前货物完成量为订单商品货物总量
+			//è®¾ç½®è®¢å�•æ˜Žç»†ä¸­å½“å‰�è´§ç‰©å®Œæˆ�é‡�ä¸ºè®¢å�•å•†å“�è´§ç‰©æ€»é‡�
 			odm.setSurplus(num);
 			odm.setPrice(price);
 			
-			GoodsModel gm = new GoodsModel();
+			
 			gm.setUuid(goodsUuid);
 			odm.setGm(gm);
-			//绑定明细到订单的关系
+			//ç»‘å®šæ˜Žç»†åˆ°è®¢å�•çš„å…³ç³»
 			odm.setOm(om);
 			odms.add(odm);
 		}
-		//设置所有的订单明细集合
+		//è®¾ç½®æ‰€æœ‰çš„è®¢å�•æ˜Žç»†é›†å�ˆ
 		om.setOdms(odms);
-		//设置商品总数量
+		//è®¾ç½®å•†å“�æ€»æ•°é‡�
 		om.setTotalNum(totalNum);
-		//设置订单总价格
+		//è®¾ç½®è®¢å�•æ€»ä»·æ ¼
 		om.setTotalPrice(totalPrice);
-		//现在的状态：om中包含有odms ,odms中的odm包含om
-		//当使用级联添加时，保存的是om，基于关联关系，会级联到odms中的所有对象
-		//谁给orderDetail表中的orderUuid赋值的  update?insert?
-		//此处设置了cascade=save-update那么，保存om将保存其中odms中的odm
-		//inverse=true则断开了om维护odm中的关联关系的可能性update将不执行
-		//由于odm中绑定了与om的关系，因此在添加时，insert语句中将出现orderUuid这个字段
+		//çŽ°åœ¨çš„çŠ¶æ€�ï¼šomä¸­åŒ…å�«æœ‰odms ,odmsä¸­çš„odmåŒ…å�«om
+		//å½“ä½¿ç”¨çº§è�”æ·»åŠ æ—¶ï¼Œä¿�å­˜çš„æ˜¯omï¼ŒåŸºäºŽå…³è�”å…³ç³»ï¼Œä¼šçº§è�”åˆ°odmsä¸­çš„æ‰€æœ‰å¯¹è±¡
+		//è°�ç»™orderDetailè¡¨ä¸­çš„orderUuidèµ‹å€¼çš„  update?insert?
+		//æ­¤å¤„è®¾ç½®äº†cascade=save-updateé‚£ä¹ˆï¼Œä¿�å­˜omå°†ä¿�å­˜å…¶ä¸­odmsä¸­çš„odm
+		//inverse=trueåˆ™æ–­å¼€äº†omç»´æŠ¤odmä¸­çš„å…³è�”å…³ç³»çš„å�¯èƒ½æ€§updateå°†ä¸�æ‰§è¡Œ
+		//ç”±äºŽodmä¸­ç»‘å®šäº†ä¸Žomçš„å…³ç³»ï¼Œå› æ­¤åœ¨æ·»åŠ æ—¶ï¼Œinsertè¯­å�¥ä¸­å°†å‡ºçŽ°orderUuidè¿™ä¸ªå­—æ®µ
 		orderDao.save(om);
 	}
 
@@ -114,10 +115,10 @@ public class OrderEbo implements OrderEbi{
 			//OrderModel.ORDER_TYPE_OF_BUY_RETURN_NO_CHECK
 			};
 	public List<OrderModel> getAllNoCheckOrder(OrderQueryModel oqm,Integer pageNum, Integer pageCount) {
-			//采购未审核
-			//采购退货未审核
-			//将两种状态提交到数据层	采购未审核状态，采购退货未审核状态
-			//传递的条件是多个值，因此需要将数据进行包装，称为数组/集合
+			//é‡‡è´­æœªå®¡æ ¸
+			//é‡‡è´­é€€è´§æœªå®¡æ ¸
+			//å°†ä¸¤ç§�çŠ¶æ€�æ��äº¤åˆ°æ•°æ�®å±‚	é‡‡è´­æœªå®¡æ ¸çŠ¶æ€�ï¼Œé‡‡è´­é€€è´§æœªå®¡æ ¸çŠ¶æ€�
+			//ä¼ é€’çš„æ�¡ä»¶æ˜¯å¤šä¸ªå€¼ï¼Œå› æ­¤éœ€è¦�å°†æ•°æ�®è¿›è¡ŒåŒ…è£…ï¼Œç§°ä¸ºæ•°ç»„/é›†å�ˆ
 		return orderDao.getAllByTypes(oqm,pageNum,pageCount,buyCheckTypes);
 	}
 
@@ -126,25 +127,25 @@ public class OrderEbo implements OrderEbi{
 	}
 
 	public void buyCheckPass(Long uuid,EmpModel em) {
-		//如果该订单没有审核
-		//修改状态将未审核状态修改为审核通过状态	ORDER_TYPE_OF_BUY_CHECK_PASS
-		//快照更新
+		//å¦‚æžœè¯¥è®¢å�•æ²¡æœ‰å®¡æ ¸
+		//ä¿®æ”¹çŠ¶æ€�å°†æœªå®¡æ ¸çŠ¶æ€�ä¿®æ”¹ä¸ºå®¡æ ¸é€šè¿‡çŠ¶æ€�	ORDER_TYPE_OF_BUY_CHECK_PASS
+		//å¿«ç…§æ›´æ–°
 		OrderModel om = orderDao.get(uuid);
-		//逻辑判定
+		//é€»è¾‘åˆ¤å®š
 		if(!Arrays.asList(buyCheckTypes).contains(om.getType())){
-			throw new AppException("对不起,请不要进行非法操作！");
+			throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
 		}
 		om.setType(OrderModel.ORDER_TYPE_OF_BUY_CHECK_PASS);
-		//谁什么时间审核的？
+		//è°�ä»€ä¹ˆæ—¶é—´å®¡æ ¸çš„ï¼Ÿ
 		om.setCheckTime(System.currentTimeMillis());
 		om.setChecker(em);
 	}
 
 	public void buyCheckNoPass(Long uuid,EmpModel em) {
 		OrderModel om = orderDao.get(uuid);
-		//逻辑判定
+		//é€»è¾‘åˆ¤å®š
 		if(!Arrays.asList(buyCheckTypes).contains(om.getType())){
-			throw new AppException("对不起,请不要进行非法操作！");
+			throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
 		}
 		om.setType(OrderModel.ORDER_TYPE_OF_BUY_CHECK_NO_PASS);
 		om.setCheckTime(System.currentTimeMillis());
@@ -155,18 +156,18 @@ public class OrderEbo implements OrderEbi{
 			OrderModel.ORDER_TYPE_OF_BUY_BUYING,
 			OrderModel.ORDER_TYPE_OF_BUY_IN_STORE,
 			OrderModel.ORDER_TYPE_OF_BUY_END,
-			//缺少12种
-			//共计16种状态
+			//ç¼ºå°‘12ç§�
+			//å…±è®¡16ç§�çŠ¶æ€�
 			};
 	public List<OrderModel> getAllTasks(OrderQueryModel oqm, Integer pageNum,Integer pageCount) {
-		//获取的数据有哪些？无论何种类别的订单，只要是审核通过后，所有状态均显示
+		//èŽ·å�–çš„æ•°æ�®æœ‰å“ªäº›ï¼Ÿæ— è®ºä½•ç§�ç±»åˆ«çš„è®¢å�•ï¼Œå�ªè¦�æ˜¯å®¡æ ¸é€šè¿‡å�Žï¼Œæ‰€æœ‰çŠ¶æ€�å�‡æ˜¾ç¤º
 		return orderDao.getAllByTypes(oqm, pageNum, pageCount, taskTypes);
 	}
 	
 	public static Integer[] taskTypes2 = {
 			OrderModel.ORDER_TYPE_OF_BUY_CHECK_PASS,
-			//缺少3种
-			//共计4种状态
+			//ç¼ºå°‘3ç§�
+			//å…±è®¡4ç§�çŠ¶æ€�
 			};
 	
 	public static final Set<Integer> taskTypesSet = new HashSet<Integer>();
@@ -180,16 +181,16 @@ public class OrderEbo implements OrderEbi{
 	public void assignTask(OrderModel om) {
 		OrderModel temp = orderDao.get(om.getUuid());
 		if(!Arrays.asList(taskTypes2).contains(temp.getType())){
-			throw new AppException("对不起,请不要进行非法操作！");
+			throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
 		}
-		//当前任务分配完毕后，切换状态为正在采购
-		//采购和采购退货都归同一个人审批
-		//if(原始是采购业务，修改为采购....)
-		//else if(原始是采购退货任务,修改为采购退货....)
-		//else if(原始是采购退货任务,修改为采购退货....)
-		//else if(原始是采购退货任务,修改为采购退货....)
+		//å½“å‰�ä»»åŠ¡åˆ†é…�å®Œæ¯•å�Žï¼Œåˆ‡æ�¢çŠ¶æ€�ä¸ºæ­£åœ¨é‡‡è´­
+		//é‡‡è´­å’Œé‡‡è´­é€€è´§éƒ½å½’å�Œä¸€ä¸ªäººå®¡æ‰¹
+		//if(åŽŸå§‹æ˜¯é‡‡è´­ä¸šåŠ¡ï¼Œä¿®æ”¹ä¸ºé‡‡è´­....)
+		//else if(åŽŸå§‹æ˜¯é‡‡è´­é€€è´§ä»»åŠ¡,ä¿®æ”¹ä¸ºé‡‡è´­é€€è´§....)
+		//else if(åŽŸå§‹æ˜¯é‡‡è´­é€€è´§ä»»åŠ¡,ä¿®æ”¹ä¸ºé‡‡è´­é€€è´§....)
+		//else if(åŽŸå§‹æ˜¯é‡‡è´­é€€è´§ä»»åŠ¡,ä¿®æ”¹ä¸ºé‡‡è´­é€€è´§....)
 		temp.setType(OrderModel.ORDER_TYPE_OF_BUY_BUYING);
-		//修改任务人
+		//ä¿®æ”¹ä»»åŠ¡äºº
 		temp.setCompleter(om.getCompleter());
 	}
 
@@ -202,16 +203,16 @@ public class OrderEbo implements OrderEbi{
 		OrderModel om = orderDao.get(uuid);
 		/*
 		if(....){
-			throw new AppException("对不起,请不要进行非法操作！");
+			throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
 		}
 		*/
-		//仅需要修改一个状态
+		//ä»…éœ€è¦�ä¿®æ”¹ä¸€ä¸ªçŠ¶æ€�
 		om.setType(OrderModel.ORDER_TYPE_OF_BUY_IN_STORE);
 	}
 
 	private Integer[] inTypes = {
 			OrderModel.ORDER_TYPE_OF_BUY_IN_STORE,
-			//缺少1种
+			//ç¼ºå°‘1ç§�
 			};
 	public List<OrderModel> getAllNotIn(OrderQueryModel oqm, Integer pageNum,Integer pageCount) {
 		//
