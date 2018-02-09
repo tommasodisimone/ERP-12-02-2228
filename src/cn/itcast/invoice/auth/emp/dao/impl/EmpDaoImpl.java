@@ -1,11 +1,9 @@
 package cn.itcast.invoice.auth.emp.dao.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.hql.ast.tree.RestrictableStatement;
 
 import cn.itcast.invoice.auth.emp.dao.dao.EmpDao;
 import cn.itcast.invoice.auth.emp.vo.EmpModel;
@@ -22,14 +20,14 @@ public class EmpDaoImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 	}
 	
 	public void addName(DetachedCriteria dc,EmpQueryModel eqm) {
-		if(eqm.getName()!=null && eqm.getName().trim().length()>0){
-			dc.add(Restrictions.like("name", "%"+eqm.getName().trim()+"%"));
+		if(eqm.getPersonalInformation(0)!=null && eqm.getPersonalInformation(0).trim().length()>0){
+			dc.add(Restrictions.like("name", "%"+eqm.getPersonalInformation(0).trim()+"%"));
 		}
 	}
 	
 	public void addTele(DetachedCriteria dc,EmpQueryModel eqm) {
-		if(eqm.getTele()!=null && eqm.getTele().trim().length()>0){
-			dc.add(Restrictions.like("tele", "%"+eqm.getTele().trim()+"%"));
+		if(eqm.getPersonalInformation(2)!=null && eqm.getPersonalInformation(2).trim().length()>0){
+			dc.add(Restrictions.like("tele", "%"+eqm.getPersonalInformation(2).trim()+"%"));
 		}
 	}
 	
@@ -40,8 +38,8 @@ public class EmpDaoImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 	}
 	
 	public void addEmail(DetachedCriteria dc,EmpQueryModel eqm) {
-		if(eqm.getEmail()!=null && eqm.getEmail().trim().length()>0){
-			dc.add(Restrictions.like("email", "%"+eqm.getEmail().trim()+"%"));
+		if(eqm.getPersonalInformation(1)!=null && eqm.getPersonalInformation(1).trim().length()>0){
+			dc.add(Restrictions.like("email", "%"+eqm.getPersonalInformation(1).trim()+"%"));
 		}
 	}
 	
