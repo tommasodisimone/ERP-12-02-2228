@@ -22,7 +22,7 @@ public class PieChartDemo7 extends ApplicationFrame {
 		setContentPane(createDemoPanel());
 	}
 
-	private static PieDataset createDataset() {
+	private PieDataset createDataset() {
 		DefaultPieDataset localDefaultPieDataset = new DefaultPieDataset();
 		localDefaultPieDataset.setValue("SectionXX", 1.0d);
 		localDefaultPieDataset.setValue("SectionYY", 2.0d);
@@ -31,7 +31,7 @@ public class PieChartDemo7 extends ApplicationFrame {
 		return localDefaultPieDataset;
 	}
 
-	public static JPanel createDemoPanel() {
+	public JPanel createDemoPanel() {
 		PieDataset localPieDataset = createDataset();
 		JFreeChart localJFreeChart = ChartFactory.createPieChart(
 				"Pie Chart Demo 7", localPieDataset, false, true, false);
@@ -48,7 +48,7 @@ public class PieChartDemo7 extends ApplicationFrame {
 		return localChartPanel;
 	}
 
-	public static void main(String[] paramArrayOfString) {
+	public void main(String[] paramArrayOfString) {
 		PieChartDemo7 localPieChartDemo7 = new PieChartDemo7(
 				"JFreeChart: PieChartDemo7.java");
 		localPieChartDemo7.pack();
@@ -57,6 +57,10 @@ public class PieChartDemo7 extends ApplicationFrame {
 	}
 
 	static class Rotator extends Timer implements ActionListener {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private PiePlot plot;
 		private int angle = 270;
 
