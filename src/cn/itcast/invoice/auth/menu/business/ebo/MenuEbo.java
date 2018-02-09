@@ -7,7 +7,6 @@ import cn.itcast.invoice.auth.menu.business.ebi.MenuEbi;
 import cn.itcast.invoice.auth.menu.dao.dao.MenuDao;
 import cn.itcast.invoice.auth.menu.vo.MenuModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-import cn.itcast.invoice.util.exception.AppException;
 
 public class MenuEbo implements MenuEbi{
 	private MenuDao menuDao;
@@ -20,8 +19,8 @@ public class MenuEbo implements MenuEbi{
 	}
 
 	public void delete(MenuModel mm) {
-		//页面收集的数据中仅包含uuid,此处删除业务需要进行级联，必须先将关联关系数据加载上
-		//因此在删除之前进行一次查询，加载关联数据
+		//é¡µé�¢æ”¶é›†çš„æ•°æ�®ä¸­ä»…åŒ…å�«uuid,æ­¤å¤„åˆ é™¤ä¸šåŠ¡éœ€è¦�è¿›è¡Œçº§è�”ï¼Œå¿…é¡»å…ˆå°†å…³è�”å…³ç³»æ•°æ�®åŠ è½½ä¸Š
+		//å› æ­¤åœ¨åˆ é™¤ä¹‹å‰�è¿›è¡Œä¸€æ¬¡æŸ¥è¯¢ï¼ŒåŠ è½½å…³è�”æ•°æ�®
 		mm = menuDao.get(mm.getUuid());
 		menuDao.delete(mm);
 	}
