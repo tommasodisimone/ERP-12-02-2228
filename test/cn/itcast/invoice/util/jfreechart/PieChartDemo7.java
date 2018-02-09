@@ -48,13 +48,6 @@ public class PieChartDemo7 extends ApplicationFrame {
 		return localChartPanel;
 	}
 
-	public void main(String[] paramArrayOfString) {
-		PieChartDemo7 localPieChartDemo7 = new PieChartDemo7(
-				"JFreeChart: PieChartDemo7.java");
-		localPieChartDemo7.pack();
-		RefineryUtilities.centerFrameOnScreen(localPieChartDemo7);
-		localPieChartDemo7.setVisible(true);
-	}
 
 	static class Rotator extends Timer implements ActionListener {
 		/**
