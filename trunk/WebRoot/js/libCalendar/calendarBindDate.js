@@ -19,7 +19,7 @@ function calendarBindDate(date)
 	var _previYear;
 
 	if(_month==0){
-		_previYear=_year-1
+		_previYear=_year-1;
 	}else{
 		_previYear=_year;
 	}
@@ -27,11 +27,11 @@ function calendarBindDate(date)
 	var _previMonth;
 
 	if(_month==0){
-		_previMonth=11
+		_previMonth=11;
 	}else{
 		_previMonth=_month-1;
 	}
-
+ 
 	var _previDay = _monthDays[_previMonth];
 
 	//if (_previMonth == 1)_previDay =((_previYear%4==0)&&(_previYear%100!=0)||(_previYear%400==0))?29:28;	
