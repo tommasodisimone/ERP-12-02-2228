@@ -4,5 +4,10 @@
  * @returns
  */
 function preventDefault(e) {
-			e.preventDefault ? e.preventDefault() : e.returnValue = false;
+	if(e.preventDefault){
+		e.preventDefault()
+	}else{
+		e.returnValue = false;
+	}
+			
 		}
