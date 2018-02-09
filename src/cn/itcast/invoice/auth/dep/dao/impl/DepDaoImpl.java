@@ -1,7 +1,6 @@
 package cn.itcast.invoice.auth.dep.dao.impl;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import cn.itcast.invoice.auth.dep.dao.dao.DepDao;
 import cn.itcast.invoice.auth.dep.vo.DepModel;
@@ -12,7 +11,7 @@ import cn.itcast.invoice.util.base.BaseQueryModel;
 public class DepDaoImpl extends BaseDaoImpl<DepModel> implements DepDao{
 	public void doQbc(DetachedCriteria dc,BaseQueryModel qm){
 		DepQueryModel dqm = (DepQueryModel) qm;
-		//TODO 添加自定义查询规则
+		//TODO æ·»åŠ è‡ªå®šä¹‰æŸ¥è¯¢è§„åˆ™
 		/*
 		if(dqm.getName()!=null && dqm.getName().trim().length()>0){
 			dc.add(Restrictions.like("name", "%"+dqm.getName().trim()+"%"));
@@ -49,10 +48,10 @@ public class DepDaoImpl extends HibernateDaoSupport implements DepDao{
 	}
 
 	public List<DepModel> getAll(DepQueryModel dqm) {
-		//按照条件进行查询
+		//æŒ‰ç…§æ�¡ä»¶è¿›è¡ŒæŸ¥è¯¢
 		//QBC
 		DetachedCriteria dc = DetachedCriteria.forClass(DepModel.class);
-		//添加条件
+		//æ·»åŠ æ�¡ä»¶
 		if(dqm.getName()!=null && dqm.getName().trim().length()>0){
 			dc.add(Restrictions.like("name", "%"+dqm.getName().trim()+"%"));
 		}
@@ -63,7 +62,7 @@ public class DepDaoImpl extends HibernateDaoSupport implements DepDao{
 	}
 	public List<DepModel> getAll(DepQueryModel dqm, Integer pageNum,Integer pageCount) {
 		DetachedCriteria dc = DetachedCriteria.forClass(DepModel.class);
-		//添加条件
+		//æ·»åŠ æ�¡ä»¶
 		if(dqm.getName()!=null && dqm.getName().trim().length()>0){
 			dc.add(Restrictions.like("name", "%"+dqm.getName().trim()+"%"));
 		}
@@ -77,7 +76,7 @@ public class DepDaoImpl extends HibernateDaoSupport implements DepDao{
 		DetachedCriteria dc = DetachedCriteria.forClass(DepModel.class);
 		//select * form tbl_dep
 		//select count(uuid) from tbl_dep
-		//设置查询投影
+		//è®¾ç½®æŸ¥è¯¢æŠ•å½±
 		dc.setProjection(Projections.rowCount());
 		if(dqm.getName()!=null && dqm.getName().trim().length()>0){
 			dc.add(Restrictions.like("name", "%"+dqm.getName().trim()+"%"));
