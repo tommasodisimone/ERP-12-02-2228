@@ -1,5 +1,6 @@
 package cn.itcast.invoice.invoice.order.vo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -9,7 +10,7 @@ import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.util.format.FormatUtil;
 
-public class OrderModel {
+public class OrderModel implements Serializable{
 	public static final Integer ORDER_TYPE_OF_BUY_NO_CHECK = 111;
 	public static final Integer ORDER_TYPE_OF_BUY_CHECK_NO_PASS = 120;
 	public static final Integer ORDER_TYPE_OF_BUY_CHECK_PASS = 121;
@@ -17,9 +18,9 @@ public class OrderModel {
 	public static final Integer ORDER_TYPE_OF_BUY_IN_STORE = 141;
 	public static final Integer ORDER_TYPE_OF_BUY_END = 199;
 	
-	public static final String ORDER_TYPE_OF_BUY_NO_CHECK_VIEW = "Ã¦Å“ÂªÃ¥Â®Â¡Ã¦Â Â¸";
+	public static final String ORDER_TYPE_OF_BUY_NO_CHECK_VIEW = "Ã¦Å“ÂªÃ¥Â®Â¡Ã¦Â Â¸";
 	public static final String ORDER_TYPE_OF_BUY_CHECK_NO_VIEW = "Ã©Â©Â³Ã¥â€ºÅ¾";
-	public static final String ORDER_TYPE_OF_BUY_CHECK_OK_VIEW = "Ã¤Â»Â»Ã¥Å Â¡Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â¸Â­";
+	public static final String ORDER_TYPE_OF_BUY_CHECK_OK_VIEW = "Ã¤Â»Â»Ã¥Å Â¡Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â¸Â­";
 	public static final String ORDER_TYPE_OF_BUY_BUYING_VIEW = "Ã©â€¡â€¡Ã¨Â´Â­Ã¤Â¸Â­";
 	public static final String ORDER_TYPE_OF_BUY_IN_STORE_VIEW = "Ã¥â€¦Â¥Ã¥Âºâ€œÃ¤Â¸Â­";
 	public static final String ORDER_TYPE_OF_BUY_END_VIEW = "Ã¥Â·Â²Ã§Â»â€œÃ¥ï¿½â€¢";
@@ -55,19 +56,19 @@ public class OrderModel {
 		typeMap.putAll(buyTypeMap);
 	}
 	
-	//typeÃ§Å Â¶Ã¦â‚¬ï¿½Ã§Â±Â»Ã¥Å¾â€¹
+	//typeÃ§Å Â¶Ã¦â‚¬ï¿½Ã§Â±Â»Ã¥Å¾â€¹
 	/*
-	Ã§â€�Â³Ã¨Â¯Â·Ã¦Å“ÂªÃ¥Â®Â¡Ã¦â€°Â¹					Ã¦Å“ÂªÃ¥Â®Â¡Ã¦Â Â¸			111
+	Ã§â€�Â³Ã¨Â¯Â·Ã¦Å“ÂªÃ¥Â®Â¡Ã¦â€°Â¹					Ã¦Å“ÂªÃ¥Â®Â¡Ã¦Â Â¸			111
 	Ã§â€�Â³Ã¨Â¯Â·Ã¥Â·Â²Ã¥Â®Â¡Ã¦â€°Â¹Ã©Â©Â³Ã¥â€ºÅ¾				Ã©Â©Â³Ã¥â€ºÅ¾				120
-	Ã§â€�Â³Ã¨Â¯Â·Ã¥Â·Â²Ã¥Â®Â¡Ã¦â€°Â¹Ã©â‚¬Å¡Ã¨Â¿â€¡/Ã¦Å“ÂªÃ¦Å’â€¡Ã¦Â´Â¾Ã¤Â»Â»Ã¥Å Â¡Ã¤ÂºÂº	Ã¤Â»Â»Ã¥Å Â¡Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â¸Â­			121
-	Ã¥Â·Â²Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â»Â»Ã¥Å Â¡Ã¤ÂºÂº/Ã¤Â»Â»Ã¥Å Â¡Ã¦Å“ÂªÃ¥Â®Å’Ã¦Ë†ï¿½		Ã©â€¡â€¡Ã¨Â´Â­Ã¤Â¸Â­			131
-	Ã¤Â»Â»Ã¥Å Â¡Ã¥Â·Â²Ã§Â»ï¿½Ã¥Â®Å’Ã¦Ë†ï¿½/Ã¨Â®Â¢Ã¥ï¿½â€¢Ã¦Å“ÂªÃ¥â€¦Â¥Ã¥Âºâ€œ		Ã¥â€¦Â¥Ã¥Âºâ€œÃ¤Â¸Â­			141
+	Ã§â€�Â³Ã¨Â¯Â·Ã¥Â·Â²Ã¥Â®Â¡Ã¦â€°Â¹Ã©â‚¬Å¡Ã¨Â¿â€¡/Ã¦Å“ÂªÃ¦Å’â€¡Ã¦Â´Â¾Ã¤Â»Â»Ã¥Å Â¡Ã¤ÂºÂº	Ã¤Â»Â»Ã¥Å Â¡Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â¸Â­			121
+	Ã¥Â·Â²Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â»Â»Ã¥Å Â¡Ã¤ÂºÂº/Ã¤Â»Â»Ã¥Å Â¡Ã¦Å“ÂªÃ¥Â®Å’Ã¦Ë†ï¿½		Ã©â€¡â€¡Ã¨Â´Â­Ã¤Â¸Â­			131
+	Ã¤Â»Â»Ã¥Å Â¡Ã¥Â·Â²Ã§Â»ï¿½Ã¥Â®Å’Ã¦Ë†ï¿½/Ã¨Â®Â¢Ã¥ï¿½â€¢Ã¦Å“ÂªÃ¥â€¦Â¥Ã¥Âºâ€œ		Ã¥â€¦Â¥Ã¥Âºâ€œÃ¤Â¸Â­			141
 	Ã¨Â®Â¢Ã¥ï¿½â€¢Ã¥â€¦Â¥Ã¥Âºâ€œÃ¥Â®Å’Ã¦Â¯â€¢				Ã¥Â·Â²Ã§Â»â€œÃ¥ï¿½â€¢			199
 	*/
 	/*
-	211	Ã¦Å“ÂªÃ¥Â®Â¡Ã¦Â Â¸									
+	211	Ã¦Å“ÂªÃ¥Â®Â¡Ã¦Â Â¸									
 	220	Ã©Â©Â³Ã¥â€ºÅ¾
-	221	Ã¤Â»Â»Ã¥Å Â¡Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â¸Â­
+	221	Ã¤Â»Â»Ã¥Å Â¡Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â¸Â­
 	231	Ã¥â€¡ÂºÃ¥Âºâ€œÃ¤Â¸Â­
 	241	Ã©â‚¬ï¿½Ã¨Â´Â§Ã¤Â¸Â­
 	299	Ã¥Â·Â²Ã§Â»â€œÃ¥ï¿½â€¢
@@ -87,7 +88,7 @@ public class OrderModel {
 	private Long checkTime;
 	private Long completeTime;
 	
-	//Ã¨Â§â€ Ã¥â€ºÂ¾Ã¥â‚¬Â¼
+	//Ã¨Â§â€ Ã¥â€ºÂ¾Ã¥â‚¬Â¼
 	private String totalPriceView;
 	private String createTimeView;
 	private String checkTimeView;
@@ -105,7 +106,7 @@ public class OrderModel {
 	public Set<OrderDetailModel> getOdms() {
 		return odms;
 	}
-	public void setOdms(Set<OrderDetailModel> odms) {
+	private void setOdms(Set<OrderDetailModel> odms) {
 		this.odms = odms;
 	}
 	
@@ -163,85 +164,85 @@ public class OrderModel {
 	public Long getUuid() {
 		return uuid;
 	}
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 	public String getOrderNum() {
 		return orderNum;
 	}
-	public void setOrderNum(String orderNum) {
+	private void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
 	}
 	public Integer getTotalNum() {
 		return totalNum;
 	}
-	public void setTotalNum(Integer totalNum) {
+	private void setTotalNum(Integer totalNum) {
 		this.totalNum = totalNum;
 	}
 	public Double getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(Double totalPrice) {
+	private void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 		this.totalPriceView = FormatUtil.formatMoney(totalPrice);
 	}
 	public Integer getOrderType() {
 		return orderType;
 	}
-	public void setOrderType(Integer orderType) {
+	private void setOrderType(Integer orderType) {
 		this.orderType = orderType;
 		this.orderTypeView =orderTypeMap.get(orderType);
 	}
 	public Integer getType() {
 		return type;
 	}
-	public void setType(Integer type) {
+	private void setType(Integer type) {
 		this.type = type;
 		this.typeView = typeMap.get(type);
 	}
 	public Long getCreateTime() {
 		return createTime;
 	}
-	public void setCreateTime(Long createTime) {
+	private void setCreateTime(Long createTime) {
 		this.createTime = createTime;
 		this.createTimeView = FormatUtil.formatDateTime(createTime);
 	}
 	public Long getCheckTime() {
 		return checkTime;
 	}
-	public void setCheckTime(Long checkTime) {
+	private void setCheckTime(Long checkTime) {
 		this.checkTime = checkTime;
 		this.checkTimeView = FormatUtil.formatDateTime(checkTime);
 	}
 	public Long getCompleteTime() {
 		return completeTime;
 	}
-	public void setCompleteTime(Long completeTime) {
+	private void setCompleteTime(Long completeTime) {
 		this.completeTime = completeTime;
 		this.completeTimeView = FormatUtil.formatDateTime(completeTime);
 	}
 	public EmpModel getCreater() {
 		return creater;
 	}
-	public void setCreater(EmpModel creater) {
+	private void setCreater(EmpModel creater) {
 		this.creater = creater;
 	}
 	public EmpModel getChecker() {
 		return checker;
 	}
-	public void setChecker(EmpModel checker) {
+	private void setChecker(EmpModel checker) {
 		this.checker = checker;
 	}
 	public EmpModel getCompleter() {
 		return completer;
 	}
-	public void setCompleter(EmpModel completer) {
+	private void setCompleter(EmpModel completer) {
 		this.completer = completer;
 	}
 	public SupplierModel getSm() {
 		return sm;
 	}
-	public void setSm(SupplierModel sm) {
+	private void setSm(SupplierModel sm) {
 		this.sm = sm;
 	}
 	

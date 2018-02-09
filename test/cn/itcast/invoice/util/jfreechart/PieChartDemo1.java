@@ -27,10 +27,5 @@ public class PieChartDemo1 {
 		localPiePlot.setLabelGap(0.02D);
 		return localJFreeChart;
 	}
-	public static void main(String[] args) throws IOException {
-		JFreeChart jfc = PieChartDemo1.createChart();
-		//转换成图片
-		RenderedImage im = jfc.createBufferedImage(500, 370);
-		ImageIO.write(im, "png", new File("1.png"));
-	}
+	
 }

@@ -1,9 +1,11 @@
 package cn.itcast.invoice.invoice.order.vo;
 
+import java.io.Serializable;
+
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.util.format.FormatUtil;
 
-public class OrderDetailModel {
+public class OrderDetailModel implements Serializable{
 	
 	private Long uuid;
 	private Integer num;
@@ -21,38 +23,38 @@ public class OrderDetailModel {
 	public Long getUuid() {
 		return uuid;
 	}
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 	public Integer getNum() {
 		return num;
 	}
-	public void setNum(Integer num) {
+	private void setNum(Integer num) {
 		this.num = num;
 	}
 	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	private void setPrice(Double price) {
 		this.price = price;
 		this.priceView = FormatUtil.formatMoney(price);
 	}
 	public GoodsModel getGm() {
 		return gm;
 	}
-	public void setGm(GoodsModel gm) {
+	private void setGm(GoodsModel gm) {
 		this.gm = gm;
 	}
 	public OrderModel getOm() {
 		return om;
 	}
-	public void setOm(OrderModel om) {
+	private void setOm(OrderModel om) {
 		this.om = om;
 	}
 	public Integer getSurplus() {
 		return surplus;
 	}
-	public void setSurplus(Integer surplus) {
+	private void setSurplus(Integer surplus) {
 		this.surplus = surplus;
 	}
 	

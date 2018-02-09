@@ -1,9 +1,11 @@
 package cn.itcast.invoice.invoice.storedetail.vo;
 
+import java.io.Serializable;
+
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.store.vo.StoreModel;
 
-public class StoreDetailModel {
+public class StoreDetailModel implements Serializable{
 	private Long uuid;
 	
 	private Integer num;
@@ -14,25 +16,25 @@ public class StoreDetailModel {
 	public Long getUuid() {
 		return uuid;
 	}
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 	public Integer getNum() {
 		return num;
 	}
-	public void setNum(Integer num) {
+	private void setNum(Integer num) {
 		this.num = num;
 	}
 	public GoodsModel getGm() {
 		return gm;
 	}
-	public void setGm(GoodsModel gm) {
+	private void setGm(GoodsModel gm) {
 		this.gm = gm;
 	}
 	public StoreModel getSm() {
 		return sm;
 	}
-	public void setSm(StoreModel sm) {
+	private void setSm(StoreModel sm) {
 		this.sm = sm;
 	}
 	

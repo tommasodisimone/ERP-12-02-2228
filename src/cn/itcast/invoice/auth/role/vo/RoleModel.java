@@ -1,12 +1,13 @@
 package cn.itcast.invoice.auth.role.vo;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.auth.menu.vo.MenuModel;
 import cn.itcast.invoice.auth.res.vo.ResModel;
 
-public class RoleModel {
+public class RoleModel implements Serializable{
 	private Long uuid;
 	private String name;
 	
@@ -18,31 +19,31 @@ public class RoleModel {
 	public Set<MenuModel> getMenus() {
 		return menus;
 	}
-	public void setMenus(Set<MenuModel> menus) {
+	private void setMenus(Set<MenuModel> menus) {
 		this.menus = menus;
 	}
 	public Set<EmpModel> getEmps() {
 		return emps;
 	}
-	public void setEmps(Set<EmpModel> emps) {
+	private void setEmps(Set<EmpModel> emps) {
 		this.emps = emps;
 	}
 	public Set<ResModel> getReses() {
 		return reses;
 	}
-	public void setReses(Set<ResModel> reses) {
+	private void setReses(Set<ResModel> reses) {
 		this.reses = reses;
 	}
 	public Long getUuid() {
 		return uuid;
 	}
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 	

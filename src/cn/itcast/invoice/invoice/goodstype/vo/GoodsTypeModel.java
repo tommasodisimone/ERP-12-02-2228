@@ -1,11 +1,12 @@
 package cn.itcast.invoice.invoice.goodstype.vo;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 
-public class GoodsTypeModel {
+public class GoodsTypeModel implements Serializable{
 	private Long uuid;
 	private String name;
 	
@@ -16,7 +17,7 @@ public class GoodsTypeModel {
 		return gms;
 	}
 
-	public void setGms(Set<GoodsModel> gms) {
+	private void setGms(Set<GoodsModel> gms) {
 		this.gms = gms;
 	}
 
@@ -24,7 +25,7 @@ public class GoodsTypeModel {
 		return uuid;
 	}
 
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 
@@ -32,7 +33,7 @@ public class GoodsTypeModel {
 		return name;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
@@ -40,7 +41,7 @@ public class GoodsTypeModel {
 		return sm;
 	}
 
-	public void setSm(SupplierModel sm) {
+	private void setSm(SupplierModel sm) {
 		this.sm = sm;
 	}
 	

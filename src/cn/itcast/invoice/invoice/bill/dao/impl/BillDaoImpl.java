@@ -35,7 +35,7 @@ public class BillDaoImpl extends HibernateDaoSupport implements BillDao{
 		*/
 		//QBC
 		DetachedCriteria dc = DetachedCriteria.forClass(OrderDetailModel.class);
-		//设置查询的内容 gm,sum()
+		//è®¾ç½®æŸ¥è¯¢çš„å†…å®¹ gm,sum()
 		//select gm , sum(num)
 		ProjectionList plist = Projections.projectionList();
 		plist.add(Projections.groupProperty("gm"));
@@ -46,7 +46,7 @@ public class BillDaoImpl extends HibernateDaoSupport implements BillDao{
 		group by gm
 		*/
 		dc.setProjection(plist);
-		//设置查询的条件
+		//è®¾ç½®æŸ¥è¯¢çš„æ�¡ä»¶
 		doQbc(dc, bqm);
 		return this.getHibernateTemplate().findByCriteria(dc);
 	}
@@ -73,25 +73,10 @@ public class BillDaoImpl extends HibernateDaoSupport implements BillDao{
 	}
 	public List<OrderDetailModel> getBillDetailByGoods(BillQueryModel bqm) {
 		DetachedCriteria dc = DetachedCriteria.forClass(OrderDetailModel.class);
-		//设置查询的条件
+		//è®¾ç½®æŸ¥è¯¢çš„æ�¡ä»¶
 		doQbc(dc, bqm);
 		return this.getHibernateTemplate().findByCriteria(dc);
 	}
 	
-	public static void main(String[] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml","applicationContext-bill.xml");
-		BillDao dao = (BillDao) ctx.getBean("billDao");
-		List<Object[]> a = dao.getBillByGoods(new BillQueryModel());
-		for(Object[] objs:a){
-			System.out.println(objs[0]);
-			System.out.println(objs[1]);
-			System.out.println(objs[2]);
-			/*
-			for(Object obj:objs){
-				System.out.println(obj);
-			}
-			System.out.println("------------------");
-			*/
-		}
-	}
+	
 }
