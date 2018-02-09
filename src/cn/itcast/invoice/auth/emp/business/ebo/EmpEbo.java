@@ -5,14 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import cn.itcast.invoice.auth.dep.vo.DepModel;
 import cn.itcast.invoice.auth.emp.business.ebi.EmpEbi;
 import cn.itcast.invoice.auth.emp.dao.dao.EmpDao;
 import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.auth.res.dao.dao.ResDao;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-import cn.itcast.invoice.util.exception.AppException;
 import cn.itcast.invoice.util.format.MD5Utils;
 
 public class EmpEbo implements EmpEbi{
@@ -28,11 +26,11 @@ public class EmpEbo implements EmpEbi{
 	}
 
 	public void save(EmpModel em) {
-		//为某些数据进行初始化
-		em.setPwd(MD5Utils.md5(em.getPwd()));
+		//ä¸ºæŸ�äº›æ•°æ�®è¿›è¡Œåˆ�å§‹åŒ–
+		em.setPwd(MD5Utils.sha256(em.getPwd()));
 		em.setLastLoginIp("--");
 		em.setLastLoginTime(System.currentTimeMillis());
-		//设置新注册用户登录次数为0
+		//è®¾ç½®æ–°æ³¨å†Œç”¨æˆ·ç™»å½•æ¬¡æ•°ä¸º0
 		em.setLoginTimes(0);
 		empDao.save(em);
 	}
@@ -42,26 +40,26 @@ public class EmpEbo implements EmpEbi{
 	}
 
 	public void update(EmpModel em) {
-		//缺少一些数据，这些数据不能从页面收集
-		//快照更新
+		//ç¼ºå°‘ä¸€äº›æ•°æ�®ï¼Œè¿™äº›æ•°æ�®ä¸�èƒ½ä»Žé¡µé�¢æ”¶é›†
+		//å¿«ç…§æ›´æ–°
 		EmpModel temp = empDao.get(em.getUuid());
-		//将缺少的值全部赋值上去
-		temp.setName(em.getName());
-		temp.setEmail(em.getEmail());
-		temp.setTele(em.getTele());
-		temp.setAddress(em.getAddress());
+		//å°†ç¼ºå°‘çš„å€¼å…¨éƒ¨èµ‹å€¼ä¸ŠåŽ»
+		temp.setName(em.getPersonalInformation(0));
+		temp.setEmail(em.getPersonalInformation(1));
+		temp.setTele(em.getPersonalInformation(2));
+		temp.setAddress(em.getPersonalInformation(3));
 		temp.setBirthday(em.getBirthday());
 		temp.setGender(em.getGender());
 		temp.setDm(em.getDm());
 		
-		//hibernate一级缓存中的对象OID不可修改，因此抛出异常
+		//hibernateä¸€çº§ç¼“å­˜ä¸­çš„å¯¹è±¡OIDä¸�å�¯ä¿®æ”¹ï¼Œå› æ­¤æŠ›å‡ºå¼‚å¸¸
 		//temp.getDm().setUuid(em.getDm().getUuid());
 		
 		/*
-		//由于使用get方法加载的对象时PO对象
-		//此时修改的对象将从DO->PO
-		//两个对象将具有相同的OID，位于同一一级缓存空间内，引发ID重复冲突
-		//将缺少的值全部赋值上去
+		//ç”±äºŽä½¿ç”¨getæ–¹æ³•åŠ è½½çš„å¯¹è±¡æ—¶POå¯¹è±¡
+		//æ­¤æ—¶ä¿®æ”¹çš„å¯¹è±¡å°†ä»ŽDO->PO
+		//ä¸¤ä¸ªå¯¹è±¡å°†å…·æœ‰ç›¸å�Œçš„OIDï¼Œä½�äºŽå�Œä¸€ä¸€çº§ç¼“å­˜ç©ºé—´å†…ï¼Œå¼•å�‘IDé‡�å¤�å†²çª�
+		//å°†ç¼ºå°‘çš„å€¼å…¨éƒ¨èµ‹å€¼ä¸ŠåŽ»
 		em.setUserName(temp.getUserName());
 		em.setPwd(temp.getPwd());
 		em.setLastLoginIp(temp.getLastLoginIp());
@@ -88,18 +86,18 @@ public class EmpEbo implements EmpEbi{
 	}
 
 	public EmpModel login(String userName, String pwd ,String lastLoginIp) {
-		//对密码进行md5加密
-		pwd = MD5Utils.md5(pwd);
+		//å¯¹å¯†ç �è¿›è¡Œmd5åŠ å¯†
+		pwd = MD5Utils.sha256(pwd);
 		EmpModel loginEm = empDao.getByNameAndPwd(userName,pwd);
-		//任意时刻取出的数据，第一件事必须做null判定
+		//ä»»æ„�æ—¶åˆ»å�–å‡ºçš„æ•°æ�®ï¼Œç¬¬ä¸€ä»¶äº‹å¿…é¡»å�šnullåˆ¤å®š
 		if(loginEm != null){
-			//记录登陆的时间,ip,次数
+			//è®°å½•ç™»é™†çš„æ—¶é—´,ip,æ¬¡æ•°
 			loginEm.setLastLoginIp(lastLoginIp);
 			loginEm.setLastLoginTime(System.currentTimeMillis());
-			//修改登陆次数
+			//ä¿®æ”¹ç™»é™†æ¬¡æ•°
 			loginEm.setLoginTimes(loginEm.getLoginTimes()+1);
 			
-			//登陆时，将当前用户的所有可操作资源转换为一个长字符串，并设置到登陆对象中
+			//ç™»é™†æ—¶ï¼Œå°†å½“å‰�ç”¨æˆ·çš„æ‰€æœ‰å�¯æ“�ä½œèµ„æº�è½¬æ�¢ä¸ºä¸€ä¸ªé•¿å­—ç¬¦ä¸²ï¼Œå¹¶è®¾ç½®åˆ°ç™»é™†å¯¹è±¡ä¸­
 			List<String> resList = resDao.getAllResByEmp(loginEm.getUuid());
 			StringBuilder sbf = new StringBuilder();
 			for(String url:resList){
@@ -117,21 +115,21 @@ public class EmpEbo implements EmpEbi{
 	}
 
 	public boolean changePwd(String userName, String oldPwd, String newPwd) {
-		oldPwd = MD5Utils.md5(oldPwd);
-		newPwd = MD5Utils.md5(newPwd);
+		oldPwd = MD5Utils.sha256(oldPwd);
+		newPwd = MD5Utils.sha256(newPwd);
 		return empDao.updatePwdByUserNameAndPwd(userName,oldPwd,newPwd);
 	}
 
 	public void save(EmpModel em, Long[] roleUuids) {
-		//为某些数据进行初始化
-		em.setPwd(MD5Utils.md5(em.getPwd()));
+		//ä¸ºæŸ�äº›æ•°æ�®è¿›è¡Œåˆ�å§‹åŒ–
+		em.setPwd(MD5Utils.sha256(em.getPwd()));
 		em.setLastLoginIp("--");
 		em.setLastLoginTime(System.currentTimeMillis());
-		//设置新注册用户登录次数为0
+		//è®¾ç½®æ–°æ³¨å†Œç”¨æˆ·ç™»å½•æ¬¡æ•°ä¸º0
 		em.setLoginTimes(0);
 		
-		//建立与角色的关系
-		//数组->集合
+		//å»ºç«‹ä¸Žè§’è‰²çš„å…³ç³»
+		//æ•°ç»„->é›†å�ˆ
 		Set<RoleModel> roles = new HashSet<RoleModel>();
 		for(Long uuid:roleUuids){
 			RoleModel rm = new RoleModel();
@@ -143,14 +141,14 @@ public class EmpEbo implements EmpEbi{
 	}
 
 	public void update(EmpModel em, Long[] roleUuids) {
-		//缺少一些数据，这些数据不能从页面收集
-		//快照更新
+		//ç¼ºå°‘ä¸€äº›æ•°æ�®ï¼Œè¿™äº›æ•°æ�®ä¸�èƒ½ä»Žé¡µé�¢æ”¶é›†
+		//å¿«ç…§æ›´æ–°
 		EmpModel temp = empDao.get(em.getUuid());
-		//将缺少的值全部赋值上去
-		temp.setName(em.getName());
-		temp.setEmail(em.getEmail());
-		temp.setTele(em.getTele());
-		temp.setAddress(em.getAddress());
+		//å°†ç¼ºå°‘çš„å€¼å…¨éƒ¨èµ‹å€¼ä¸ŠåŽ»
+		temp.setName(em.getPersonalInformation(0));
+		temp.setEmail(em.getPersonalInformation(1));
+		temp.setTele(em.getPersonalInformation(2));
+		temp.setAddress(em.getPersonalInformation(3));
 		temp.setBirthday(em.getBirthday());
 		temp.setGender(em.getGender());
 		temp.setDm(em.getDm());
