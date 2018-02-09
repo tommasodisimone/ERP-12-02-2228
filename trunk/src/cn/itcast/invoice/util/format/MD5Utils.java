@@ -22,6 +22,7 @@ public class MD5Utils {
 	        return hexString.toString();
 	    } catch(Exception ex){
 	    	 System.out.println("Something was wrong");
+	    	 return "-1";
 	    }
 	}
 
