@@ -1,9 +1,11 @@
 package cn.itcast.invoice.invoice.goods.vo;
 
+import java.io.Serializable;
+
 import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;
 import cn.itcast.invoice.util.format.FormatUtil;
 
-public class GoodsModel {
+public class GoodsModel implements Serializable{
 	private Long uuid;
 	
 	private String name;
@@ -31,7 +33,7 @@ public class GoodsModel {
 		return maxNum;
 	}
 
-	public void setMaxNum(Integer maxNum) {
+	private void setMaxNum(Integer maxNum) {
 		this.maxNum = maxNum;
 	}
 
@@ -41,7 +43,7 @@ public class GoodsModel {
 	}
 
 
-	public void setMinNum(Integer minNum) {
+	private void setMinNum(Integer minNum) {
 		this.minNum = minNum;
 	}
 
@@ -55,7 +57,7 @@ public class GoodsModel {
 		return useNum;
 	}
 
-	public void setUseNum(Integer useNum) {
+	private void setUseNum(Integer useNum) {
 		this.useNum = useNum;
 	}
 
@@ -63,7 +65,7 @@ public class GoodsModel {
 		return uuid;
 	}
 
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 
@@ -71,7 +73,7 @@ public class GoodsModel {
 		return name;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
@@ -79,7 +81,7 @@ public class GoodsModel {
 		return origin;
 	}
 
-	public void setOrigin(String origin) {
+	private void setOrigin(String origin) {
 		this.origin = origin;
 	}
 
@@ -87,7 +89,7 @@ public class GoodsModel {
 		return producer;
 	}
 
-	public void setProducer(String producer) {
+	private void setProducer(String producer) {
 		this.producer = producer;
 	}
 
@@ -95,7 +97,7 @@ public class GoodsModel {
 		return unit;
 	}
 
-	public void setUnit(String unit) {
+	private void setUnit(String unit) {
 		this.unit = unit;
 	}
 
@@ -103,7 +105,7 @@ public class GoodsModel {
 		return inPrice;
 	}
 
-	public void setInPrice(Double inPrice) {
+	private void setInPrice(Double inPrice) {
 		this.inPrice = inPrice;
 		this.inPriceView = FormatUtil.formatMoney(inPrice);
 	}
@@ -112,7 +114,7 @@ public class GoodsModel {
 		return outPrice;
 	}
 
-	public void setOutPrice(Double outPrice) {
+	private void setOutPrice(Double outPrice) {
 		this.outPrice = outPrice;
 		this.outPriceView = FormatUtil.formatMoney(outPrice);
 	}
@@ -121,7 +123,7 @@ public class GoodsModel {
 		return gtm;
 	}
 
-	public void setGtm(GoodsTypeModel gtm) {
+	private void setGtm(GoodsTypeModel gtm) {
 		this.gtm = gtm;
 	}
 	

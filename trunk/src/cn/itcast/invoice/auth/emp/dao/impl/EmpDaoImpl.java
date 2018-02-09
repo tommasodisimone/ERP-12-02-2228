@@ -77,20 +77,7 @@ public class EmpDaoImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 	
 	}
 	
-	public static void main(String[] args) {
-		//System.out.println(new Date().getTime());		//1406275328183
-		//System.out.println(1406275328183L/86400000*86400000);	//1406246400000
-		//System.out.println(new Date(1406246400000L));
-		/*
-		System.out.println(new Date(0L));
-		1406246400000 
-		1406246400000+86400000
-		8:00:00 - 7:59:59
-		0-8ä¸Šç�­
-		12æœˆ13 -12æœˆ13æ—¥
-		12æœˆ14æ—¥0ç‚¹åˆ°7:59:59
-		*/
-	}
+	
 	
 	
 	public EmpModel getByNameAndPwd(String userName, String pwd) {

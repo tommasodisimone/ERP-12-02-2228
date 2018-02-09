@@ -10,16 +10,7 @@ import cn.itcast.invoice.invoice.storedetail.vo.StoreDetailModel;
 
 public class GeneratorUtil {
 	
-	public static void main(String[] args) throws Exception {
-		//Ã¤Â¾ï¿½Ã¨Âµâ€“ModelÃ§â€�Å¸Ã¦Ë†ï¿½Ã¨â€¹Â¥Ã¥Â¹Â²Ã¤Â¸ÂªÃ¦â€“â€¡Ã¤Â»Â¶
-		//Ã¦â€°Â§Ã¨Â¡Å’Ã¦Å¸ï¿½Ã¤Â¸ÂªÃ¦â€“Â¹Ã¦Â³â€¢Ã¯Â¼Å’Ã¥Â°Â±Ã§â€�Å¸Ã¦Ë†ï¿½Ã¥Â¯Â¹Ã¥Âºâ€�Ã§Å¡â€žÃ¦â€°â‚¬Ã¦Å“â€°Ã¤Â»Â£Ã§Â ï¿½Ã¯Â¼Å’Ã¦â€“Â¹Ã¦Â³â€¢Ã¨Â¦ï¿½Ã¦ï¿½ÂºÃ¥Â¸Â¦Class
-		//EmpModel,RoleModel,ResModel,MenuModel
-		//SupplierModel,GoodsTypeModel,GoodsModel
-		//OrderModel,OrderDetailModel
-		//StoreModel,StoreOperModel,StoreDetailModel
-		new GeneratorUtil(StoreDetailModel.class);
-		System.out.println("end...");
-	}
+	
 	
 	private Class clazz;
 	private String pkg;

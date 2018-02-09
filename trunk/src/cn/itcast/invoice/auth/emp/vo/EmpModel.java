@@ -1,5 +1,6 @@
 package cn.itcast.invoice.auth.emp.vo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -8,12 +9,12 @@ import cn.itcast.invoice.auth.dep.vo.DepModel;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.format.FormatUtil;
 
-public class EmpModel {
+public class EmpModel implements Serializable{
 	public static final Integer EMP_GENDER_OF_MAN = 1;
 	public static final Integer EMP_GENDER_OF_WOMAN = 0;
 	
-	public static final String EMP_GENDER_OF_MAN_VIEW = "ç”·";
-	public static final String EMP_GENDER_OF_WOMAN_VIEW = "å¥³";
+	public static final String EMP_GENDER_OF_MAN_VIEW = "Ã§â€�Â·";
+	public static final String EMP_GENDER_OF_WOMAN_VIEW = "Ã¥Â¥Â³";
 	
 	public static Map<Integer, String> genderMap = new HashMap<Integer, String>();
 	
@@ -23,11 +24,11 @@ public class EmpModel {
 	}
 	
 	private Long uuid;
-	//ç™»é™†ç”¨æˆ·å��
+	//Ã§â„¢Â»Ã©â„¢â€ Ã§â€�Â¨Ã¦Ë†Â·Ã¥ï¿½ï¿½
 	private String userName;
-	//å¯†ç �
+	//Ã¥Â¯â€ Ã§Â ï¿½
 	private String pwd;
-	//çœŸå®žå§“å��
+	//Ã§Å“Å¸Ã¥Â®Å¾Ã¥Â§â€œÃ¥ï¿½ï¿½
 	private String name;
 	
 	private String email;
@@ -41,23 +42,23 @@ public class EmpModel {
 	private Integer gender;
 	private Integer loginTimes;
 	
-	//è§†å›¾å€¼
+	//Ã¨Â§â€ Ã¥â€ºÂ¾Ã¥â‚¬Â¼
 	private String birthdayView;
 	private String lastLoginTimeView;
 	private String genderView;
 	
-	//å…³ç³»
+	//Ã¥â€¦Â³Ã§Â³Â»
 	private DepModel dm;
 	private Set<RoleModel> roles;
 	
-	//æ�ƒé™�æ ¡éªŒè¾…åŠ©å­—æ®µ
+	//Ã¦ï¿½Æ’Ã©â„¢ï¿½Ã¦Â Â¡Ã©ÂªÅ’Ã¨Â¾â€¦Ã¥Å Â©Ã¥Â­â€”Ã¦Â®Âµ
 	private String resValue;
 	
 	public String getResValue() {
 		return resValue;
 	}
 
-	public void setResValue(String resValue) {
+	private void setResValue(String resValue) {
 		this.resValue = resValue;
 	}
 
@@ -65,7 +66,7 @@ public class EmpModel {
 		return roles;
 	}
 
-	public void setRoles(Set<RoleModel> roles) {
+	private void setRoles(Set<RoleModel> roles) {
 		this.roles = roles;
 	}
 
@@ -94,7 +95,7 @@ public class EmpModel {
 	}
 	
 
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 
@@ -102,7 +103,7 @@ public class EmpModel {
 		return userName;
 	}
 
-	public void setUserName(String userName) {
+	private void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -110,7 +111,7 @@ public class EmpModel {
 		return pwd;
 	}
 
-	public void setPwd(String pwd) {
+	private void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
 
@@ -139,20 +140,20 @@ public class EmpModel {
 		return toReturn;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
 
-	public void setEmail(String email) {
+	private void setEmail(String email) {
 		this.email = email;
 	}
 
-	public void setTele(String tele) {
+	private void setTele(String tele) {
 		this.tele = tele;
 	}
 
-	public void setAddress(String address) {
+	private void setAddress(String address) {
 		this.address = address;
 	}
 
@@ -160,7 +161,7 @@ public class EmpModel {
 		return lastLoginIp;
 	}
 
-	public void setLastLoginIp(String lastLoginIp) {
+	private void setLastLoginIp(String lastLoginIp) {
 		this.lastLoginIp = lastLoginIp;
 	}
 
@@ -168,7 +169,7 @@ public class EmpModel {
 		return birthday;
 	}
 
-	public void setBirthday(Long birthday) {
+	private void setBirthday(Long birthday) {
 		this.birthday = birthday;
 		this.birthdayView = FormatUtil.formatDate(birthday);
 	}
@@ -177,7 +178,7 @@ public class EmpModel {
 		return lastLoginTime;
 	}
 
-	public void setLastLoginTime(Long lastLoginTime) {
+	private void setLastLoginTime(Long lastLoginTime) {
 		this.lastLoginTime = lastLoginTime;
 		this.lastLoginTimeView = FormatUtil.formatDate(lastLoginTime);
 	}
@@ -186,7 +187,7 @@ public class EmpModel {
 		return gender;
 	}
 
-	public void setGender(Integer gender) {
+	private void setGender(Integer gender) {
 		this.gender = gender;
 		this.genderView = genderMap.get(gender);
 	}
@@ -195,7 +196,7 @@ public class EmpModel {
 		return loginTimes;
 	}
 
-	public void setLoginTimes(Integer loginTimes) {
+	private void setLoginTimes(Integer loginTimes) {
 		this.loginTimes = loginTimes;
 	}
 
@@ -203,7 +204,7 @@ public class EmpModel {
 		return dm;
 	}
 
-	public void setDm(DepModel dm) {
+	private void setDm(DepModel dm) {
 		this.dm = dm;
 	}
 	

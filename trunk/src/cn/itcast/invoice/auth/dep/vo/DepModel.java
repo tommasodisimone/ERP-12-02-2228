@@ -1,28 +1,30 @@
 package cn.itcast.invoice.auth.dep.vo;
 
-public class DepModel {
+import java.io.Serializable;
+
+public class DepModel implements Serializable{
 	private Long uuid;
-	//部门名称
+	
 	private String name;
-	//电话
+	
 	private String tele;
 	
 	public Long getUuid() {
 		return uuid;
 	}
-	public void setUuid(Long uuid) {
+	private void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 	public String getTele() {
 		return tele;
 	}
-	public void setTele(String tele) {
+	private void setTele(String tele) {
 		this.tele = tele;
 	}
 	
