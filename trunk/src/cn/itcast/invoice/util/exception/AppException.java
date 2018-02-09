@@ -1,6 +1,6 @@
 package cn.itcast.invoice.util.exception;
 
-public class AppException extends RuntimeException{
+public class AppException extends Exception{
 	public AppException(){
 	}
 	public AppException(String msg){
