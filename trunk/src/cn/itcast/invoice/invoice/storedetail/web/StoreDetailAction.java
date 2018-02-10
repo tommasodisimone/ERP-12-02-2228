@@ -11,15 +11,31 @@ import cn.itcast.invoice.util.base.BaseAction;
  *
  */
 public class StoreDetailAction extends BaseAction{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public StoreDetailModel sm = new StoreDetailModel();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public StoreDetailQueryModel sqm = new StoreDetailQueryModel();
 
 	private StoreDetailEbi storeDetailEbi;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setStoreDetailEbi(StoreDetailEbi storeDetailEbi) {
 		this.storeDetailEbi = storeDetailEbi;
 	}
 
-	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¥Ë†â€”Ã¨Â¡Â¨Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String list(){
 		setDataTotal(storeDetailEbi.getCount(sqm));
 		List<StoreDetailModel> storeDetailList = storeDetailEbi.getAll(sqm,pageNum,pageCount);
@@ -27,7 +43,11 @@ public class StoreDetailAction extends BaseAction{
 		return LIST;
 	}
 
-	//ä¿�å­˜/ä¿®æ”¹
+	//Ã¤Â¿ï¿½Ã¥Â­Ëœ/Ã¤Â¿Â®Ã¦â€�Â¹
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String save(){
 		if(sm.getUuid()== null){
 			storeDetailEbi.save(sm);
@@ -37,7 +57,11 @@ public class StoreDetailAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¦Â·Â»Ã¥Å Â /Ã¤Â¿Â®Ã¦â€�Â¹Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String input(){
 		if(sm.getUuid()!=null){
 			sm = storeDetailEbi.get(sm.getUuid());
@@ -45,7 +69,11 @@ public class StoreDetailAction extends BaseAction{
 		return INPUT;
 	}
 
-	//åˆ é™¤
+	//Ã¥Ë†Â Ã©â„¢Â¤
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String delete(){
 		storeDetailEbi.delete(sm);
 		return TO_LIST;

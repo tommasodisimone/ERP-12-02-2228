@@ -14,21 +14,57 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class BaseAction extends ActionSupport{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String LIST = "list";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String TO_LIST = "toList";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String INPUT = "input";
 	
 	//é¡µç �å€¼
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer pageNum = 1;
 	//æ¯�é¡µæ˜¾ç¤ºæ•°æ�®æ€»é‡�
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer pageCount = 10;
 	//æœ€å¤§é¡µç �å€¼
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer maxPageNum ;
 	//æ•°æ�®æ€»é‡�
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer dataTotal;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	private String actionName;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String getActionName() {
 		//æ ¹æ�®å½“å‰�æ‰§è¡Œçš„Actionç±»èŽ·å�–Actionç±»çš„å��ç§°ä¸­çš„å±€éƒ¨å­—ç¬¦ä¸²
 		String actionName =getClass().getSimpleName();	//DepAction

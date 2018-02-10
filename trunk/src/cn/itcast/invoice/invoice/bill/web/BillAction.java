@@ -18,19 +18,35 @@ import cn.itcast.invoice.util.format.FormatUtil;
  *
  */
 public class BillAction extends BaseAction{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public BillQueryModel bqm = new BillQueryModel();
 
 	private BillEbi billEbi;
 	private SupplierEbi supplierEbi;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setSupplierEbi(SupplierEbi supplierEbi) {
 		this.supplierEbi = supplierEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setBillEbi(BillEbi billEbi) {
 		this.billEbi = billEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String buyBill(){
 		/*
 		select 
@@ -45,7 +61,7 @@ public class BillAction extends BaseAction{
 		group by
 			od.goodsUuid 
 		*/
-		//èŽ·å�–é‡‡è´­æŠ¥è¡¨æ•°æ�®
+		//Ã¨Å½Â·Ã¥ï¿½â€“Ã©â€¡â€¡Ã¨Â´Â­Ã¦Å Â¥Ã¨Â¡Â¨Ã¦â€¢Â°Ã¦ï¿½Â®
 		List<Object[]> billList = billEbi.getBillByGoods(bqm);
 		/*
 		for(Object[] objs:billList){
@@ -56,45 +72,69 @@ public class BillAction extends BaseAction{
 		}
 		*/
 		put("billList",billList);
-		//åŠ è½½æ‰€æœ‰ä¾›åº”å•†æ•°æ�®
+		//Ã¥Å Â Ã¨Â½Â½Ã¦â€°â‚¬Ã¦Å“â€°Ã¤Â¾â€ºÃ¥Âºâ€�Ã¥â€¢â€ Ã¦â€¢Â°Ã¦ï¿½Â®
 		List<SupplierModel> supplierList = supplierEbi.getAll();
 		put("supplierList",supplierList);
 		return "buyBill";
 	}
 	private List<OrderDetailModel> odmList;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public List<OrderDetailModel> getOdmList() {
 		return odmList;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxBillDetailByGoods(){
 		odmList = billEbi.getBillDetailByGoods(bqm);
 		return "ajaxBillDetailByGoods";
 	}
-	//èŽ·å�–é¥¼å›¾
+	//Ã¨Å½Â·Ã¥ï¿½â€“Ã©Â¥Â¼Ã¥â€ºÂ¾
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void billForPie() throws IOException{
-		//1.èŽ·å�–jfreechartå¯¹è±¡ï¼Œå°†å…¶è£…å…¥æµ�å¯¹è±¡
-		//2.ä¼ é€’åˆ°å�Žå�°ä¸€ä¸ªæµ�å¯¹è±¡ï¼Œåœ¨å�Žå�°å®Œæˆ�jfreechartå¯¹è±¡è½¬å…¥æµ�çš„æ“�ä½œ
-		//å‡†å¤‡æ•°æ�®bqm->list
+		//1.Ã¨Å½Â·Ã¥ï¿½â€“jfreechartÃ¥Â¯Â¹Ã¨Â±Â¡Ã¯Â¼Å’Ã¥Â°â€ Ã¥â€¦Â¶Ã¨Â£â€¦Ã¥â€¦Â¥Ã¦Âµï¿½Ã¥Â¯Â¹Ã¨Â±Â¡
+		//2.Ã¤Â¼Â Ã©â‚¬â€™Ã¥Ë†Â°Ã¥ï¿½Å½Ã¥ï¿½Â°Ã¤Â¸â‚¬Ã¤Â¸ÂªÃ¦Âµï¿½Ã¥Â¯Â¹Ã¨Â±Â¡Ã¯Â¼Å’Ã¥Å“Â¨Ã¥ï¿½Å½Ã¥ï¿½Â°Ã¥Â®Å’Ã¦Ë†ï¿½jfreechartÃ¥Â¯Â¹Ã¨Â±Â¡Ã¨Â½Â¬Ã¥â€¦Â¥Ã¦Âµï¿½Ã§Å¡â€žÃ¦â€œï¿½Ã¤Â½Å“
+		//Ã¥â€¡â€ Ã¥Â¤â€¡Ã¦â€¢Â°Ã¦ï¿½Â®bqm->list
 		List<Object[]> billList = billEbi.getBillByGoods(bqm);
-		//å‡†å¤‡ä¸€ä¸ªæµ�å¯¹è±¡
+		//Ã¥â€¡â€ Ã¥Â¤â€¡Ã¤Â¸â‚¬Ã¤Â¸ÂªÃ¦Âµï¿½Ã¥Â¯Â¹Ã¨Â±Â¡
 		OutputStream os = getResponse().getOutputStream();
-		//ä¼ é€’åˆ°å�Žå�°ï¼Œå°†jfreechartè½¬æ�¢åˆ°æµ�ä¸­
+		//Ã¤Â¼Â Ã©â‚¬â€™Ã¥Ë†Â°Ã¥ï¿½Å½Ã¥ï¿½Â°Ã¯Â¼Å’Ã¥Â°â€ jfreechartÃ¨Â½Â¬Ã¦ï¿½Â¢Ã¥Ë†Â°Ã¦Âµï¿½Ã¤Â¸Â­
 		billEbi.getBillForPie(os,billList);
-		//åˆ·æ–°æµ�ï¼Œå°†å›¾åƒ�é€�å›žé¡µé�¢
+		//Ã¥Ë†Â·Ã¦â€“Â°Ã¦Âµï¿½Ã¯Â¼Å’Ã¥Â°â€ Ã¥â€ºÂ¾Ã¥Æ’ï¿½Ã©â‚¬ï¿½Ã¥â€ºÅ¾Ã©Â¡ÂµÃ©ï¿½Â¢
 		os.flush();
 	}
-	//ä¸‹è½½ExcelæŠ¥è¡¨
+	//Ã¤Â¸â€¹Ã¨Â½Â½ExcelÃ¦Å Â¥Ã¨Â¡Â¨
 	private InputStream downloadExcel;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public InputStream getDownloadExcel() {
 		return downloadExcel;
 	}
 	private String xlsName;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String getXlsName() throws UnsupportedEncodingException {
 		System.out.println(xlsName);
 		return new String(xlsName.getBytes("UTF-8"),"ISO8859-1");
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String downloadExcelBill() throws Exception{
-		xlsName = "è´§ç‰©ç»Ÿè®¡æŠ¥è¡¨ï¼»"+FormatUtil.formatDate(System.currentTimeMillis())+"ï¼½.xls";
+		xlsName = "Ã¨Â´Â§Ã§â€°Â©Ã§Â»Å¸Ã¨Â®Â¡Ã¦Å Â¥Ã¨Â¡Â¨Ã¯Â¼Â»"+FormatUtil.formatDate(System.currentTimeMillis())+"Ã¯Â¼Â½.xls";
 		List<Object[]> billList = billEbi.getBillByGoods(bqm);
 		downloadExcel = billEbi.getExcelBill(billList);
 		return "downloadExcelBill";

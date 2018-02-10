@@ -13,12 +13,26 @@ import cn.itcast.invoice.util.format.FormatUtil;
  *
  */
 public class EmpModel implements Serializable{
+	/**
+	 * public field
+	 */
 	public static final Integer EMP_GENDER_OF_MAN = 1;
+	/**
+	 * public field
+	 */
 	public static final Integer EMP_GENDER_OF_WOMAN = 0;
-	
+	/**
+	 * public field
+	 */
 	public static final String EMP_GENDER_OF_MAN_VIEW = "ÃƒÂ§Ã¢â‚¬ï¿½Ã‚Â·";
+	/**
+	 * public field
+	 */
 	public static final String EMP_GENDER_OF_WOMAN_VIEW = "ÃƒÂ¥Ã‚Â¥Ã‚Â³";
 	
+	/**
+	 * public field
+	 */
 	public static Map<Integer, String> genderMap;
 	
 	static{
@@ -58,22 +72,37 @@ public class EmpModel implements Serializable{
 	//ÃƒÂ¦Ã¯Â¿Â½Ã†â€™ÃƒÂ©Ã¢â€žÂ¢Ã¯Â¿Â½ÃƒÂ¦Ã‚ Ã‚Â¡ÃƒÂ©Ã‚ÂªÃ…â€™ÃƒÂ¨Ã‚Â¾Ã¢â‚¬Â¦ÃƒÂ¥Ã… Ã‚Â©ÃƒÂ¥Ã‚Â­Ã¢â‚¬â€�ÃƒÂ¦Ã‚Â®Ã‚Âµ
 	private String resValue;
 	
+	/**
+	 * public field
+	 */
 	public String getResValue() {
 		return resValue;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setResValue(String resValue) {
 		this.resValue = resValue;
 	}
 
+	/**
+	 * public field
+	 */
 	public Set<RoleModel> getRoles() {
 		return roles;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setRoles(Set<RoleModel> roles) {
 		this.roles = roles;
 	}
 
+	/**
+	 * public field
+	 */
 	public Long getUuid() {
 		return segreto;
 	}
@@ -99,14 +128,23 @@ public class EmpModel implements Serializable{
 	}
 	
 
+	/**
+	 * public field
+	 */
 	public void setSegreto(Long segreto) {
 		this.segreto = segreto;
 	}
 
+	/**
+	 * public field
+	 */
 	public String getUserName() {
 		return userName;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -115,6 +153,9 @@ public class EmpModel implements Serializable{
 		return pwd;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
@@ -144,70 +185,118 @@ public class EmpModel implements Serializable{
 		return toReturn;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 
+	/**
+	 * public field
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setTele(String tele) {
 		this.tele = tele;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	/**
+	 * public field
+	 */
 	public String getLastLoginIp() {
 		return lastLoginIp;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setLastLoginIp(String lastLoginIp) {
 		this.lastLoginIp = lastLoginIp;
 	}
 
+	/**
+	 * public field
+	 */
 	public Long getBirthday() {
 		return birthday;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setBirthday(Long birthday) {
 		this.birthday = birthday;
 		this.birthdayView = FormatUtil.formatDate(birthday);
 	}
 
+	/**
+	 * public field
+	 */
 	public Long getLastLoginTime() {
 		return lastLoginTime;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setLastLoginTime(Long lastLoginTime) {
 		this.lastLoginTime = lastLoginTime;
 		this.lastLoginTimeView = FormatUtil.formatDate(lastLoginTime);
 	}
 
+	/**
+	 * public field
+	 */
 	public Integer getGender() {
 		return gender;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setGender(Integer gender) {
 		this.gender = gender;
 		this.genderView = genderMap.get(gender);
 	}
 
+	/**
+	 * public field
+	 */
 	public Integer getLoginTimes() {
 		return loginTimes;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setLoginTimes(Integer loginTimes) {
 		this.loginTimes = loginTimes;
 	}
 
+	/**
+	 * public field
+	 */
 	public DepModel getDm() {
 		return dm;
 	}
 
+	/**
+	 * public field
+	 */
 	public void setDm(DepModel dm) {
 		this.dm = dm;
 	}

@@ -25,7 +25,15 @@ import cn.itcast.invoice.util.base.BaseAction;
  *
  */
 public class OrderAction extends BaseAction{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public OrderModel om = new OrderModel();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public OrderQueryModel oqm = new OrderQueryModel();
 
 	private OrderEbi orderEbi;
@@ -36,35 +44,67 @@ public class OrderAction extends BaseAction{
 	private StoreEbi storeEbi;
 	private OrderDetailEbi orderDetailEbi;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setOrderDetailEbi(OrderDetailEbi orderDetailEbi) {
 		this.orderDetailEbi = orderDetailEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setStoreEbi(StoreEbi storeEbi) {
 		this.storeEbi = storeEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setEmpEbi(EmpEbi empEbi) {
 		this.empEbi = empEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setGoodsEbi(GoodsEbi goodsEbi) {
 		this.goodsEbi = goodsEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setGoodsTypeEbi(GoodsTypeEbi goodsTypeEbi) {
 		this.goodsTypeEbi = goodsTypeEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setSupplierEbi(SupplierEbi supplierEbi) {
 		this.supplierEbi = supplierEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setOrderEbi(OrderEbi orderEbi) {
 		this.orderEbi = orderEbi;
 	}
 
 	//ÃƒÂ¨Ã‚Â·Ã‚Â³ÃƒÂ¨Ã‚Â½Ã‚Â¬ÃƒÂ¥Ã‹â€ Ã‚Â°ÃƒÂ¥Ã‹â€ Ã¢â‚¬â€�ÃƒÂ¨Ã‚Â¡Ã‚Â¨ÃƒÂ©Ã‚Â¡Ã‚ÂµÃƒÂ©Ã¯Â¿Â½Ã‚Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String list(){
 		setDataTotal(orderEbi.getCount(oqm));
 		List<OrderModel> orderList = orderEbi.getAll(oqm,pageNum,pageCount);
@@ -73,6 +113,10 @@ public class OrderAction extends BaseAction{
 	}
 
 	//ÃƒÂ¤Ã‚Â¿Ã¯Â¿Â½ÃƒÂ¥Ã‚Â­Ã‹Å“/ÃƒÂ¤Ã‚Â¿Ã‚Â®ÃƒÂ¦Ã¢â‚¬ï¿½Ã‚Â¹
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String save(){
 		if(om.getUuid()== null){
 			orderEbi.save(om);
@@ -83,6 +127,10 @@ public class OrderAction extends BaseAction{
 	}
 
 	//ÃƒÂ¨Ã‚Â·Ã‚Â³ÃƒÂ¨Ã‚Â½Ã‚Â¬ÃƒÂ¥Ã‹â€ Ã‚Â°ÃƒÂ¦Ã‚Â·Ã‚Â»ÃƒÂ¥Ã…Â Ã‚Â /ÃƒÂ¤Ã‚Â¿Ã‚Â®ÃƒÂ¦Ã¢â‚¬ï¿½Ã‚Â¹ÃƒÂ©Ã‚Â¡Ã‚ÂµÃƒÂ©Ã¯Â¿Â½Ã‚Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String input(){
 		if(om.getUuid()!=null){
 			om = orderEbi.get(om.getUuid());
@@ -91,6 +139,10 @@ public class OrderAction extends BaseAction{
 	}
 	//ÃƒÂ¨Ã‚Â·Ã‚Â³ÃƒÂ¨Ã‚Â½Ã‚Â¬ÃƒÂ¥Ã‹â€ Ã‚Â°ÃƒÂ©Ã¢â‚¬Â¡Ã¢â‚¬Â¡ÃƒÂ¨Ã‚Â´Ã‚Â­ÃƒÂ¨Ã‚Â®Ã‚Â¢ÃƒÂ¥Ã¯Â¿Â½Ã¢â‚¬Â¢ÃƒÂ©Ã‚Â¡Ã‚Âµ
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String buyInput(){
 		List<SupplierModel> supplierList = supplierEbi.getAll();
 		//ÃƒÂ¥Ã¯Â¿Â½Ã‹Å“ÃƒÂ¦Ã‹â€ Ã¯Â¿Â½ÃƒÂ¨Ã‚Â¿Ã¢â‚¬Â¡ÃƒÂ¦Ã‚Â»Ã‚Â¤ÃƒÂ¨Ã‚Â¯Ã‚Â¥ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®
@@ -199,31 +251,71 @@ public class OrderAction extends BaseAction{
 	}*/
 
 	//ÃƒÂ¥Ã‹â€ Ã‚Â ÃƒÂ©Ã¢â€žÂ¢Ã‚Â¤
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String delete(){
 		orderEbi.delete(om);
 		return TO_LIST;
 	}
 	
 	//--ajax----------------------------
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long supplierUuid;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long goodsTypeUuid;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long goodsUuid;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String used;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	
 	private List<GoodsTypeModel> gtmList;
 	private List<GoodsModel> gmList;
 	private GoodsModel gm;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public GoodsModel getGm() {
 		return gm;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public List<GoodsTypeModel> getGtmList() {
 		return gtmList;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public List<GoodsModel> getGmList() {
 		return gmList;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxGetGtmAndGm(){
 		//ÃƒÂ¦Ã‚Â Ã‚Â¹ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®ÃƒÂ¤Ã‚Â¾Ã¢â‚¬ÂºÃƒÂ¥Ã‚ÂºÃ¢â‚¬ï¿½ÃƒÂ¥Ã¢â‚¬Â¢Ã¢â‚¬Â ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾uuidÃƒÂ¨Ã…Â½Ã‚Â·ÃƒÂ¥Ã¯Â¿Â½Ã¢â‚¬â€œÃƒÂ§Ã‚Â±Ã‚Â»ÃƒÂ¥Ã‹â€ Ã‚Â«ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®ÃƒÂ¤Ã‚Â¸Ã…Â½ÃƒÂ¥Ã¢â‚¬Â¢Ã¢â‚¬Â ÃƒÂ¥Ã¢â‚¬Å“Ã¯Â¿Â½ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®
 		//ÃƒÂ§Ã‚Â±Ã‚Â»ÃƒÂ¥Ã‹â€ Ã‚Â«ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¥Ã‚Â¿Ã¢â‚¬Â¦ÃƒÂ©Ã‚Â¡Ã‚Â»ÃƒÂ¦Ã…â€œÃ¢â‚¬Â°ÃƒÂ¥Ã¢â‚¬Â¢Ã¢â‚¬Â ÃƒÂ¥Ã¢â‚¬Å“Ã¯Â¿Â½
@@ -236,6 +328,10 @@ public class OrderAction extends BaseAction{
 	}
 	
 	//ÃƒÂ©Ã…â€œÃ¢â€šÂ¬ÃƒÂ¨Ã‚Â¦Ã¯Â¿Â½ÃƒÂ¨Ã‚Â¿Ã¢â‚¬Â¡ÃƒÂ¦Ã‚Â»Ã‚Â¤ÃƒÂ¥Ã‚Â·Ã‚Â²ÃƒÂ§Ã‚Â»Ã¯Â¿Â½ÃƒÂ¤Ã‚Â½Ã‚Â¿ÃƒÂ§Ã¢â‚¬ï¿½Ã‚Â¨ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxGetGtmAndGm2(){
 		//ÃƒÂ¨Ã‚Â§Ã‚Â£ÃƒÂ¦Ã…Â¾Ã¯Â¿Â½ÃƒÂ¥Ã¢â‚¬Â¡Ã‚ÂºÃƒÂ¥Ã‚Â·Ã‚Â²ÃƒÂ§Ã‚Â»Ã¯Â¿Â½ÃƒÂ¤Ã‚Â½Ã‚Â¿ÃƒÂ§Ã¢â‚¬ï¿½Ã‚Â¨ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¥Ã¢â‚¬Â¢Ã¢â‚¬Â ÃƒÂ¥Ã¢â‚¬Å“Ã¯Â¿Â½ÃƒÂ¥Ã‚Â¯Ã‚Â¹ÃƒÂ¥Ã‚ÂºÃ¢â‚¬ï¿½ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾uuid
 		String[] uuidsArr = used.split(",");
@@ -285,22 +381,46 @@ public class OrderAction extends BaseAction{
 		return "ajaxGetGtmAndGm";
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxGetGm(){
 		gmList = goodsEbi.getAllByGtmUuid(goodsTypeUuid);
 		gm = gmList.get(0);
 		return "ajaxGetGm";
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxGetOne(){
 		gm = goodsEbi.get(goodsUuid);
 		return "ajaxGetOne";
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long[] goodsUuids;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer[] nums;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Double[] prices;
 	
 	//ÃƒÂ§Ã¢â‚¬ï¿½Ã…Â¸ÃƒÂ¦Ã‹â€ Ã¯Â¿Â½ÃƒÂ©Ã¢â‚¬Â¡Ã¢â‚¬Â¡ÃƒÂ¨Ã‚Â´Ã‚Â­ÃƒÂ¨Ã‚Â®Ã‚Â¢ÃƒÂ¥Ã¯Â¿Â½Ã¢â‚¬Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String buyOrder(){
 		//ÃƒÂ¦Ã¢â‚¬ï¿½Ã‚Â¶ÃƒÂ©Ã¢â‚¬ÂºÃ¢â‚¬Â ÃƒÂ©Ã‚Â¡Ã‚ÂµÃƒÂ©Ã¯Â¿Â½Ã‚Â¢ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¥Ã¢â€šÂ¬Ã‚Â¼
 		//om.sm.uuid->om
@@ -323,6 +443,10 @@ public class OrderAction extends BaseAction{
 		return TO_LIST;
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String buyDetailList(){
 		om = orderEbi.get(om.getUuid());
 		return "buyDetailList";
@@ -370,7 +494,6 @@ public class OrderAction extends BaseAction{
 	 * @param check insert 0 to get assignTask, 1 to get assignTaskList, 2 to get assignTaskDetail
 	 * @return a string with the desidered value
 	 */
-	//ÃƒÂ¦Ã…â€™Ã¢â‚¬Â¡ÃƒÂ¦Ã‚Â´Ã‚Â¾ÃƒÂ¥Ã¢â‚¬Â¦Ã‚Â·ÃƒÂ¤Ã‚Â½Ã¢â‚¬Å“ÃƒÂ¤Ã‚Â»Ã‚Â»ÃƒÂ¥Ã…Â Ã‚Â¡ÃƒÂ¤Ã‚ÂºÃ‚Âº
 	public String assignTask(int check){
 		String toReturn = null;
 		if (check==0) {
@@ -398,6 +521,10 @@ public class OrderAction extends BaseAction{
 		}
 		return toReturn;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	
 	public String queryTask(){
 		//ÃƒÂ¦Ã‚Â Ã‚Â¹ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®ÃƒÂ§Ã¢â€žÂ¢Ã‚Â»ÃƒÂ©Ã¢â€žÂ¢Ã¢â‚¬Â ÃƒÂ¤Ã‚ÂºÃ‚ÂºÃƒÂ¤Ã‚Â¿Ã‚Â¡ÃƒÂ¦Ã¯Â¿Â½Ã‚Â¯ÃƒÂ¨Ã…Â½Ã‚Â·ÃƒÂ¥Ã¯Â¿Â½Ã¢â‚¬â€œÃƒÂ¥Ã‚Â¯Ã‚Â¹ÃƒÂ¥Ã‚ÂºÃ¢â‚¬ï¿½ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¤Ã‚Â»Ã‚Â»ÃƒÂ¥Ã…Â Ã‚Â¡ÃƒÂ¥Ã‹â€ Ã¢â‚¬â€�ÃƒÂ¨Ã‚Â¡Ã‚Â¨
@@ -405,12 +532,20 @@ public class OrderAction extends BaseAction{
 		put("orderList",orderList);
 		return "queryTask";
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	
 	public String toTaskDetail(){
 		om = orderEbi.get(om.getUuid());
 		return "toTaskDetail";
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String completeTask(){
 		orderEbi.endTask(om.getUuid());
 		return "toQueryTask";
@@ -419,12 +554,20 @@ public class OrderAction extends BaseAction{
 	//--ÃƒÂ¤Ã‚Â»Ã‚Â»ÃƒÂ¥Ã…Â Ã‚Â¡ÃƒÂ¥Ã‹â€ Ã¢â‚¬Â ÃƒÂ©Ã¢â‚¬Â¦Ã¯Â¿Â½ÃƒÂ§Ã‚Â»Ã¢â‚¬Å“ÃƒÂ¦Ã¯Â¿Â½Ã…Â¸----------------------
 	
 	//ÃƒÂ¤Ã‚Â»Ã¢â‚¬Å“ÃƒÂ¥Ã‚ÂºÃ¢â‚¬Å“ÃƒÂ¥Ã¢â‚¬Â¦Ã‚Â¥ÃƒÂ¥Ã‚ÂºÃ¢â‚¬Å“
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String inGoodsList(){
 		//ÃƒÂ¥Ã‚Â±Ã¢â‚¬Â¢ÃƒÂ§Ã‚Â¤Ã‚ÂºÃƒÂ¦Ã¢â‚¬Â°Ã¢â€šÂ¬ÃƒÂ¦Ã…â€œÃ¢â‚¬Â°ÃƒÂ¦Ã‚Â²Ã‚Â¡ÃƒÂ¦Ã…â€œÃ¢â‚¬Â°ÃƒÂ¥Ã¢â‚¬Â¦Ã‚Â¥ÃƒÂ¥Ã‚ÂºÃ¢â‚¬Å“ÃƒÂ¥Ã‚Â®Ã…â€™ÃƒÂ¦Ã‚Â¯Ã¢â‚¬Â¢ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â®Ã‚Â¢ÃƒÂ¥Ã¯Â¿Â½Ã¢â‚¬Â¢ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®
 		List<OrderModel> orderList = orderEbi.getAllNotIn(oqm,pageNum,pageCount);
 		put("orderList",orderList);
 		return "inGoodsList";
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String inGoodsDetail(){
 		//ÃƒÂ¥Ã…Â Ã‚Â ÃƒÂ¨Ã‚Â½Ã‚Â½ÃƒÂ¦Ã¢â‚¬Â°Ã¢â€šÂ¬ÃƒÂ¦Ã…â€œÃ¢â‚¬Â°ÃƒÂ¤Ã‚Â»Ã¢â‚¬Å“ÃƒÂ¥Ã‚ÂºÃ¢â‚¬Å“ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®
 		List<StoreModel> storeList = storeEbi.getAll();
@@ -434,13 +577,25 @@ public class OrderAction extends BaseAction{
 	}
 	
 	//--ÃƒÂ¥Ã¢â‚¬Â¦Ã‚Â¥ÃƒÂ¥Ã‚ÂºÃ¢â‚¬Å“--------------------------------
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long odmUuid;
 	private OrderDetailModel odm;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public OrderDetailModel getOdm() {
 		return odm;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxGetSurplusByOdmUuid(){
 		//ÃƒÂ¦Ã‚Â Ã‚Â¹ÃƒÂ¦Ã¯Â¿Â½Ã‚Â®odmUuidÃƒÂ¨Ã…Â½Ã‚Â·ÃƒÂ¥Ã¯Â¿Â½Ã¢â‚¬â€œÃƒÂ¥Ã‚Â¯Ã‚Â¹ÃƒÂ¥Ã‚ÂºÃ¢â‚¬ï¿½ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â´Ã‚Â§ÃƒÂ§Ã¢â‚¬Â°Ã‚Â©ÃƒÂ¥Ã¢â‚¬Â°Ã‚Â©ÃƒÂ¤Ã‚Â½Ã¢â€žÂ¢ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ©Ã¢â‚¬Â¡Ã¯Â¿Â½
 		odm = orderDetailEbi.get(odmUuid);

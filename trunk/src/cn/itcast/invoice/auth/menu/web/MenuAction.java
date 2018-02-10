@@ -13,17 +13,29 @@ import cn.itcast.invoice.util.base.BaseAction;
  *
  */
 public class MenuAction extends BaseAction{
+	/**
+	 * public field
+	 */
 	public MenuModel mm = new MenuModel();
+	/**
+	 * public field
+	 */
 	public MenuQueryModel mqm = new MenuQueryModel();
 
 	private MenuEbi menuEbi;
+	/**
+	 * public field
+	 */
 	public void setMenuEbi(MenuEbi menuEbi) {
 		this.menuEbi = menuEbi;
 	}
 
-	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¥Ë†â€”Ã¨Â¡Â¨Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * public field
+	 */
 	public String list(){
-		//åŠ è½½æ‰€æœ‰çš„çˆ¶è�œå�•æ•°æ�®
+		//Ã¥Å Â Ã¨Â½Â½Ã¦â€°â‚¬Ã¦Å“â€°Ã§Å¡â€žÃ§Ë†Â¶Ã¨ï¿½Å“Ã¥ï¿½â€¢Ã¦â€¢Â°Ã¦ï¿½Â®
 		List<MenuModel> parentList = menuEbi.getParentMenu();
 		put("parentList",parentList);
 		setDataTotal(menuEbi.getCount(mqm));
@@ -32,7 +44,10 @@ public class MenuAction extends BaseAction{
 		return LIST;
 	}
 
-	//ä¿�å­˜/ä¿®æ”¹
+	//Ã¤Â¿ï¿½Ã¥Â­Ëœ/Ã¤Â¿Â®Ã¦â€�Â¹
+	/**
+	 * public field
+	 */
 	public String save(){
 		if(mm.getUuid()== null){
 			menuEbi.save(mm);
@@ -42,9 +57,12 @@ public class MenuAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¦Â·Â»Ã¥Å Â /Ã¤Â¿Â®Ã¦â€�Â¹Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * public field
+	 */
 	public String input(){
-		//åŠ è½½æ‰€æœ‰çš„çˆ¶è�œå�•
+		//Ã¥Å Â Ã¨Â½Â½Ã¦â€°â‚¬Ã¦Å“â€°Ã§Å¡â€žÃ§Ë†Â¶Ã¨ï¿½Å“Ã¥ï¿½â€¢
 		List<MenuModel> menuList = menuEbi.getParentMenu();
 		put("menuList",menuList);
 		if(mm.getUuid()!=null){
@@ -53,32 +71,38 @@ public class MenuAction extends BaseAction{
 		return INPUT;
 	}
 
-	//åˆ é™¤
+	//Ã¥Ë†Â Ã©â„¢Â¤
+	/**
+	 * public field
+	 */
 	public String delete(){
-		//è¿›è¡Œåˆ é™¤æ—¶ï¼Œå¦‚æžœå­˜åœ¨æœ‰ä¸€å¯¹å¤šå…³ç³»
-		//åˆ é™¤ä¸€æ—¶ï¼Œé¦–å…ˆå°†å¤šçš„å¤–é”®è®¾ç½®ä¸ºnull
-		//ç„¶å�Žåˆ é™¤å¤šæ–¹å¯¹è±¡
-		//ç„¶å�Žåˆ é™¤ä¸€æ–¹å¯¹è±¡
+		//Ã¨Â¿â€ºÃ¨Â¡Å’Ã¥Ë†Â Ã©â„¢Â¤Ã¦â€”Â¶Ã¯Â¼Å’Ã¥Â¦â€šÃ¦Å¾Å“Ã¥Â­ËœÃ¥Å“Â¨Ã¦Å“â€°Ã¤Â¸â‚¬Ã¥Â¯Â¹Ã¥Â¤Å¡Ã¥â€¦Â³Ã§Â³Â»
+		//Ã¥Ë†Â Ã©â„¢Â¤Ã¤Â¸â‚¬Ã¦â€”Â¶Ã¯Â¼Å’Ã©Â¦â€“Ã¥â€¦Ë†Ã¥Â°â€ Ã¥Â¤Å¡Ã§Å¡â€žÃ¥Â¤â€“Ã©â€�Â®Ã¨Â®Â¾Ã§Â½Â®Ã¤Â¸Âºnull
+		//Ã§â€žÂ¶Ã¥ï¿½Å½Ã¥Ë†Â Ã©â„¢Â¤Ã¥Â¤Å¡Ã¦â€“Â¹Ã¥Â¯Â¹Ã¨Â±Â¡
+		//Ã§â€žÂ¶Ã¥ï¿½Å½Ã¥Ë†Â Ã©â„¢Â¤Ã¤Â¸â‚¬Ã¦â€“Â¹Ã¥Â¯Â¹Ã¨Â±Â¡
 		
 		menuEbi.delete(mm);
 		return TO_LIST;
 	}
 
 	//----------------
+	/**
+	 * public field
+	 */
 	public String showMenu() throws IOException{
-		//æ ¹æ�®phpçš„å†…å®¹ï¼ŒæŒ‰ç…§åŽŸå§‹æ ¼å¼�è¿”å›žphpçš„æ•°æ�®
-		//å­¦ä¹ source.phpå†…å®¹ï¼Œç¿»è¯‘æˆ�actionå†…å®¹
-		//å°†phpä»£ç �è§£æž�å�Žå¾—åˆ°ç»“è®º
-		//è¯·æ±‚å�‚æ•°rootçš„å€¼å¦‚æžœæ˜¯sourceè¿”å›žä¸€ç§�jsonæ•°æ�®æ•°ç»„
-		//çˆ¶è�œå�•
-		//{"text":"aaa","expanded":false,"classes":"è‡ªå®šä¹‰çš„æ ·å¼�class","id":"ä¸ºæ­¢ç¼–å�·","hasChildren":true}
-		//æœ€å�Žä¸€çº§è�œå�•
-		//{"text":"aaa","classes":"è‡ªå®šä¹‰çš„æ ·å¼�class","id":"æœªçŸ¥ç¼–å�·","hasChildren":false}
-		//å�¦åˆ™è¿”å›žå�¦ä¸€ç§�jsonæ•°æ�®æ•°ç»„
+		//Ã¦Â Â¹Ã¦ï¿½Â®phpÃ§Å¡â€žÃ¥â€ â€¦Ã¥Â®Â¹Ã¯Â¼Å’Ã¦Å’â€°Ã§â€¦Â§Ã¥Å½Å¸Ã¥Â§â€¹Ã¦Â Â¼Ã¥Â¼ï¿½Ã¨Â¿â€�Ã¥â€ºÅ¾phpÃ§Å¡â€žÃ¦â€¢Â°Ã¦ï¿½Â®
+		//Ã¥Â­Â¦Ã¤Â¹Â source.phpÃ¥â€ â€¦Ã¥Â®Â¹Ã¯Â¼Å’Ã§Â¿Â»Ã¨Â¯â€˜Ã¦Ë†ï¿½actionÃ¥â€ â€¦Ã¥Â®Â¹
+		//Ã¥Â°â€ phpÃ¤Â»Â£Ã§Â ï¿½Ã¨Â§Â£Ã¦Å¾ï¿½Ã¥ï¿½Å½Ã¥Â¾â€”Ã¥Ë†Â°Ã§Â»â€œÃ¨Â®Âº
+		//Ã¨Â¯Â·Ã¦Â±â€šÃ¥ï¿½â€šÃ¦â€¢Â°rootÃ§Å¡â€žÃ¥â‚¬Â¼Ã¥Â¦â€šÃ¦Å¾Å“Ã¦ËœÂ¯sourceÃ¨Â¿â€�Ã¥â€ºÅ¾Ã¤Â¸â‚¬Ã§Â§ï¿½jsonÃ¦â€¢Â°Ã¦ï¿½Â®Ã¦â€¢Â°Ã§Â»â€ž
+		//Ã§Ë†Â¶Ã¨ï¿½Å“Ã¥ï¿½â€¢
+		//{"text":"aaa","expanded":false,"classes":"Ã¨â€¡ÂªÃ¥Â®Å¡Ã¤Â¹â€°Ã§Å¡â€žÃ¦Â Â·Ã¥Â¼ï¿½class","id":"Ã¤Â¸ÂºÃ¦Â­Â¢Ã§Â¼â€“Ã¥ï¿½Â·","hasChildren":true}
+		//Ã¦Å“â‚¬Ã¥ï¿½Å½Ã¤Â¸â‚¬Ã§ÂºÂ§Ã¨ï¿½Å“Ã¥ï¿½â€¢
+		//{"text":"aaa","classes":"Ã¨â€¡ÂªÃ¥Â®Å¡Ã¤Â¹â€°Ã§Å¡â€žÃ¦Â Â·Ã¥Â¼ï¿½class","id":"Ã¦Å“ÂªÃ§Å¸Â¥Ã§Â¼â€“Ã¥ï¿½Â·","hasChildren":false}
+		//Ã¥ï¿½Â¦Ã¥Ë†â„¢Ã¨Â¿â€�Ã¥â€ºÅ¾Ã¥ï¿½Â¦Ã¤Â¸â‚¬Ã§Â§ï¿½jsonÃ¦â€¢Â°Ã¦ï¿½Â®Ã¦â€¢Â°Ã§Â»â€ž
 		
 		/*
-		//æµ‹è¯•ä¸€:
-		//æ•°æ�®çš„è¿”å›žéœ€è¦�ä½¿ç”¨response
+		//Ã¦Âµâ€¹Ã¨Â¯â€¢Ã¤Â¸â‚¬:
+		//Ã¦â€¢Â°Ã¦ï¿½Â®Ã§Å¡â€žÃ¨Â¿â€�Ã¥â€ºÅ¾Ã©Å“â‚¬Ã¨Â¦ï¿½Ã¤Â½Â¿Ã§â€�Â¨response
 		PrintWriter pw = getResponse().getWriter();
 		
 		pw.write("[");
@@ -92,9 +116,9 @@ public class MenuAction extends BaseAction{
 		*/
 		
 		/*
-		//æµ‹è¯•äºŒ:
-		//é¡µé�¢ç»“æž„å·²ç»�æµ‹è¯•å®Œæ¯•ï¼Œéœ€è¦�èŽ·å�–çœŸå®žæ•°æ�®è¿›è¡Œæµ‹è¯•
-		//èŽ·å�–æ‰€æœ‰çš„çˆ¶è�œå�•æ•°æ�®ï¼ˆä¸�åŒ…å�«ç³»ç»Ÿè�œå�•ï¼‰
+		//Ã¦Âµâ€¹Ã¨Â¯â€¢Ã¤ÂºÅ’:
+		//Ã©Â¡ÂµÃ©ï¿½Â¢Ã§Â»â€œÃ¦Å¾â€žÃ¥Â·Â²Ã§Â»ï¿½Ã¦Âµâ€¹Ã¨Â¯â€¢Ã¥Â®Å’Ã¦Â¯â€¢Ã¯Â¼Å’Ã©Å“â‚¬Ã¨Â¦ï¿½Ã¨Å½Â·Ã¥ï¿½â€“Ã§Å“Å¸Ã¥Â®Å¾Ã¦â€¢Â°Ã¦ï¿½Â®Ã¨Â¿â€ºÃ¨Â¡Å’Ã¦Âµâ€¹Ã¨Â¯â€¢
+		//Ã¨Å½Â·Ã¥ï¿½â€“Ã¦â€°â‚¬Ã¦Å“â€°Ã§Å¡â€žÃ§Ë†Â¶Ã¨ï¿½Å“Ã¥ï¿½â€¢Ã¦â€¢Â°Ã¦ï¿½Â®Ã¯Â¼Ë†Ã¤Â¸ï¿½Ã¥Å’â€¦Ã¥ï¿½Â«Ã§Â³Â»Ã§Â»Å¸Ã¨ï¿½Å“Ã¥ï¿½â€¢Ã¯Â¼â€°
 		List<MenuModel> menuList = menuEbi.getParentMenu2();
 		PrintWriter pw = getResponse().getWriter();
 		
@@ -119,9 +143,9 @@ public class MenuAction extends BaseAction{
 		*/
 		
 		/*
-		//æµ‹è¯•ä¸‰:
-		//å½“ç³»ç»Ÿç¬¬ä¸€æ¬¡åŠ è½½è�œå�•æ—¶ï¼Œè¯·æ±‚ä¸­åŒ…å�«æœ‰root=sourceå�‚æ•°
-		//å½“ç‚¹å‡»å­�è�œå�•é¡¹æ—¶ï¼ŒåŠ è½½çš„è¯·æ±‚ä¸­åŒ…å�«æœ‰root=id(uuid)
+		//Ã¦Âµâ€¹Ã¨Â¯â€¢Ã¤Â¸â€°:
+		//Ã¥Â½â€œÃ§Â³Â»Ã§Â»Å¸Ã§Â¬Â¬Ã¤Â¸â‚¬Ã¦Â¬Â¡Ã¥Å Â Ã¨Â½Â½Ã¨ï¿½Å“Ã¥ï¿½â€¢Ã¦â€”Â¶Ã¯Â¼Å’Ã¨Â¯Â·Ã¦Â±â€šÃ¤Â¸Â­Ã¥Å’â€¦Ã¥ï¿½Â«Ã¦Å“â€°root=sourceÃ¥ï¿½â€šÃ¦â€¢Â°
+		//Ã¥Â½â€œÃ§â€šÂ¹Ã¥â€¡Â»Ã¥Â­ï¿½Ã¨ï¿½Å“Ã¥ï¿½â€¢Ã©Â¡Â¹Ã¦â€”Â¶Ã¯Â¼Å’Ã¥Å Â Ã¨Â½Â½Ã§Å¡â€žÃ¨Â¯Â·Ã¦Â±â€šÃ¤Â¸Â­Ã¥Å’â€¦Ã¥ï¿½Â«Ã¦Å“â€°root=id(uuid)
 		String root = getRequest().getParameter("root");
 		
 		getResponse().setContentType("text/html;charset=utf-8");
@@ -143,8 +167,8 @@ public class MenuAction extends BaseAction{
 				jsonStr.append("\"},");
 			}
 		}else{
-			//æ ¹æ�®ä¼ é€’çš„idå€¼ï¼ŒèŽ·å�–å¯¹åº”çš„å­�è�œå�•,å±•ç¤º
-			//æ ¹æ�®ä¼ é€’çš„è�œå�•é¡¹ç›®çš„uuidèŽ·å�–å…¶å­�é¡¹çš„è�œå�•é›†å�ˆ
+			//Ã¦Â Â¹Ã¦ï¿½Â®Ã¤Â¼Â Ã©â‚¬â€™Ã§Å¡â€židÃ¥â‚¬Â¼Ã¯Â¼Å’Ã¨Å½Â·Ã¥ï¿½â€“Ã¥Â¯Â¹Ã¥Âºâ€�Ã§Å¡â€žÃ¥Â­ï¿½Ã¨ï¿½Å“Ã¥ï¿½â€¢,Ã¥Â±â€¢Ã§Â¤Âº
+			//Ã¦Â Â¹Ã¦ï¿½Â®Ã¤Â¼Â Ã©â‚¬â€™Ã§Å¡â€žÃ¨ï¿½Å“Ã¥ï¿½â€¢Ã©Â¡Â¹Ã§â€ºÂ®Ã§Å¡â€žuuidÃ¨Å½Â·Ã¥ï¿½â€“Ã¥â€¦Â¶Ã¥Â­ï¿½Ã©Â¡Â¹Ã§Å¡â€žÃ¨ï¿½Å“Ã¥ï¿½â€¢Ã©â€ºâ€ Ã¥ï¿½Ë†
 			Long puuid = new Long(root); 
 			menuList = menuEbi.getMenusByPuuid(puuid);
 			//jsonStr.append("{\"text\":\"bbb\",\"hasChildren\":false,\"classes\":\"file\",\"id\":\"2\"},");
@@ -168,7 +192,7 @@ public class MenuAction extends BaseAction{
 		return null;
 		*/
 		
-		//æ–¹æ¡ˆå››ï¼šåŸºäºŽç™»é™†ç”¨æˆ·è¿›è¡Œè�œå�•åŠ è½½
+		//Ã¦â€“Â¹Ã¦Â¡Ë†Ã¥â€ºâ€ºÃ¯Â¼Å¡Ã¥Å¸ÂºÃ¤ÂºÅ½Ã§â„¢Â»Ã©â„¢â€ Ã§â€�Â¨Ã¦Ë†Â·Ã¨Â¿â€ºÃ¨Â¡Å’Ã¨ï¿½Å“Ã¥ï¿½â€¢Ã¥Å Â Ã¨Â½Â½
 		
 		String root = getRequest().getParameter("root");
 		
@@ -182,7 +206,7 @@ public class MenuAction extends BaseAction{
 		List<MenuModel> menuList = null;
 		
 		if(root.equals("source")){
-			//æ ¹æ�®ç™»é™†äººèŽ·å�–å¯¹åº”çš„è�œå�•é¡¹
+			//Ã¦Â Â¹Ã¦ï¿½Â®Ã§â„¢Â»Ã©â„¢â€ Ã¤ÂºÂºÃ¨Å½Â·Ã¥ï¿½â€“Ã¥Â¯Â¹Ã¥Âºâ€�Ã§Å¡â€žÃ¨ï¿½Å“Ã¥ï¿½â€¢Ã©Â¡Â¹
 			menuList = menuEbi.getParentMenuByEmp(getLogin().getUuid());
 			for(MenuModel temp:menuList){
 				jsonStr.append("{\"text\":\"");
@@ -192,7 +216,7 @@ public class MenuAction extends BaseAction{
 				jsonStr.append("\"},");
 			}
 		}else{
-			//æ ¹æ�®ä¼ é€’çš„è�œå�•é¡¹ç›®çš„uuidå’Œç™»é™†äººä¿¡æ�¯èŽ·å�–å…¶å­�é¡¹çš„è�œå�•é›†å�ˆ
+			//Ã¦Â Â¹Ã¦ï¿½Â®Ã¤Â¼Â Ã©â‚¬â€™Ã§Å¡â€žÃ¨ï¿½Å“Ã¥ï¿½â€¢Ã©Â¡Â¹Ã§â€ºÂ®Ã§Å¡â€žuuidÃ¥â€™Å’Ã§â„¢Â»Ã©â„¢â€ Ã¤ÂºÂºÃ¤Â¿Â¡Ã¦ï¿½Â¯Ã¨Å½Â·Ã¥ï¿½â€“Ã¥â€¦Â¶Ã¥Â­ï¿½Ã©Â¡Â¹Ã§Å¡â€žÃ¨ï¿½Å“Ã¥ï¿½â€¢Ã©â€ºâ€ Ã¥ï¿½Ë†
 			Long puuid = new Long(root); 
 			menuList = menuEbi.getMenusByPuuidAndEmp(puuid,getLogin().getUuid());
 			//jsonStr.append("{\"text\":\"bbb\",\"hasChildren\":false,\"classes\":\"file\",\"id\":\"2\"},");

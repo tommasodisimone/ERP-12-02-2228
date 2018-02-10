@@ -14,33 +14,131 @@ import cn.itcast.invoice.util.format.FormatUtil;
  *
  */
 public class OrderModel implements Serializable{
+	/**
+	 * this public element is a public element
+	 *
+	 */
+	
 	public static final Integer ORDER_TYPE_OF_BUY_NO_CHECK = 111;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_TYPE_OF_BUY_CHECK_NO_PASS = 120;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_TYPE_OF_BUY_CHECK_PASS = 121;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_TYPE_OF_BUY_BUYING = 131;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_TYPE_OF_BUY_IN_STORE = 141;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_TYPE_OF_BUY_END = 199;
-	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_TYPE_OF_BUY_NO_CHECK_VIEW = "Ã¦Å“ÂªÃ¥Â®Â¡Ã¦Â Â¸";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_TYPE_OF_BUY_CHECK_NO_VIEW = "Ã©Â©Â³Ã¥â€ºÅ¾";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_TYPE_OF_BUY_CHECK_OK_VIEW = "Ã¤Â»Â»Ã¥Å Â¡Ã¦Å’â€¡Ã¦Â´Â¾Ã¤Â¸Â­";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_TYPE_OF_BUY_BUYING_VIEW = "Ã©â€¡â€¡Ã¨Â´Â­Ã¤Â¸Â­";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_TYPE_OF_BUY_IN_STORE_VIEW = "Ã¥â€¦Â¥Ã¥Âºâ€œÃ¤Â¸Â­";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_TYPE_OF_BUY_END_VIEW = "Ã¥Â·Â²Ã§Â»â€œÃ¥ï¿½â€¢";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Map<Integer, String> orderTypeMap = new HashMap<Integer, String>();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Map<Integer, String> buyTypeMap = new TreeMap<Integer, String>();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Map<Integer, String> saleTypeMap = new TreeMap<Integer, String>();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	private static final Map<Integer, String> typeMap = new TreeMap<Integer, String>();
-	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_ORDERTYPE_OF_BUY = 1;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_ORDERTYPE_OF_SALE = 2;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_ORDERTYPE_OF_RETURN_BUY = 3;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final Integer ORDER_ORDERTYPE_OF_RETURN_SALE = 4;
-	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_ORDERTYPE_OF_BUY_VIEW = "Ã©â€¡â€¡Ã¨Â´Â­";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_ORDERTYPE_OF_SALE_VIEW = "Ã©â€�â‚¬Ã¥â€�Â®";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_ORDERTYPE_OF_RETURN_BUY_VIEW = "Ã©â€¡â€¡Ã¨Â´Â­Ã©â‚¬â‚¬Ã¨Â´Â§";
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public static final String ORDER_ORDERTYPE_OF_RETURN_SALE_VIEW = "Ã©â€�â‚¬Ã¥â€�Â®Ã©â‚¬â‚¬Ã¨Â´Â§";
 	
 	static{
@@ -105,7 +203,11 @@ public class OrderModel implements Serializable{
 	private EmpModel completer;
 	private SupplierModel sm;
 	private Set<OrderDetailModel> odms;
-
+	/**
+	 * this public element is a public element
+	 *
+	 */
+	
 	public Set<OrderDetailModel> getOdms() {
 		return odms;
 	}
@@ -163,88 +265,192 @@ public class OrderModel implements Serializable{
 		
 		return toReturn;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	
 	public Long getUuid() {
 		return segreto;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setSegreto(Long segreto) {
 		this.segreto = segreto;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String getOrderNum() {
 		return orderNum;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer getTotalNum() {
 		return totalNum;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setTotalNum(Integer totalNum) {
 		this.totalNum = totalNum;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Double getTotalPrice() {
 		return totalPrice;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 		this.totalPriceView = FormatUtil.formatMoney(totalPrice);
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer getOrderType() {
 		return orderType;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setOrderType(Integer orderType) {
 		this.orderType = orderType;
 		this.orderTypeView =orderTypeMap.get(orderType);
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer getType() {
 		return type;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setType(Integer type) {
 		this.type = type;
 		this.typeView = typeMap.get(type);
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long getCreateTime() {
 		return createTime;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setCreateTime(Long createTime) {
 		this.createTime = createTime;
 		this.createTimeView = FormatUtil.formatDateTime(createTime);
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long getCheckTime() {
 		return checkTime;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setCheckTime(Long checkTime) {
 		this.checkTime = checkTime;
 		this.checkTimeView = FormatUtil.formatDateTime(checkTime);
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long getCompleteTime() {
 		return completeTime;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setCompleteTime(Long completeTime) {
 		this.completeTime = completeTime;
 		this.completeTimeView = FormatUtil.formatDateTime(completeTime);
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public EmpModel getCreater() {
 		return creater;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setCreater(EmpModel creater) {
 		this.creater = creater;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public EmpModel getChecker() {
 		return checker;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setChecker(EmpModel checker) {
 		this.checker = checker;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public EmpModel getCompleter() {
 		return completer;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setCompleter(EmpModel completer) {
 		this.completer = completer;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public SupplierModel getSm() {
 		return sm;
 	}
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setSm(SupplierModel sm) {
 		this.sm = sm;
 	}
