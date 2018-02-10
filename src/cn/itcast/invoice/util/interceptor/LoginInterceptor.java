@@ -5,18 +5,17 @@ import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
-import com.opensymphony.xwork2.interceptor.Interceptor;
 
 public class LoginInterceptor extends AbstractInterceptor {
 	public String intercept(ActionInvocation invocation) throws Exception {
 		
-		//如果是跳转到登陆页的操作，放行
+		//å¦‚æžœæ˜¯è·³è½¬åˆ°ç™»é™†é¡µçš„æ“�ä½œï¼Œæ”¾è¡Œ
 		String an = invocation.getProxy().getActionName(); //pages_login
 		if(an.equals("pages_login")){
 			return invocation.invoke();
 		}
-		//如果是登陆功能，放行
-		//获取当前执行的操作，如果是登陆cn.itcast.invoice.auth.emp.web.EmpAction.login放行
+		//å¦‚æžœæ˜¯ç™»é™†åŠŸèƒ½ï¼Œæ”¾è¡Œ
+		//èŽ·å�–å½“å‰�æ‰§è¡Œçš„æ“�ä½œï¼Œå¦‚æžœæ˜¯ç™»é™†cn.itcast.invoice.auth.emp.web.EmpAction.loginæ”¾è¡Œ
 		String actionName = invocation.getAction().getClass().getName();
 		String methodName = invocation.getProxy().getMethod();
 		String totalName = actionName+"."+methodName;
@@ -25,13 +24,13 @@ public class LoginInterceptor extends AbstractInterceptor {
 			return invocation.invoke();
 		}
 		
-		//判断用户是否登陆，如果登陆，向下放行
+		//åˆ¤æ–­ç”¨æˆ·æ˜¯å�¦ç™»é™†ï¼Œå¦‚æžœç™»é™†ï¼Œå�‘ä¸‹æ”¾è¡Œ
 		EmpModel loginEm = (EmpModel) ActionContext.getContext().getSession().get("loginEm");
 		if(loginEm == null){
-			//如果未登陆，跳转到登陆失败页
+			//å¦‚æžœæœªç™»é™†ï¼Œè·³è½¬åˆ°ç™»é™†å¤±è´¥é¡µ
 			return "loginFail"; 
 		}else{
-			//如果登陆成功，放行该操作
+			//å¦‚æžœç™»é™†æˆ�åŠŸï¼Œæ”¾è¡Œè¯¥æ“�ä½œ
 			return invocation.invoke();
 		}
 	}

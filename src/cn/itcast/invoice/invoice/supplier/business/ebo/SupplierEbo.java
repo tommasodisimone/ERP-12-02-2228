@@ -7,7 +7,6 @@ import cn.itcast.invoice.invoice.supplier.business.ebi.SupplierEbi;
 import cn.itcast.invoice.invoice.supplier.dao.dao.SupplierDao;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-import cn.itcast.invoice.util.exception.AppException;
 
 public class SupplierEbo implements SupplierEbi{
 	private SupplierDao supplierDao;

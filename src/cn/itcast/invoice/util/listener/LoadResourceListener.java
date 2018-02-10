@@ -14,11 +14,9 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import cn.itcast.invoice.auth.res.business.ebi.ResEbi;
 
 public class LoadResourceListener implements ServletContextListener{
 	Properties props = new Properties();

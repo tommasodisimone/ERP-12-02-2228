@@ -9,13 +9,12 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import cn.itcast.invoice.util.exception.AppException;
 
 public abstract class BaseDaoImpl<T> extends HibernateDaoSupport{
-	//当前类中泛型的类型
+	//å½“å‰�ç±»ä¸­æ³›åž‹çš„ç±»åž‹
 	private Class<T> entityClass;
 	
-	//何时初始化:当前类的对象创建完毕之前
+	//ä½•æ—¶åˆ�å§‹åŒ–:å½“å‰�ç±»çš„å¯¹è±¡åˆ›å»ºå®Œæ¯•ä¹‹å‰�
 	public BaseDaoImpl(){
 		Class clazz = this.getClass();
 		Type type = clazz.getGenericSuperclass();
@@ -28,7 +27,7 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport{
 		this.getHibernateTemplate().save(t);
 		/*try {
 		} catch (Exception e) {
-			throw new AppException("对不起，数据库服务器没有启动，请联系管理员！",e);
+			throw new AppException("å¯¹ä¸�èµ·ï¼Œæ•°æ�®åº“æœ�åŠ¡å™¨æ²¡æœ‰å�¯åŠ¨ï¼Œè¯·è�”ç³»ç®¡ç�†å‘˜ï¼�",e);
 		}*/
 	}
 
@@ -63,7 +62,7 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport{
 		return count.get(0).intValue();
 	}
 	
-	//强制子类覆盖doQbc方法
+	//å¼ºåˆ¶å­�ç±»è¦†ç›–doQbcæ–¹æ³•
 	protected abstract void doQbc(DetachedCriteria dc,BaseQueryModel qm);
 }
 /*
