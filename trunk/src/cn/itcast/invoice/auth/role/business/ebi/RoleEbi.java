@@ -5,6 +5,10 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseEbi;
 
+/**
+ * this interface extends BaseEbi<RoleModel>
+ *
+ */
 @Transactional
 public interface RoleEbi extends BaseEbi<RoleModel> {
 

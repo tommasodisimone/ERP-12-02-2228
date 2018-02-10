@@ -4,7 +4,10 @@ import java.util.List;
 
 import cn.itcast.invoice.auth.menu.vo.MenuModel;
 import cn.itcast.invoice.util.base.BaseDao;
-
+/**
+ * this interface extends BaseDao<MenuModel>
+ *
+ */
 public interface MenuDao extends BaseDao<MenuModel> {
 
 	public List<MenuModel> getByUuidAndPuuidIsOne();

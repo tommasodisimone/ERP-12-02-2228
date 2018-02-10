@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Set;
 
 import cn.itcast.invoice.auth.role.vo.RoleModel;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class MenuModel implements Serializable{
 	private Long segreto;
 	private String name;
