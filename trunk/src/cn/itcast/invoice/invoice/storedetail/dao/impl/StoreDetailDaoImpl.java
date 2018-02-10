@@ -9,7 +9,10 @@ import cn.itcast.invoice.invoice.storedetail.vo.StoreDetailModel;
 import cn.itcast.invoice.invoice.storedetail.vo.StoreDetailQueryModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements StoreDetailDao and extends BaseDaoImpl<StoreDetailModel>
+ *
+ */
 public class StoreDetailDaoImpl extends BaseDaoImpl<StoreDetailModel> implements StoreDetailDao{
 	public void doQbc(DetachedCriteria dc,BaseQueryModel qm){
 		StoreDetailQueryModel sqm = (StoreDetailQueryModel) qm;

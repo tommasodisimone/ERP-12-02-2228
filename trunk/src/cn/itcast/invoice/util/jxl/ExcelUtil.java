@@ -17,8 +17,10 @@ import jxl.write.WritableFont;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
-
-//操作Excel文件工具类
+/**
+ * this class is used to export excel file
+ *
+ */
 public class ExcelUtil {
 	
 	/**

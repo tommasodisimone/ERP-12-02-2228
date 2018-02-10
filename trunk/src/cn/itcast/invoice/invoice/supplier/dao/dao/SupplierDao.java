@@ -4,7 +4,10 @@ import java.util.List;
 
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.util.base.BaseDao;
-
+/**
+ * this interface extends BaseDao<SupplierModel>
+ *
+ */
 public interface SupplierDao extends BaseDao<SupplierModel> {
 
 	public List<SupplierModel> getAllUnion();

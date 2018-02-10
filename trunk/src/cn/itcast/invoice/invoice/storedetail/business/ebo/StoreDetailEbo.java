@@ -7,7 +7,10 @@ import cn.itcast.invoice.invoice.storedetail.business.ebi.StoreDetailEbi;
 import cn.itcast.invoice.invoice.storedetail.dao.dao.StoreDetailDao;
 import cn.itcast.invoice.invoice.storedetail.vo.StoreDetailModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements StoreDetailEbi
+ *
+ */
 public class StoreDetailEbo implements StoreDetailEbi{
 	private StoreDetailDao storeDetailDao;
 	public void setStoreDetailDao(StoreDetailDao storeDetailDao) {

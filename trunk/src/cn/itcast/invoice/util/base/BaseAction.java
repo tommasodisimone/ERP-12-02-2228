@@ -9,25 +9,28 @@ import cn.itcast.invoice.auth.emp.vo.EmpModel;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * this class extends ActionSupport and is the base for many classes
+ *
+ */
 public class BaseAction extends ActionSupport{
 	public static final String LIST = "list";
 	public static final String TO_LIST = "toList";
 	public static final String INPUT = "input";
 	
-	//页码值
+	//é¡µç �å€¼
 	public Integer pageNum = 1;
-	//每页显示数据总量
+	//æ¯�é¡µæ˜¾ç¤ºæ•°æ�®æ€»é‡�
 	public Integer pageCount = 10;
-	//最大页码值
+	//æœ€å¤§é¡µç �å€¼
 	public Integer maxPageNum ;
-	//数据总量
+	//æ•°æ�®æ€»é‡�
 	public Integer dataTotal;
 	
 	private String actionName;
 	
 	public String getActionName() {
-		//根据当前执行的Action类获取Action类的名称中的局部字符串
+		//æ ¹æ�®å½“å‰�æ‰§è¡Œçš„Actionç±»èŽ·å�–Actionç±»çš„å��ç§°ä¸­çš„å±€éƒ¨å­—ç¬¦ä¸²
 		String actionName =getClass().getSimpleName();	//DepAction
 		String subName = actionName.substring(0,actionName.length()-6);
 		return subName.substring(0,1).toLowerCase()+subName.substring(1);
@@ -36,7 +39,7 @@ public class BaseAction extends ActionSupport{
 	public static void main(String[] args) {
 		String s = "StoreDetailAction";
 		String a = s.substring(0,s.length()-6);
-		//取出第一个字母
+		//å�–å‡ºç¬¬ä¸€ä¸ªå­—æ¯�
 		String first = a.substring(0,1).toLowerCase();
 		System.out.println(first+a.substring(1));
 	}

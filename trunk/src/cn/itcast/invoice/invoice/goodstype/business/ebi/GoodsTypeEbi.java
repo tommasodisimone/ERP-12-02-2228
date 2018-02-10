@@ -6,18 +6,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;
 import cn.itcast.invoice.util.base.BaseEbi;
-
+/**
+ * this class extends BaseEbi<GoodsTypeModel>
+ *
+ */
 @Transactional
 public interface GoodsTypeEbi extends BaseEbi<GoodsTypeModel> {
 	/**
-	 * 获取指定供应商的产品类别信息
-	 * @param supplierUuid 供应商uuid
+	 * èŽ·å�–æŒ‡å®šä¾›åº”å•†çš„äº§å“�ç±»åˆ«ä¿¡æ�¯
+	 * @param supplierUuid ä¾›åº”å•†uuid
 	 * @return
 	 */
 	public List<GoodsTypeModel> getAllBySupplier(Long supplierUuid);
 	/**
-	 * 获取指定供应商具有商品信息的商品类别信息集合
-	 * @param uuid	供应商uuid
+	 * èŽ·å�–æŒ‡å®šä¾›åº”å•†å…·æœ‰å•†å“�ä¿¡æ�¯çš„å•†å“�ç±»åˆ«ä¿¡æ�¯é›†å�ˆ
+	 * @param uuid	ä¾›åº”å•†uuid
 	 * @return
 	 */
 	public List<GoodsTypeModel> getAllUnionBySupplier(Long uuid);

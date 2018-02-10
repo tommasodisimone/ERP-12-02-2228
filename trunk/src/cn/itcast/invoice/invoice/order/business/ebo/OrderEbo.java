@@ -16,7 +16,10 @@ import cn.itcast.invoice.invoice.order.vo.OrderQueryModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
 import cn.itcast.invoice.util.exception.AppException;
 import cn.itcast.invoice.util.format.MD5Utils;
-
+/**
+ * this class implements OrderEbi
+ *
+ */
 public class OrderEbo implements OrderEbi{
 	private OrderDao orderDao;
 	public void setOrderDao(OrderDao orderDao) {

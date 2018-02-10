@@ -6,7 +6,10 @@ import cn.itcast.invoice.invoice.storeoper.business.ebi.StoreOperEbi;
 import cn.itcast.invoice.invoice.storeoper.vo.StoreOperModel;
 import cn.itcast.invoice.invoice.storeoper.vo.StoreOperQueryModel;
 import cn.itcast.invoice.util.base.BaseAction;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class StoreOperAction extends BaseAction{
 	public StoreOperModel sm = new StoreOperModel();
 	public StoreOperQueryModel sqm = new StoreOperQueryModel();
@@ -16,7 +19,7 @@ public class StoreOperAction extends BaseAction{
 		this.storeOperEbi = storeOperEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
 		setDataTotal(storeOperEbi.getCount(sqm));
 		List<StoreOperModel> storeOperList = storeOperEbi.getAll(sqm,pageNum,pageCount);
@@ -24,7 +27,7 @@ public class StoreOperAction extends BaseAction{
 		return LIST;
 	}
 
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(sm.getUuid()== null){
 			storeOperEbi.save(sm);
@@ -34,7 +37,7 @@ public class StoreOperAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
 		if(sm.getUuid()!=null){
 			sm = storeOperEbi.get(sm.getUuid());
@@ -42,7 +45,7 @@ public class StoreOperAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		storeOperEbi.delete(sm);
 		return TO_LIST;

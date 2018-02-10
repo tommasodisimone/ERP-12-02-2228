@@ -3,7 +3,10 @@ package cn.itcast.invoice.invoice.store.vo;
 import java.io.Serializable;
 
 import cn.itcast.invoice.auth.emp.vo.EmpModel;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class StoreModel implements Serializable{
 	private Long segreto;
 	private String name;

@@ -6,7 +6,10 @@ import cn.itcast.invoice.invoice.order.business.ebi.OrderDetailEbi;
 import cn.itcast.invoice.invoice.order.vo.OrderDetailModel;
 import cn.itcast.invoice.invoice.order.vo.OrderDetailQueryModel;
 import cn.itcast.invoice.util.base.BaseAction;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class OrderDetailAction extends BaseAction{
 	public OrderDetailModel om = new OrderDetailModel();
 	public OrderDetailQueryModel oqm = new OrderDetailQueryModel();
@@ -16,7 +19,7 @@ public class OrderDetailAction extends BaseAction{
 		this.orderDetailEbi = orderDetailEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
 		setDataTotal(orderDetailEbi.getCount(oqm));
 		List<OrderDetailModel> orderDetailList = orderDetailEbi.getAll(oqm,pageNum,pageCount);
@@ -24,7 +27,7 @@ public class OrderDetailAction extends BaseAction{
 		return LIST;
 	}
 
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(om.getUuid()== null){
 			orderDetailEbi.save(om);
@@ -34,7 +37,7 @@ public class OrderDetailAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
 		if(om.getUuid()!=null){
 			om = orderDetailEbi.get(om.getUuid());
@@ -42,7 +45,7 @@ public class OrderDetailAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		orderDetailEbi.delete(om);
 		return TO_LIST;

@@ -5,7 +5,10 @@ import java.util.List;
 import cn.itcast.invoice.invoice.order.vo.OrderModel;
 import cn.itcast.invoice.invoice.order.vo.OrderQueryModel;
 import cn.itcast.invoice.util.base.BaseDao;
-
+/**
+ * this interface extends BaseDao<OrderModel>
+ *
+ */
 public interface OrderDao extends BaseDao<OrderModel> {
 
 	public List<OrderModel> getAllByTypes(OrderQueryModel oqm, Integer pageNum,	Integer pageCount, Integer[] types);

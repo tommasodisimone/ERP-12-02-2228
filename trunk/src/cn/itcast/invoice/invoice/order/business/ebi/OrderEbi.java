@@ -8,20 +8,23 @@ import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.invoice.order.vo.OrderModel;
 import cn.itcast.invoice.invoice.order.vo.OrderQueryModel;
 import cn.itcast.invoice.util.base.BaseEbi;
-
+/**
+ * this interface extends BaseEbi<OrderModel>
+ *
+ */
 @Transactional
 public interface OrderEbi extends BaseEbi<OrderModel> {
 	/**
-	 * 保存采购订单
-	 * @param empModel 当前登陆人(制单人)
-	 * @param om 订单
-	 * @param goodsUuids 订单明细货物uuid
-	 * @param nums 订单明细数量
-	 * @param prices 订单明细价格
+	 * ä¿�å­˜é‡‡è´­è®¢å�•
+	 * @param empModel å½“å‰�ç™»é™†äºº(åˆ¶å�•äºº)
+	 * @param om è®¢å�•
+	 * @param goodsUuids è®¢å�•æ˜Žç»†è´§ç‰©uuid
+	 * @param nums è®¢å�•æ˜Žç»†æ•°é‡�
+	 * @param prices è®¢å�•æ˜Žç»†ä»·æ ¼
 	 */
 	public void save(EmpModel empModel, OrderModel om, Long[] goodsUuids, Integer[] nums, Double[] prices);
 	/**
-	 * 获取所有未审核的采购相关的订单
+	 * èŽ·å�–æ‰€æœ‰æœªå®¡æ ¸çš„é‡‡è´­ç›¸å…³çš„è®¢å�•
 	 * @param pageCount 
 	 * @param pageNum 
 	 * @param oqm 
@@ -30,19 +33,19 @@ public interface OrderEbi extends BaseEbi<OrderModel> {
 	public List<OrderModel> getAllNoCheckOrder(OrderQueryModel oqm, Integer pageNum, Integer pageCount);
 	public Integer getCountByTypes(OrderQueryModel oqm);
 	/**
-	 * 采购订单审核通过
-	 * @param uuid 待审核订单编号
-	 * @param em 审核人
+	 * é‡‡è´­è®¢å�•å®¡æ ¸é€šè¿‡
+	 * @param uuid å¾…å®¡æ ¸è®¢å�•ç¼–å�·
+	 * @param em å®¡æ ¸äºº
 	 */
 	public void buyCheckPass(Long uuid, EmpModel em);
 	/**
-	 * 采购订单审核驳回
-	 * @param uuid 待审核订单编号
-	 * @param em 审核人
+	 * é‡‡è´­è®¢å�•å®¡æ ¸é©³å›ž
+	 * @param uuid å¾…å®¡æ ¸è®¢å�•ç¼–å�·
+	 * @param em å®¡æ ¸äºº
 	 */
 	public void buyCheckNoPass(Long uuid, EmpModel em);
 	/**
-	 * 获取所有未指派任务人的订单任务
+	 * èŽ·å�–æ‰€æœ‰æœªæŒ‡æ´¾ä»»åŠ¡äººçš„è®¢å�•ä»»åŠ¡
 	 * @param pageCount 
 	 * @param pageNum 
 	 * @param oqm 
@@ -50,7 +53,7 @@ public interface OrderEbi extends BaseEbi<OrderModel> {
 	 */
 	public List<OrderModel> getAllTasks(OrderQueryModel oqm, Integer pageNum, Integer pageCount);
 	/**
-	 * 指派任务
+	 * æŒ‡æ´¾ä»»åŠ¡
 	 * @param om
 	 */
 	public void assignTask(OrderModel om);
@@ -58,7 +61,7 @@ public interface OrderEbi extends BaseEbi<OrderModel> {
 			Integer pageNum, Integer pageCount, EmpModel login);
 	public void endTask(Long uuid);
 	/**
-	 * 获取所有未完全入库的订单信息
+	 * èŽ·å�–æ‰€æœ‰æœªå®Œå…¨å…¥åº“çš„è®¢å�•ä¿¡æ�¯
 	 * @param oqm
 	 * @param pageNum
 	 * @param pageCount

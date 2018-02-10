@@ -9,12 +9,15 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-
+/**
+ * this Abstract class is the base for the DaoImpl classes and extends HibernateDaoSupport
+ *
+ */
 public abstract class BaseDaoImpl<T> extends HibernateDaoSupport{
-	//å½“å‰�ç±»ä¸­æ³›åž‹çš„ç±»åž‹
+	//Ã¥Â½â€œÃ¥â€°ï¿½Ã§Â±Â»Ã¤Â¸Â­Ã¦Â³â€ºÃ¥Å¾â€¹Ã§Å¡â€žÃ§Â±Â»Ã¥Å¾â€¹
 	private Class<T> entityClass;
 	
-	//ä½•æ—¶åˆ�å§‹åŒ–:å½“å‰�ç±»çš„å¯¹è±¡åˆ›å»ºå®Œæ¯•ä¹‹å‰�
+	//Ã¤Â½â€¢Ã¦â€”Â¶Ã¥Ë†ï¿½Ã¥Â§â€¹Ã¥Å’â€“:Ã¥Â½â€œÃ¥â€°ï¿½Ã§Â±Â»Ã§Å¡â€žÃ¥Â¯Â¹Ã¨Â±Â¡Ã¥Ë†â€ºÃ¥Â»ÂºÃ¥Â®Å’Ã¦Â¯â€¢Ã¤Â¹â€¹Ã¥â€°ï¿½
 	public BaseDaoImpl(){
 		Class clazz = this.getClass();
 		Type type = clazz.getGenericSuperclass();
@@ -27,7 +30,7 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport{
 		this.getHibernateTemplate().save(t);
 		/*try {
 		} catch (Exception e) {
-			throw new AppException("å¯¹ä¸�èµ·ï¼Œæ•°æ�®åº“æœ�åŠ¡å™¨æ²¡æœ‰å�¯åŠ¨ï¼Œè¯·è�”ç³»ç®¡ç�†å‘˜ï¼�",e);
+			throw new AppException("Ã¥Â¯Â¹Ã¤Â¸ï¿½Ã¨ÂµÂ·Ã¯Â¼Å’Ã¦â€¢Â°Ã¦ï¿½Â®Ã¥Âºâ€œÃ¦Å“ï¿½Ã¥Å Â¡Ã¥â„¢Â¨Ã¦Â²Â¡Ã¦Å“â€°Ã¥ï¿½Â¯Ã¥Å Â¨Ã¯Â¼Å’Ã¨Â¯Â·Ã¨ï¿½â€�Ã§Â³Â»Ã§Â®Â¡Ã§ï¿½â€ Ã¥â€˜ËœÃ¯Â¼ï¿½",e);
 		}*/
 	}
 
@@ -62,7 +65,7 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport{
 		return count.get(0).intValue();
 	}
 	
-	//å¼ºåˆ¶å­�ç±»è¦†ç›–doQbcæ–¹æ³•
+	//Ã¥Â¼ÂºÃ¥Ë†Â¶Ã¥Â­ï¿½Ã§Â±Â»Ã¨Â¦â€ Ã§â€ºâ€“doQbcÃ¦â€“Â¹Ã¦Â³â€¢
 	protected abstract void doQbc(DetachedCriteria dc,BaseQueryModel qm);
 }
 /*

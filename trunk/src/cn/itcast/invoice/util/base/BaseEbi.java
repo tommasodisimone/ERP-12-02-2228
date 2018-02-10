@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * this interface is the base for the Ebis of the project
+ *
+ */
 @Transactional
 public interface BaseEbi<T> {
 	

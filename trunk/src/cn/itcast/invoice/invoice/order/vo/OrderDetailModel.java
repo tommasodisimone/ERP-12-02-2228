@@ -4,7 +4,10 @@ import java.io.Serializable;
 
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.util.format.FormatUtil;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class OrderDetailModel implements Serializable{
 	
 	private Long segreto;

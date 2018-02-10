@@ -10,7 +10,10 @@ import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierQueryModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements SupplierDao and extends BaseDaoImpl<SupplierModel>
+ *
+ */
 public class SupplierDaoImpl extends BaseDaoImpl<SupplierModel> implements SupplierDao{
 	public void doQbc(DetachedCriteria dc,BaseQueryModel qm){
 		SupplierQueryModel sqm = (SupplierQueryModel) qm;
@@ -56,7 +59,7 @@ public class SupplierDaoImpl extends BaseDaoImpl<SupplierModel> implements Suppl
 	
 	
 	public List<SupplierModel> getAllUnion() {
-		//èŽ·å�–æ‰€æœ‰ä¸Žå•†å“�ç±»åˆ«å…·æœ‰å…³è�”æ•°æ�®çš„ä¾›åº”å•†ä¿¡æ�¯
+		//Ã¨Å½Â·Ã¥ï¿½â€“Ã¦â€°â‚¬Ã¦Å“â€°Ã¤Â¸Å½Ã¥â€¢â€ Ã¥â€œï¿½Ã§Â±Â»Ã¥Ë†Â«Ã¥â€¦Â·Ã¦Å“â€°Ã¥â€¦Â³Ã¨ï¿½â€�Ã¦â€¢Â°Ã¦ï¿½Â®Ã§Å¡â€žÃ¤Â¾â€ºÃ¥Âºâ€�Ã¥â€¢â€ Ã¤Â¿Â¡Ã¦ï¿½Â¯
 		String hql = "select distinct sm from SupplierModel sm join sm.gtms";
 		return this.getHibernateTemplate().find(hql);
 	}

@@ -17,7 +17,10 @@ import cn.itcast.invoice.invoice.storeoper.dao.dao.StoreOperDao;
 import cn.itcast.invoice.invoice.storeoper.vo.StoreOperModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
 import cn.itcast.invoice.util.exception.AppException;
-
+/**
+ * this class implements StoreEbi
+ *
+ */
 public class StoreEbo implements StoreEbi{
 	private StoreDao storeDao;
 	private StoreDetailDao storeDetailDao;
@@ -75,13 +78,13 @@ public class StoreEbo implements StoreEbi{
 		sm.setUuid(storeUuid);
 		
 		
-		//入库究竟要做什么？
-		//1.原始订单明细中的已入库数量更新
-		//update 订单明细  
-		//快照更新
+		//å…¥åº“ç©¶ç«Ÿè¦�å�šä»€ä¹ˆï¼Ÿ
+		//1.åŽŸå§‹è®¢å�•æ˜Žç»†ä¸­çš„å·²å…¥åº“æ•°é‡�æ›´æ–°
+		//update è®¢å�•æ˜Žç»†  
+		//å¿«ç…§æ›´æ–°
 		OrderDetailModel odm = orderDetailDao.get(odmUuid);
 		
-		//校验
+		//æ ¡éªŒ
 		if(odm.getSurplus() < num){
 			throw new AppException("aa");
 		}
@@ -89,55 +92,55 @@ public class StoreEbo implements StoreEbi{
 		
 		odm.setSurplus(odm.getSurplus()-num);
 		
-		//2.记录入库的记录
+		//2.è®°å½•å…¥åº“çš„è®°å½•
 		StoreOperModel som = new StoreOperModel();
-		//入库操作时间
+		//å…¥åº“æ“�ä½œæ—¶é—´
 		som.setOperTime(System.currentTimeMillis());
-		//本次操作数量
+		//æœ¬æ¬¡æ“�ä½œæ•°é‡�
 		som.setNum(num);
-		//设置操作类型为入库
+		//è®¾ç½®æ“�ä½œç±»åž‹ä¸ºå…¥åº“
 		som.setType(StoreOperModel.STOREOPER_TYPE_OF_IN);
-		//设置操作的商品
+		//è®¾ç½®æ“�ä½œçš„å•†å“�
 		som.setGm(gm);
-		//设置操作人
+		//è®¾ç½®æ“�ä½œäºº
 		som.setEm(login);
-		//设置对应的仓库
+		//è®¾ç½®å¯¹åº”çš„ä»“åº“
 		som.setSm(sm);
-		//设置操作对应的订单
+		//è®¾ç½®æ“�ä½œå¯¹åº”çš„è®¢å�•
 		som.setOm(odm.getOm());
 		storeOperDao.save(som);
 		
-		//3.仓库中的现有商品数量更新
-		//A B两个仓库
-		//入X商品，A仓库X商品100个，B仓库从没有放过X商品
-		//X商品入B
-		//根据商品uuid与仓库的uuid获取商品在仓库中的数据记录
+		//3.ä»“åº“ä¸­çš„çŽ°æœ‰å•†å“�æ•°é‡�æ›´æ–°
+		//A Bä¸¤ä¸ªä»“åº“
+		//å…¥Xå•†å“�ï¼ŒAä»“åº“Xå•†å“�100ä¸ªï¼ŒBä»“åº“ä»Žæ²¡æœ‰æ”¾è¿‡Xå•†å“�
+		//Xå•†å“�å…¥B
+		//æ ¹æ�®å•†å“�uuidä¸Žä»“åº“çš„uuidèŽ·å�–å•†å“�åœ¨ä»“åº“ä¸­çš„æ•°æ�®è®°å½•
 		StoreDetailModel sdm = storeDetailDao.getBySmAndGm(storeUuid,goodsUuid);
 		if(sdm == null){
-			//该仓库中没有存储过该商品
-			//初始化数据，save
+			//è¯¥ä»“åº“ä¸­æ²¡æœ‰å­˜å‚¨è¿‡è¯¥å•†å“�
+			//åˆ�å§‹åŒ–æ•°æ�®ï¼Œsave
 			sdm = new StoreDetailModel();
 			sdm.setNum(num);
 			sdm.setGm(gm);
 			sdm.setSm(sm);
 			storeDetailDao.save(sdm);
 		}else{
-			//该仓库中存储过该商品
-			//利用快照更新数量
+			//è¯¥ä»“åº“ä¸­å­˜å‚¨è¿‡è¯¥å•†å“�
+			//åˆ©ç”¨å¿«ç…§æ›´æ–°æ•°é‡�
 			sdm.setNum(sdm.getNum()+num);
 		}
 		
-		//4.当订单中的所有商品全部入库完毕后，修改订单的状态，同时修改完成时间
+		//4.å½“è®¢å�•ä¸­çš„æ‰€æœ‰å•†å“�å…¨éƒ¨å…¥åº“å®Œæ¯•å�Žï¼Œä¿®æ”¹è®¢å�•çš„çŠ¶æ€�ï¼Œå�Œæ—¶ä¿®æ”¹å®Œæˆ�æ—¶é—´
 		OrderModel om = odm.getOm();
 		int sum = 0;
 		for(OrderDetailModel temp:om.getOdms()){
 			sum += temp.getSurplus();
 		}
 		if(sum == 0){
-			//快照更新
-			//修改订单状态
+			//å¿«ç…§æ›´æ–°
+			//ä¿®æ”¹è®¢å�•çŠ¶æ€�
 			om.setType(OrderModel.ORDER_TYPE_OF_BUY_END);
-			//修改结单时间
+			//ä¿®æ”¹ç»“å�•æ—¶é—´
 			om.setCompleteTime(System.currentTimeMillis());
 		}
 		return odm;

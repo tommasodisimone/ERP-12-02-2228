@@ -7,7 +7,10 @@ import cn.itcast.invoice.invoice.supplier.business.ebi.SupplierEbi;
 import cn.itcast.invoice.invoice.supplier.dao.dao.SupplierDao;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements SupplierEbi
+ *
+ */
 public class SupplierEbo implements SupplierEbi{
 	private SupplierDao supplierDao;
 	public void setSupplierDao(SupplierDao supplierDao) {

@@ -17,7 +17,10 @@ import java.util.logging.Logger;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-
+/**
+ * this class implements ServletContextListener
+ *
+ */
 public class LoadResourceListener implements ServletContextListener{
 	Properties props = new Properties();
 	FileInputStream in = null;

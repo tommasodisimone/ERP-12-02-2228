@@ -7,7 +7,10 @@ import cn.itcast.invoice.invoice.goodstype.business.ebi.GoodsTypeEbi;
 import cn.itcast.invoice.invoice.goodstype.dao.dao.GoodsTypeDao;
 import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements GoodsTypeEbi
+ *
+ */
 public class GoodsTypeEbo implements GoodsTypeEbi{
 	private GoodsTypeDao goodsTypeDao;
 	public void setGoodsTypeDao(GoodsTypeDao goodsTypeDao) {

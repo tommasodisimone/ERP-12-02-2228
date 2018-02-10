@@ -2,7 +2,10 @@ package cn.itcast.invoice.util.base;
 
 import java.io.Serializable;
 import java.util.List;
-
+/**
+ * this interface is the base for all the Daos classes of the project
+ *
+ */
 public interface BaseDao<T> {
 	public void save(T t);
 	
