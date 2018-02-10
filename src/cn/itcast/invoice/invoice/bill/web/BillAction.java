@@ -13,7 +13,10 @@ import cn.itcast.invoice.invoice.supplier.business.ebi.SupplierEbi;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.util.base.BaseAction;
 import cn.itcast.invoice.util.format.FormatUtil;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class BillAction extends BaseAction{
 	public BillQueryModel bqm = new BillQueryModel();
 
@@ -42,7 +45,7 @@ public class BillAction extends BaseAction{
 		group by
 			od.goodsUuid 
 		*/
-		//获取采购报表数据
+		//èŽ·å�–é‡‡è´­æŠ¥è¡¨æ•°æ�®
 		List<Object[]> billList = billEbi.getBillByGoods(bqm);
 		/*
 		for(Object[] objs:billList){
@@ -53,7 +56,7 @@ public class BillAction extends BaseAction{
 		}
 		*/
 		put("billList",billList);
-		//加载所有供应商数据
+		//åŠ è½½æ‰€æœ‰ä¾›åº”å•†æ•°æ�®
 		List<SupplierModel> supplierList = supplierEbi.getAll();
 		put("supplierList",supplierList);
 		return "buyBill";
@@ -66,20 +69,20 @@ public class BillAction extends BaseAction{
 		odmList = billEbi.getBillDetailByGoods(bqm);
 		return "ajaxBillDetailByGoods";
 	}
-	//获取饼图
+	//èŽ·å�–é¥¼å›¾
 	public void billForPie() throws IOException{
-		//1.获取jfreechart对象，将其装入流对象
-		//2.传递到后台一个流对象，在后台完成jfreechart对象转入流的操作
-		//准备数据bqm->list
+		//1.èŽ·å�–jfreechartå¯¹è±¡ï¼Œå°†å…¶è£…å…¥æµ�å¯¹è±¡
+		//2.ä¼ é€’åˆ°å�Žå�°ä¸€ä¸ªæµ�å¯¹è±¡ï¼Œåœ¨å�Žå�°å®Œæˆ�jfreechartå¯¹è±¡è½¬å…¥æµ�çš„æ“�ä½œ
+		//å‡†å¤‡æ•°æ�®bqm->list
 		List<Object[]> billList = billEbi.getBillByGoods(bqm);
-		//准备一个流对象
+		//å‡†å¤‡ä¸€ä¸ªæµ�å¯¹è±¡
 		OutputStream os = getResponse().getOutputStream();
-		//传递到后台，将jfreechart转换到流中
+		//ä¼ é€’åˆ°å�Žå�°ï¼Œå°†jfreechartè½¬æ�¢åˆ°æµ�ä¸­
 		billEbi.getBillForPie(os,billList);
-		//刷新流，将图像送回页面
+		//åˆ·æ–°æµ�ï¼Œå°†å›¾åƒ�é€�å›žé¡µé�¢
 		os.flush();
 	}
-	//下载Excel报表
+	//ä¸‹è½½ExcelæŠ¥è¡¨
 	private InputStream downloadExcel;
 	public InputStream getDownloadExcel() {
 		return downloadExcel;
@@ -91,7 +94,7 @@ public class BillAction extends BaseAction{
 	}
 
 	public String downloadExcelBill() throws Exception{
-		xlsName = "货物统计报表［"+FormatUtil.formatDate(System.currentTimeMillis())+"］.xls";
+		xlsName = "è´§ç‰©ç»Ÿè®¡æŠ¥è¡¨ï¼»"+FormatUtil.formatDate(System.currentTimeMillis())+"ï¼½.xls";
 		List<Object[]> billList = billEbi.getBillByGoods(bqm);
 		downloadExcel = billEbi.getExcelBill(billList);
 		return "downloadExcelBill";

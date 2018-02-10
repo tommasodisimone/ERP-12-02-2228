@@ -12,7 +12,10 @@ import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.goods.vo.GoodsQueryModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements GoodsDao and extends BaseDaoImpl<GoodsModel>
+ *
+ */
 public class GoodsDaoImpl extends BaseDaoImpl<GoodsModel> implements GoodsDao{
 	
 	/**

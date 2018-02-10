@@ -10,7 +10,10 @@ import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;
 import cn.itcast.invoice.invoice.supplier.business.ebi.SupplierEbi;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.util.base.BaseAction;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class GoodsAction extends BaseAction{
 	public GoodsModel gm = new GoodsModel();
 	public GoodsQueryModel gqm = new GoodsQueryModel();
@@ -31,9 +34,9 @@ public class GoodsAction extends BaseAction{
 		this.goodsEbi = goodsEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
-		//加载供应商的全部数据
+		//åŠ è½½ä¾›åº”å•†çš„å…¨éƒ¨æ•°æ�®
 		List<SupplierModel> supplierList = supplierEbi.getAll();
 		put("supplierList",supplierList);
 		setDataTotal(goodsEbi.getCount(gqm));
@@ -42,7 +45,7 @@ public class GoodsAction extends BaseAction{
 		return LIST;
 	}
 
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(gm.getUuid()== null){
 			goodsEbi.save(gm);
@@ -52,12 +55,12 @@ public class GoodsAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
-		//加载所有的具有商品类别的供应商信息
+		//åŠ è½½æ‰€æœ‰çš„å…·æœ‰å•†å“�ç±»åˆ«çš„ä¾›åº”å•†ä¿¡æ�¯
 		List<SupplierModel> supplierList = supplierEbi.getAllUnion();
 		put("supplierList",supplierList);
-		//加载第一个供应商对应的商品类别信息
+		//åŠ è½½ç¬¬ä¸€ä¸ªä¾›åº”å•†å¯¹åº”çš„å•†å“�ç±»åˆ«ä¿¡æ�¯
 		List<GoodsTypeModel> gtmList = goodsTypeEbi.getAllBySupplier(supplierList.get(0).getUuid());
 		put("gtmList",gtmList);
 		if(gm.getUuid()!=null){
@@ -66,7 +69,7 @@ public class GoodsAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		goodsEbi.delete(gm);
 		return TO_LIST;

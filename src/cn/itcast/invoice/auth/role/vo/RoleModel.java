@@ -6,7 +6,10 @@ import java.util.Set;
 import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.auth.menu.vo.MenuModel;
 import cn.itcast.invoice.auth.res.vo.ResModel;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class RoleModel implements Serializable{
 	private Long segreto;
 	private String name;

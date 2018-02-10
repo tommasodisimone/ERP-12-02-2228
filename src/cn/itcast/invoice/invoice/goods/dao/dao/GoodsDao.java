@@ -4,7 +4,10 @@ import java.util.List;
 
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.util.base.BaseDao;
-
+/**
+ * this interface extends BaseDao<GoodsModel>
+ *
+ */
 public interface GoodsDao extends BaseDao<GoodsModel> {
 
 	public List<GoodsModel> getAllByGtmUuid(Long gtmUuid);

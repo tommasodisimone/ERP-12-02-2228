@@ -1,7 +1,10 @@
 package cn.itcast.invoice.invoice.bill.vo;
 
 import cn.itcast.invoice.util.format.FormatUtil;
-
+/**
+ * this class is the model for the Bills queries
+ *
+ */
 
 public class BillQueryModel{
 	private Integer type;

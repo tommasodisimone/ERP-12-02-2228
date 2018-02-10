@@ -10,7 +10,10 @@ import cn.itcast.invoice.auth.role.business.ebi.RoleEbi;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.auth.role.vo.RoleQueryModel;
 import cn.itcast.invoice.util.base.BaseAction;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class RoleAction extends BaseAction{
 	public RoleModel rm = new RoleModel();
 	public RoleQueryModel rqm = new RoleQueryModel();
@@ -31,18 +34,18 @@ public class RoleAction extends BaseAction{
 		this.roleEbi = roleEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
 		setDataTotal(roleEbi.getCount(rqm));
 		List<RoleModel> roleList = roleEbi.getAll(rqm,pageNum,pageCount);
 		put("roleList",roleList);
 		return LIST;
 	}
-	//资源的uuid数组
+	//èµ„æº�çš„uuidæ•°ç»„
 	public Long[] resUuids;
-	//菜单的uuid数组
+	//è�œå�•çš„uuidæ•°ç»„
 	public Long[] menuUuids;
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(rm.getUuid()== null){
 			roleEbi.save(rm,resUuids,menuUuids);
@@ -52,20 +55,20 @@ public class RoleAction extends BaseAction{
 		return TO_LIST;
 	}
 	
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
-		//加载所有的资源数据
+		//åŠ è½½æ‰€æœ‰çš„èµ„æº�æ•°æ�®
 		List<ResModel> resList = resEbi.getAll();
 		put("resList",resList);
 		
-		//加载所有的菜单数据
+		//åŠ è½½æ‰€æœ‰çš„è�œå�•æ•°æ�®
 		List<MenuModel> menuList = menuEbi.getAll();
 		put("menuList",menuList);
 		
 		if(rm.getUuid()!=null){
 			rm = roleEbi.get(rm.getUuid());
-			//将rm对象中的reses转换为页面可以接收的数据格式 resUuids数组
-			//集合Set->Long[]
+			//å°†rmå¯¹è±¡ä¸­çš„resesè½¬æ�¢ä¸ºé¡µé�¢å�¯ä»¥æŽ¥æ”¶çš„æ•°æ�®æ ¼å¼� resUuidsæ•°ç»„
+			//é›†å�ˆSet->Long[]
 			resUuids = new Long[rm.getReses().size()];
 			int i = 0;
 			for(ResModel temp: rm.getReses()){
@@ -81,7 +84,7 @@ public class RoleAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		roleEbi.delete(rm);
 		return TO_LIST;
