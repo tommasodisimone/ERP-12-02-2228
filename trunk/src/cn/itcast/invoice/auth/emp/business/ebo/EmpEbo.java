@@ -13,6 +13,11 @@ import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
 import cn.itcast.invoice.util.format.MD5Utils;
 
+
+/**
+ * this interface implements EmpEbi
+ *
+ */
 public class EmpEbo implements EmpEbi{
 	private EmpDao empDao;
 	private ResDao resDao;

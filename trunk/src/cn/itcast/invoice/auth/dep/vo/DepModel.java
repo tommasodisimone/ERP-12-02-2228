@@ -2,6 +2,11 @@ package cn.itcast.invoice.auth.dep.vo;
 
 import java.io.Serializable;
 
+
+/**
+ * this class implements Serializable
+ *
+ */
 public class DepModel implements Serializable{
 	private Long segreto;
 	

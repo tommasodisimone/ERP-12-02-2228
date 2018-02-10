@@ -7,6 +7,12 @@ import cn.itcast.invoice.auth.dep.vo.DepModel;
 import cn.itcast.invoice.auth.dep.vo.DepQueryModel;
 import cn.itcast.invoice.util.base.BaseAction;
 
+
+/**
+ * this interface extends BaseAction
+ *
+ */
+
 public class DepAction extends BaseAction{
 
 	public DepModel dm = new DepModel();
@@ -17,11 +23,11 @@ public class DepAction extends BaseAction{
 		this.depEbi = depEbi;
 	}
 	
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
-		//计算最大页码值 : 记录总条目数与每页显示数计算而来
+		//è®¡ç®—æœ€å¤§é¡µç �å€¼ : è®°å½•æ€»æ�¡ç›®æ•°ä¸Žæ¯�é¡µæ˜¾ç¤ºæ•°è®¡ç®—è€Œæ�¥
 		//dataTotal = depEbi.getCount(dqm);
-		//最大页码值
+		//æœ€å¤§é¡µç �å€¼
 		/*
 		37  10 	4
 		(37+10 -1) /10 	4
@@ -34,50 +40,50 @@ public class DepAction extends BaseAction{
 		*/
 		//maxPageNum = (dataTotal + pageCount -1) / pageCount; 
 		setDataTotal(depEbi.getCount(dqm));
-		//获取所有的部门数据
+		//èŽ·å�–æ‰€æœ‰çš„éƒ¨é—¨æ•°æ�®
 		List<DepModel> depList = depEbi.getAll(dqm,pageNum,pageCount);
-		//将该数据放入指定范围
+		//å°†è¯¥æ•°æ�®æ”¾å…¥æŒ‡å®šèŒƒå›´
 		//ActionContext.getContext().put("depList", depList);
 		put("depList",depList);
-		//跳转页面
-		//页面中从指定范围内获取数据展示
+		//è·³è½¬é¡µé�¢
+		//é¡µé�¢ä¸­ä»ŽæŒ‡å®šèŒƒå›´å†…èŽ·å�–æ•°æ�®å±•ç¤º
 		return LIST;
 	}
 	
 	/*
-	//按条件查询
+	//æŒ‰æ�¡ä»¶æŸ¥è¯¢
 	public String queryList(){
-		//根据查询条件进行查询获得最终显示的数据
+		//æ ¹æ�®æŸ¥è¯¢æ�¡ä»¶è¿›è¡ŒæŸ¥è¯¢èŽ·å¾—æœ€ç»ˆæ˜¾ç¤ºçš„æ•°æ�®
 		List<DepModel> depList = depEbi.getAll(dqm);
-		//放入指定范围
+		//æ”¾å…¥æŒ‡å®šèŒƒå›´
 		ActionContext.getContext().put("depList",depList);
-		//跳转页面
+		//è·³è½¬é¡µé�¢
 		return "list";
 	}
 	*/
 	
-	//新建部门
+	//æ–°å»ºéƒ¨é—¨
 	public String save(){
-		//通过页面是否传递有具体的uuid值来区分究竟是添加还是修改
-		if(dm.getUuid()== null){	//没有传递uuid值，添加
+		//é€šè¿‡é¡µé�¢æ˜¯å�¦ä¼ é€’æœ‰å…·ä½“çš„uuidå€¼æ�¥åŒºåˆ†ç©¶ç«Ÿæ˜¯æ·»åŠ è¿˜æ˜¯ä¿®æ”¹
+		if(dm.getUuid()== null){	//æ²¡æœ‰ä¼ é€’uuidå€¼ï¼Œæ·»åŠ 
 			depEbi.save(dm);
-		}else{						//传递了uuid值，修改
+		}else{						//ä¼ é€’äº†uuidå€¼ï¼Œä¿®æ”¹
 			depEbi.update(dm);
 		}
 		return TO_LIST;
 	}
 	
-	//跳转到修改页面
+	//è·³è½¬åˆ°ä¿®æ”¹é¡µé�¢
 	public String input(){
-		//如果传递有uuid，执行查询
+		//å¦‚æžœä¼ é€’æœ‰uuidï¼Œæ‰§è¡ŒæŸ¥è¯¢
 		if(dm.getUuid()!=null){
-			//根据传递的uuid获取对应的数据
+			//æ ¹æ�®ä¼ é€’çš„uuidèŽ·å�–å¯¹åº”çš„æ•°æ�®
 			dm = depEbi.get(dm.getUuid());
 		}
 		return INPUT;
 	}
 	
-	//删除部门信息
+	//åˆ é™¤éƒ¨é—¨ä¿¡æ�¯
 	public String delete(){
 		depEbi.delete(dm);
 		return TO_LIST;
@@ -100,11 +106,11 @@ public class DepAction extends ActionSupport{
 	public Integer pageCount = 2;
 	public Integer maxPageNum ;
 	public Integer dataTotal;
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
-		//计算最大页码值 : 记录总条目数与每页显示数计算而来
+		//è®¡ç®—æœ€å¤§é¡µç �å€¼ : è®°å½•æ€»æ�¡ç›®æ•°ä¸Žæ¯�é¡µæ˜¾ç¤ºæ•°è®¡ç®—è€Œæ�¥
 		dataTotal = depEbi.getCount(dqm);
-		//最大页码值
+		//æœ€å¤§é¡µç �å€¼
 		37  10 	4
 		(37+10 -1) /10 	4
 		39	10	4
@@ -114,47 +120,47 @@ public class DepAction extends ActionSupport{
 		41  10	5
 		(41+10-1) /10  5
 		maxPageNum = (dataTotal + pageCount -1) / pageCount; 
-		//获取所有的部门数据
+		//èŽ·å�–æ‰€æœ‰çš„éƒ¨é—¨æ•°æ�®
 		List<DepModel> depList = depEbi.getAll(dqm,pageNum,pageCount);
-		//将该数据放入指定范围
+		//å°†è¯¥æ•°æ�®æ”¾å…¥æŒ‡å®šèŒƒå›´
 		ActionContext.getContext().put("depList", depList);
-		//跳转页面
-		//页面中从指定范围内获取数据展示
+		//è·³è½¬é¡µé�¢
+		//é¡µé�¢ä¸­ä»ŽæŒ‡å®šèŒƒå›´å†…èŽ·å�–æ•°æ�®å±•ç¤º
 		return "list";
 	}
 	
-	//按条件查询
+	//æŒ‰æ�¡ä»¶æŸ¥è¯¢
 	public String queryList(){
-		//根据查询条件进行查询获得最终显示的数据
+		//æ ¹æ�®æŸ¥è¯¢æ�¡ä»¶è¿›è¡ŒæŸ¥è¯¢èŽ·å¾—æœ€ç»ˆæ˜¾ç¤ºçš„æ•°æ�®
 		List<DepModel> depList = depEbi.getAll(dqm);
-		//放入指定范围
+		//æ”¾å…¥æŒ‡å®šèŒƒå›´
 		ActionContext.getContext().put("depList",depList);
-		//跳转页面
+		//è·³è½¬é¡µé�¢
 		return "list";
 	}
 	
-	//新建部门
+	//æ–°å»ºéƒ¨é—¨
 	public String save(){
-		//通过页面是否传递有具体的uuid值来区分究竟是添加还是修改
-		if(dm.getUuid()== null){	//没有传递uuid值，添加
+		//é€šè¿‡é¡µé�¢æ˜¯å�¦ä¼ é€’æœ‰å…·ä½“çš„uuidå€¼æ�¥åŒºåˆ†ç©¶ç«Ÿæ˜¯æ·»åŠ è¿˜æ˜¯ä¿®æ”¹
+		if(dm.getUuid()== null){	//æ²¡æœ‰ä¼ é€’uuidå€¼ï¼Œæ·»åŠ 
 			depEbi.save(dm);
-		}else{						//传递了uuid值，修改
+		}else{						//ä¼ é€’äº†uuidå€¼ï¼Œä¿®æ”¹
 			depEbi.update(dm);
 		}
 		return "toList";
 	}
 	
-	//跳转到修改页面
+	//è·³è½¬åˆ°ä¿®æ”¹é¡µé�¢
 	public String input(){
-		//如果传递有uuid，执行查询
+		//å¦‚æžœä¼ é€’æœ‰uuidï¼Œæ‰§è¡ŒæŸ¥è¯¢
 		if(dm.getUuid()!=null){
-			//根据传递的uuid获取对应的数据
+			//æ ¹æ�®ä¼ é€’çš„uuidèŽ·å�–å¯¹åº”çš„æ•°æ�®
 			dm = depEbi.get(dm.getUuid());
 		}
 		return "input";
 	}
 	
-	//删除部门信息
+	//åˆ é™¤éƒ¨é—¨ä¿¡æ�¯
 	public String delete(){
 		depEbi.delete(dm);
 		return "toList";

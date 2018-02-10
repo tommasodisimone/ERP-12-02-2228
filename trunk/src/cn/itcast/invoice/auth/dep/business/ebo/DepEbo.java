@@ -9,6 +9,12 @@ import cn.itcast.invoice.auth.dep.vo.DepModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
 import cn.itcast.invoice.util.exception.AppException;
 
+
+/**
+ * This class implements DepEbi
+ *
+ */
+
 public class DepEbo implements DepEbi{
 	private DepDao depDao;
 	public void setDepDao(DepDao depDao) {
@@ -19,7 +25,11 @@ public class DepEbo implements DepEbi{
 		//逻辑校验
 		if(dm.getName().trim().length() == 0){
 			//报告错误
-			throw new AppException("INFO_DEP_NAME_IS_EMPTY");
+			try {
+				throw new AppException("INFO_DEP_NAME_IS_EMPTY");
+			} catch (AppException e) {
+				System.out.println("Something was wrong!");
+			}
 		}
 		depDao.save(dm);
 	}

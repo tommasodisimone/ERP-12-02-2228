@@ -5,6 +5,10 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.itcast.invoice.auth.dep.vo.DepModel;
 import cn.itcast.invoice.util.base.BaseEbi;
 
+/**
+ * this is an interface based on BaseEbi
+ *
+ */
 @Transactional
 public interface DepEbi extends BaseEbi<DepModel> {
 }
@@ -22,10 +26,10 @@ public DepModel get(Long uuid);
 public List<DepModel> getAll();
 
 /**
- * 分页获取数据
- * @param dqm 查询条件
- * @param pageNum 页码值
- * @param pageCount 每页显示数
+ * åˆ†é¡µèŽ·å�–æ•°æ�®
+ * @param dqm æŸ¥è¯¢æ�¡ä»¶
+ * @param pageNum é¡µç �å€¼
+ * @param pageCount æ¯�é¡µæ˜¾ç¤ºæ•°
  * @return
  */
 /*	public List<DepModel> getAll(DepQueryModel dqm, Integer pageNum,Integer pageCount);

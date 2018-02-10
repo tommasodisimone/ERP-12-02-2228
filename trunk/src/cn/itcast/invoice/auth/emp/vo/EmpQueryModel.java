@@ -2,7 +2,10 @@ package cn.itcast.invoice.auth.emp.vo;
 
 import cn.itcast.invoice.util.base.BaseQueryModel;
 import cn.itcast.invoice.util.format.FormatUtil;
-
+/**
+ * this class implements BaseQueryModel and exdends EmpModel
+ *
+ */
 public class EmpQueryModel extends EmpModel implements BaseQueryModel{
 	//æ­¤å¤„æ·»åŠ çš„æ˜¯æ‰€æœ‰çš„è¦�æŸ¥è¯¢çš„å­—æ®µå��
 	private Long birthday2;
