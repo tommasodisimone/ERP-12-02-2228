@@ -16,7 +16,7 @@ function ajaxGet(data){
 		var $selectGtm = $("<select class='goodsType' style='width:200px'></select>");
 		for(var i = 0;i<gtmList.length;i++){
 			var gtm = gtmList[i];
-		var	$op = $("<option value='"+gtm.uuid+"'>"+gtm.name+"</option>")
+		var	$op = $("<option value='"+gtm.uuid+"'>"+gtm.name+"</option>");
 			$selectGtm.append($op);
 		}
 		$td1.append($selectGtm);

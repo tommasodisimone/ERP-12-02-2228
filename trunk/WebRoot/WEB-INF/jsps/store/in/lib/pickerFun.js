@@ -11,7 +11,7 @@ function pickerFun(data){
 				//}
 				var	surplus = data.odm.surplus;
     			var num = data.odm.num;
-    			var has = data.has
+    			var has = data.has;
     			//获取该订单是否全部操作完毕
     			if(has){
 					//已经全部入库完毕

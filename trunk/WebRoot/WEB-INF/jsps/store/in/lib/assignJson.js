@@ -5,7 +5,7 @@
  */
 function assignJson(jsonParam){
 	document.writeln("<script type='text/javascript' src='pickerFun.js'></script>");
-S
+
 	jsonParam["num"] = $nowTr.children("td:eq(3)").children("input").val();
 
 			jsonParam["odmUuid"] = $nowTr.prev().attr("odm");

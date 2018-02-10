@@ -4,7 +4,7 @@
  */
 function addFunSecond($tr, goodsSelectStr){
 	document.writeln("<script type='text/javascript' src='callIntFun.js'></script>");
-	callIntFun()
+	callIntFun();
 	var $td2 = $("<td>"+goodsSelectStr+"</td>");
 	$tr.append($td2);
 	

@@ -15,7 +15,7 @@ function ajOnClick(){
 			//为ajax提交操作后的操作对象进行初始化
 			var temp = upMy();
 			var $upTr = temp[0];
-			var $upCenter =temp[1]
+			var $upCenter =temp[1];
 			var $upRight = temp[2];
 			var $myTr = temp[3];
 				
