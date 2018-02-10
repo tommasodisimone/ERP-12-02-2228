@@ -10,7 +10,10 @@ import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.auth.emp.vo.EmpQueryModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this Class extends BaseDaoImpl and implements EmpDao
+ *
+ */
 public class EmpDaoImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 	
 	public void addUserName(DetachedCriteria dc,EmpQueryModel eqm) {

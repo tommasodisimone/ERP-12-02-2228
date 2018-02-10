@@ -12,12 +12,15 @@ import cn.itcast.invoice.auth.emp.vo.EmpQueryModel;
 import cn.itcast.invoice.auth.role.business.ebi.RoleEbi;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseAction;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class EmpAction extends BaseAction{
-	//1.getUm() 用
-	//2.尝试性的使用public权限访问 用
-	//3.setUm() 有
-	//3.1 在每次调用对象时，执行set方法，创建一个新对象
+	//1.getUm() ç”¨
+	//2.å°�è¯•æ€§çš„ä½¿ç”¨publicæ�ƒé™�è®¿é—® ç”¨
+	//3.setUm() æœ‰
+	//3.1 åœ¨æ¯�æ¬¡è°ƒç”¨å¯¹è±¡æ—¶ï¼Œæ‰§è¡Œsetæ–¹æ³•ï¼Œåˆ›å»ºä¸€ä¸ªæ–°å¯¹è±¡
 	/*
 	localhost:8080/ERP/emp_fn.action?um.uuid=1&um.name=2&um.age=3
 	um.uuid
@@ -61,9 +64,9 @@ public class EmpAction extends BaseAction{
 		this.empEbi = empEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
-		//加载部门全信息
+		//åŠ è½½éƒ¨é—¨å…¨ä¿¡æ�¯
 		List<DepModel> depList = depEbi.getAll();
 		put("depList",depList);
 		setDataTotal(empEbi.getCount(eqm));
@@ -73,7 +76,7 @@ public class EmpAction extends BaseAction{
 	}
 
 	public Long[] roleUuids;
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(em.getUuid()== null){
 			empEbi.save(em,roleUuids);
@@ -83,17 +86,17 @@ public class EmpAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
-		//将部门列表数据
+		//å°†éƒ¨é—¨åˆ—è¡¨æ•°æ�®
 		List<DepModel> depList = depEbi.getAll();
 		put("depList",depList);
-		//加载角色数据
+		//åŠ è½½è§’è‰²æ•°æ�®
 		List<RoleModel> roleList = roleEbi.getAll();
 		put("roleList",roleList);
 		if(em.getUuid()!=null){
 			em = empEbi.get(em.getUuid());
-			//集合->数组
+			//é›†å�ˆ->æ•°ç»„
 			roleUuids = new Long[em.getRoles().size()];
 			int i = 0;
 			for(RoleModel rm:em.getRoles()){
@@ -103,13 +106,13 @@ public class EmpAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		empEbi.delete(em);
 		return TO_LIST;
 	}
 
-	//登陆：使用用户传递的用户名密码进行登陆
+	//ç™»é™†ï¼šä½¿ç”¨ç”¨æˆ·ä¼ é€’çš„ç”¨æˆ·å��å¯†ç �è¿›è¡Œç™»é™†
 	public String login(){
 		HttpServletRequest request = getRequest();
 		String loginIp = request.getHeader("x-forwarded-for"); 
@@ -122,31 +125,31 @@ public class EmpAction extends BaseAction{
 		if(loginIp == null || loginIp.length() == 0 || "unknown".equalsIgnoreCase(loginIp)) { 
 			loginIp = request.getRemoteAddr(); 
 		}
-		//使用用户名密码到数据库进行校验查询
+		//ä½¿ç”¨ç”¨æˆ·å��å¯†ç �åˆ°æ•°æ�®åº“è¿›è¡Œæ ¡éªŒæŸ¥è¯¢
 		EmpModel loginEm = empEbi.login(em.getUserName(),em.getPwd(),loginIp);
-		//判断是否登陆成功
+		//åˆ¤æ–­æ˜¯å�¦ç™»é™†æˆ�åŠŸ
 		if(loginEm == null){
-			//如果匹配失败
-			//跳转到登陆页
+			//å¦‚æžœåŒ¹é…�å¤±è´¥
+			//è·³è½¬åˆ°ç™»é™†é¡µ
 			return "loginFail";
 		}else{
-			//如果匹配成功
-			//将登陆的信息放入Session
+			//å¦‚æžœåŒ¹é…�æˆ�åŠŸ
+			//å°†ç™»é™†çš„ä¿¡æ�¯æ”¾å…¥Session
 			putSession("loginEm", loginEm);
-			//跳转到主页
+			//è·³è½¬åˆ°ä¸»é¡µ
 			return "loginSuccess";
 		}
 	}
 	
-	//登出/注销
+	//ç™»å‡º/æ³¨é”€
 	public String logout(){
-		//将session中的数据清除
+		//å°†sessionä¸­çš„æ•°æ�®æ¸…é™¤
 		putSession("loginEm", null);
-		//跳转到登陆页面
+		//è·³è½¬åˆ°ç™»é™†é¡µé�¢
 		return "loginFail";
 	}
 	
-	//修改密码
+	//ä¿®æ”¹å¯†ç �
 	public String changePwd(){
 		//old: em.pwd
 		//new: request.getParameter();
@@ -154,10 +157,10 @@ public class EmpAction extends BaseAction{
 		String newPwd = getRequest().getParameter("newPwd");
 		boolean flag = empEbi.changePwd(getLogin().getUserName(),oldPwd,newPwd);
 		if(flag){
-			//修改成功
+			//ä¿®æ”¹æˆ�åŠŸ
 			return logout();
 		}else{
-			//修改失败
+			//ä¿®æ”¹å¤±è´¥
 			return "hehe";
 		}
 	}

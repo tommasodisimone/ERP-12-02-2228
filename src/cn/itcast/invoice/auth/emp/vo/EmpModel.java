@@ -8,13 +8,16 @@ import java.util.Set;
 import cn.itcast.invoice.auth.dep.vo.DepModel;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.format.FormatUtil;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class EmpModel implements Serializable{
 	public static final Integer EMP_GENDER_OF_MAN = 1;
 	public static final Integer EMP_GENDER_OF_WOMAN = 0;
 	
-	public static final String EMP_GENDER_OF_MAN_VIEW = "Ã§â€�Â·";
-	public static final String EMP_GENDER_OF_WOMAN_VIEW = "Ã¥Â¥Â³";
+	public static final String EMP_GENDER_OF_MAN_VIEW = "ÃƒÂ§Ã¢â‚¬ï¿½Ã‚Â·";
+	public static final String EMP_GENDER_OF_WOMAN_VIEW = "ÃƒÂ¥Ã‚Â¥Ã‚Â³";
 	
 	public static Map<Integer, String> genderMap = new HashMap<Integer, String>();
 	
@@ -24,11 +27,11 @@ public class EmpModel implements Serializable{
 	}
 	
 	private Long segreto;
-	//Ã§â„¢Â»Ã©â„¢â€ Ã§â€�Â¨Ã¦Ë†Â·Ã¥ï¿½ï¿½
+	//ÃƒÂ§Ã¢â€žÂ¢Ã‚Â»ÃƒÂ©Ã¢â€žÂ¢Ã¢â‚¬ ÃƒÂ§Ã¢â‚¬ï¿½Ã‚Â¨ÃƒÂ¦Ã‹â€ Ã‚Â·ÃƒÂ¥Ã¯Â¿Â½Ã¯Â¿Â½
 	private String userName;
-	//Ã¥Â¯â€ Ã§Â ï¿½
+	//ÃƒÂ¥Ã‚Â¯Ã¢â‚¬ ÃƒÂ§Ã‚ Ã¯Â¿Â½
 	private String pwd;
-	//Ã§Å“Å¸Ã¥Â®Å¾Ã¥Â§â€œÃ¥ï¿½ï¿½
+	//ÃƒÂ§Ã…â€œÃ…Â¸ÃƒÂ¥Ã‚Â®Ã…Â¾ÃƒÂ¥Ã‚Â§Ã¢â‚¬Å“ÃƒÂ¥Ã¯Â¿Â½Ã¯Â¿Â½
 	private String name;
 	
 	private String email;
@@ -42,16 +45,16 @@ public class EmpModel implements Serializable{
 	private Integer gender;
 	private Integer loginTimes;
 	
-	//Ã¨Â§â€ Ã¥â€ºÂ¾Ã¥â‚¬Â¼
+	//ÃƒÂ¨Ã‚Â§Ã¢â‚¬ ÃƒÂ¥Ã¢â‚¬ÂºÃ‚Â¾ÃƒÂ¥Ã¢â€šÂ¬Ã‚Â¼
 	private String birthdayView;
 	private String lastLoginTimeView;
 	private String genderView;
 	
-	//Ã¥â€¦Â³Ã§Â³Â»
+	//ÃƒÂ¥Ã¢â‚¬Â¦Ã‚Â³ÃƒÂ§Ã‚Â³Ã‚Â»
 	private DepModel dm;
 	private Set<RoleModel> roles;
 	
-	//Ã¦ï¿½Æ’Ã©â„¢ï¿½Ã¦Â Â¡Ã©ÂªÅ’Ã¨Â¾â€¦Ã¥Å Â©Ã¥Â­â€”Ã¦Â®Âµ
+	//ÃƒÂ¦Ã¯Â¿Â½Ã†â€™ÃƒÂ©Ã¢â€žÂ¢Ã¯Â¿Â½ÃƒÂ¦Ã‚ Ã‚Â¡ÃƒÂ©Ã‚ÂªÃ…â€™ÃƒÂ¨Ã‚Â¾Ã¢â‚¬Â¦ÃƒÂ¥Ã… Ã‚Â©ÃƒÂ¥Ã‚Â­Ã¢â‚¬â€�ÃƒÂ¦Ã‚Â®Ã‚Âµ
 	private String resValue;
 	
 	public String getResValue() {
