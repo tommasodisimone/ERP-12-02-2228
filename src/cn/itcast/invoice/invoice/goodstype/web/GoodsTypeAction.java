@@ -13,21 +13,49 @@ import cn.itcast.invoice.util.base.BaseAction;
  *
  */
 public class GoodsTypeAction extends BaseAction{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public GoodsTypeModel gm = new GoodsTypeModel();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public GoodsTypeQueryModel gqm = new GoodsTypeQueryModel();
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	private GoodsTypeEbi goodsTypeEbi;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	private SupplierEbi supplierEbi;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setSupplierEbi(SupplierEbi supplierEbi) {
 		this.supplierEbi = supplierEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setGoodsTypeEbi(GoodsTypeEbi goodsTypeEbi) {
 		this.goodsTypeEbi = goodsTypeEbi;
 	}
 
-	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¥Ë†â€”Ã¨Â¡Â¨Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String list(){
 		setDataTotal(goodsTypeEbi.getCount(gqm));
 		List<GoodsTypeModel> goodsTypeList = goodsTypeEbi.getAll(gqm,pageNum,pageCount);
@@ -35,7 +63,11 @@ public class GoodsTypeAction extends BaseAction{
 		return LIST;
 	}
 
-	//ä¿�å­˜/ä¿®æ”¹
+	//Ã¤Â¿ï¿½Ã¥Â­Ëœ/Ã¤Â¿Â®Ã¦â€�Â¹
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String save(){
 		if(gm.getUuid()== null){
 			goodsTypeEbi.save(gm);
@@ -45,9 +77,13 @@ public class GoodsTypeAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¦Â·Â»Ã¥Å Â /Ã¤Â¿Â®Ã¦â€�Â¹Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String input(){
-		//åŠ è½½ä¾›åº”å•†ä¿¡æ�¯åˆ—è¡¨
+		//Ã¥Å Â Ã¨Â½Â½Ã¤Â¾â€ºÃ¥Âºâ€�Ã¥â€¢â€ Ã¤Â¿Â¡Ã¦ï¿½Â¯Ã¥Ë†â€”Ã¨Â¡Â¨
 		List<SupplierModel> supplierList = supplierEbi.getAll();
 		put("supplierList",supplierList);
 		if(gm.getUuid()!=null){
@@ -56,26 +92,42 @@ public class GoodsTypeAction extends BaseAction{
 		return INPUT;
 	}
 
-	//åˆ é™¤
+	//Ã¥Ë†Â Ã©â„¢Â¤
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String delete(){
 		goodsTypeEbi.delete(gm);
 		return TO_LIST;
 	}
 	
 	//--ajax---------------------------------------------
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long supplierUuid;
 	
 	private List<GoodsTypeModel> gtmList;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public List<GoodsTypeModel> getGtmList(){
 		return gtmList;
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxGetGtmBySupplier(){
-		//æ ¹æ�®ä¾›åº”å•†çš„uuidèŽ·å�–å¯¹åº”çš„æ‰€æœ‰å•†å“�ç±»åˆ«ä¿¡æ�¯
+		//Ã¦Â Â¹Ã¦ï¿½Â®Ã¤Â¾â€ºÃ¥Âºâ€�Ã¥â€¢â€ Ã§Å¡â€žuuidÃ¨Å½Â·Ã¥ï¿½â€“Ã¥Â¯Â¹Ã¥Âºâ€�Ã§Å¡â€žÃ¦â€°â‚¬Ã¦Å“â€°Ã¥â€¢â€ Ã¥â€œï¿½Ã§Â±Â»Ã¥Ë†Â«Ã¤Â¿Â¡Ã¦ï¿½Â¯
 		gtmList = goodsTypeEbi.getAllBySupplier(supplierUuid);
-		//å°†æ•°æ�®ä¼ é€’åˆ°é¡µé�¢,jsonæ ¼å¼�
-		//å¦‚ä½•å°†æ•°æ�®è½¬æ�¢ä¸ºjsonæ ¼å¼�ï¼Ÿï¼ˆä½¿ç”¨struts2-json-plugin-2.3.7.jarå®Œæˆ�)
-		//å°†å¯¹åº”Actionç±»ä¸­æ‰€æœ‰getå¼€å¤´çš„æ–¹æ³•å¯¹åº”çš„æ•°æ�®ï¼Œè½¬æ�¢ä¸ºjsonæ ¼å¼�ï¼Œjsonå±žæ€§å��ä¸ºgetæ–¹æ³•çš„å��ç§°(ä¸�åŒ…å�«get)
+		//Ã¥Â°â€ Ã¦â€¢Â°Ã¦ï¿½Â®Ã¤Â¼Â Ã©â‚¬â€™Ã¥Ë†Â°Ã©Â¡ÂµÃ©ï¿½Â¢,jsonÃ¦Â Â¼Ã¥Â¼ï¿½
+		//Ã¥Â¦â€šÃ¤Â½â€¢Ã¥Â°â€ Ã¦â€¢Â°Ã¦ï¿½Â®Ã¨Â½Â¬Ã¦ï¿½Â¢Ã¤Â¸ÂºjsonÃ¦Â Â¼Ã¥Â¼ï¿½Ã¯Â¼Å¸Ã¯Â¼Ë†Ã¤Â½Â¿Ã§â€�Â¨struts2-json-plugin-2.3.7.jarÃ¥Â®Å’Ã¦Ë†ï¿½)
+		//Ã¥Â°â€ Ã¥Â¯Â¹Ã¥Âºâ€�ActionÃ§Â±Â»Ã¤Â¸Â­Ã¦â€°â‚¬Ã¦Å“â€°getÃ¥Â¼â‚¬Ã¥Â¤Â´Ã§Å¡â€žÃ¦â€“Â¹Ã¦Â³â€¢Ã¥Â¯Â¹Ã¥Âºâ€�Ã§Å¡â€žÃ¦â€¢Â°Ã¦ï¿½Â®Ã¯Â¼Å’Ã¨Â½Â¬Ã¦ï¿½Â¢Ã¤Â¸ÂºjsonÃ¦Â Â¼Ã¥Â¼ï¿½Ã¯Â¼Å’jsonÃ¥Â±Å¾Ã¦â‚¬Â§Ã¥ï¿½ï¿½Ã¤Â¸ÂºgetÃ¦â€“Â¹Ã¦Â³â€¢Ã§Å¡â€žÃ¥ï¿½ï¿½Ã§Â§Â°(Ã¤Â¸ï¿½Ã¥Å’â€¦Ã¥ï¿½Â«get)
 		return "ajaxGetGtmBySupplier";
 	}
 	/*

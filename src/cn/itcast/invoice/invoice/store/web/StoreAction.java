@@ -16,21 +16,49 @@ import cn.itcast.invoice.util.exception.AppException;
  *
  */
 public class StoreAction extends BaseAction{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public StoreModel sm = new StoreModel();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public StoreQueryModel sqm = new StoreQueryModel();
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	private StoreEbi storeEbi;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	private EmpEbi empEbi;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setEmpEbi(EmpEbi empEbi) {
 		this.empEbi = empEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setStoreEbi(StoreEbi storeEbi) {
 		this.storeEbi = storeEbi;
 	}
 
-	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¥Ë†â€”Ã¨Â¡Â¨Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String list(){
 		setDataTotal(storeEbi.getCount(sqm));
 		List<StoreModel> storeList = storeEbi.getAll(sqm,pageNum,pageCount);
@@ -38,7 +66,11 @@ public class StoreAction extends BaseAction{
 		return LIST;
 	}
 
-	//ä¿�å­˜/ä¿®æ”¹
+	//Ã¤Â¿ï¿½Ã¥Â­Ëœ/Ã¤Â¿Â®Ã¦â€�Â¹
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String save(){
 		if(sm.getUuid()== null){
 			storeEbi.save(sm);
@@ -48,7 +80,11 @@ public class StoreAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¦Â·Â»Ã¥Å Â /Ã¤Â¿Â®Ã¦â€�Â¹Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String input(){
 		List<EmpModel> empList = empEbi.getAll();
 		put("empList",empList);
@@ -58,29 +94,65 @@ public class StoreAction extends BaseAction{
 		return INPUT;
 	}
 
-	//åˆ é™¤
+	//Ã¥Ë†Â Ã©â„¢Â¤
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String delete(){
 		storeEbi.delete(sm);
 		return TO_LIST;
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long goodsUuid;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Integer num;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long storeUuid;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long odmUuid;
 	private OrderDetailModel odm;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public OrderDetailModel getOdm() {
 		return odm;
 	}
 	private boolean has;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public boolean isHas() {
 		return has;
 	}
 	private boolean msg;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public boolean isMsg() {
 		return msg;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String ajaxInGoods(){
 		try {
 			odm = storeEbi.inGoods(odmUuid,goodsUuid,storeUuid,num,getLogin());

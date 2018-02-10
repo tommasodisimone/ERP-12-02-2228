@@ -13,21 +13,49 @@ import cn.itcast.invoice.util.base.BaseAction;
  *
  */
 public class ResAction extends BaseAction{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public ResModel rm = new ResModel();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public ResQueryModel rqm = new ResQueryModel();
-
+	/**
+	 * this public element is a public element
+	 *
+	 */
+	
 	private ResEbi resEbi;
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	private RoleEbi roleEbi;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setRoleEbi(RoleEbi roleEbi) {
 		this.roleEbi = roleEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setResEbi(ResEbi resEbi) {
 		this.resEbi = resEbi;
 	}
 
-	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¥Ë†â€”Ã¨Â¡Â¨Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String list(){
 		setDataTotal(resEbi.getCount(rqm));
 		List<ResModel> resList = resEbi.getAll(rqm,pageNum,pageCount);
@@ -35,8 +63,16 @@ public class ResAction extends BaseAction{
 		return LIST;
 	}
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long[] roleUuids;
-	//ä¿�å­˜/ä¿®æ”¹
+	//Ã¤Â¿ï¿½Ã¥Â­Ëœ/Ã¤Â¿Â®Ã¦â€�Â¹
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String save(){
 		if(rm.getUuid()== null){
 			resEbi.save(rm,roleUuids);
@@ -46,13 +82,17 @@ public class ResAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¦Â·Â»Ã¥Å Â /Ã¤Â¿Â®Ã¦â€�Â¹Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String input(){
 		List<RoleModel> roleList = roleEbi.getAll();
 		put("roleList",roleList);
 		if(rm.getUuid()!=null){
 			rm = resEbi.get(rm.getUuid());
-			//å°†é›†å�ˆè½¬æ�¢ä¸ºæ•°ç»„
+			//Ã¥Â°â€ Ã©â€ºâ€ Ã¥ï¿½Ë†Ã¨Â½Â¬Ã¦ï¿½Â¢Ã¤Â¸ÂºÃ¦â€¢Â°Ã§Â»â€ž
 			roleUuids = new Long[rm.getRoles().size()];
 			int i = 0;
 			for(RoleModel temp : rm.getRoles()){
@@ -62,7 +102,11 @@ public class ResAction extends BaseAction{
 		return INPUT;
 	}
 
-	//åˆ é™¤
+	//Ã¥Ë†Â Ã©â„¢Â¤
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String delete(){
 		resEbi.delete(rm);
 		return TO_LIST;

@@ -11,7 +11,15 @@ import cn.itcast.invoice.util.base.BaseAction;
  *
  */
 public class SupplierAction extends BaseAction{
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public SupplierModel sm = new SupplierModel();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public SupplierQueryModel sqm = new SupplierQueryModel();
 
 	private SupplierEbi supplierEbi;
@@ -19,7 +27,11 @@ public class SupplierAction extends BaseAction{
 		this.supplierEbi = supplierEbi;
 	}
 
-	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¥Ë†â€”Ã¨Â¡Â¨Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String list(){
 		setDataTotal(supplierEbi.getCount(sqm));
 		List<SupplierModel> supplierList = supplierEbi.getAll(sqm,pageNum,pageCount);
@@ -27,7 +39,11 @@ public class SupplierAction extends BaseAction{
 		return LIST;
 	}
 
-	//ä¿�å­˜/ä¿®æ”¹
+	//Ã¤Â¿ï¿½Ã¥Â­Ëœ/Ã¤Â¿Â®Ã¦â€�Â¹
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String save(){
 		if(sm.getUuid()== null){
 			supplierEbi.save(sm);
@@ -37,7 +53,11 @@ public class SupplierAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¦Â·Â»Ã¥Å Â /Ã¤Â¿Â®Ã¦â€�Â¹Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String input(){
 		if(sm.getUuid()!=null){
 			sm = supplierEbi.get(sm.getUuid());
@@ -45,7 +65,11 @@ public class SupplierAction extends BaseAction{
 		return INPUT;
 	}
 
-	//åˆ é™¤
+	//Ã¥Ë†Â Ã©â„¢Â¤
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String delete(){
 		supplierEbi.delete(sm);
 		return TO_LIST;

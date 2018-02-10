@@ -15,37 +15,74 @@ import cn.itcast.invoice.util.base.BaseAction;
  *
  */
 public class RoleAction extends BaseAction{
+	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public RoleModel rm = new RoleModel();
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public RoleQueryModel rqm = new RoleQueryModel();
 
 	private RoleEbi roleEbi;
 	private ResEbi resEbi;
 	private MenuEbi menuEbi;
 	
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setMenuEbi(MenuEbi menuEbi) {
 		this.menuEbi = menuEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setResEbi(ResEbi resEbi) {
 		this.resEbi = resEbi;
 	}
 
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public void setRoleEbi(RoleEbi roleEbi) {
 		this.roleEbi = roleEbi;
 	}
 
-	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¥Ë†â€”Ã¨Â¡Â¨Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String list(){
 		setDataTotal(roleEbi.getCount(rqm));
 		List<RoleModel> roleList = roleEbi.getAll(rqm,pageNum,pageCount);
 		put("roleList",roleList);
 		return LIST;
 	}
-	//èµ„æº�çš„uuidæ•°ç»„
+	//Ã¨Âµâ€žÃ¦Âºï¿½Ã§Å¡â€žuuidÃ¦â€¢Â°Ã§Â»â€ž
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long[] resUuids;
-	//è�œå�•çš„uuidæ•°ç»„
+	//Ã¨ï¿½Å“Ã¥ï¿½â€¢Ã§Å¡â€žuuidÃ¦â€¢Â°Ã§Â»â€ž
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public Long[] menuUuids;
-	//ä¿�å­˜/ä¿®æ”¹
+	//Ã¤Â¿ï¿½Ã¥Â­Ëœ/Ã¤Â¿Â®Ã¦â€�Â¹
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String save(){
 		if(rm.getUuid()== null){
 			roleEbi.save(rm,resUuids,menuUuids);
@@ -55,20 +92,24 @@ public class RoleAction extends BaseAction{
 		return TO_LIST;
 	}
 	
-	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
+	//Ã¨Â·Â³Ã¨Â½Â¬Ã¥Ë†Â°Ã¦Â·Â»Ã¥Å Â /Ã¤Â¿Â®Ã¦â€�Â¹Ã©Â¡ÂµÃ©ï¿½Â¢
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String input(){
-		//åŠ è½½æ‰€æœ‰çš„èµ„æº�æ•°æ�®
+		//Ã¥Å Â Ã¨Â½Â½Ã¦â€°â‚¬Ã¦Å“â€°Ã§Å¡â€žÃ¨Âµâ€žÃ¦Âºï¿½Ã¦â€¢Â°Ã¦ï¿½Â®
 		List<ResModel> resList = resEbi.getAll();
 		put("resList",resList);
 		
-		//åŠ è½½æ‰€æœ‰çš„è�œå�•æ•°æ�®
+		//Ã¥Å Â Ã¨Â½Â½Ã¦â€°â‚¬Ã¦Å“â€°Ã§Å¡â€žÃ¨ï¿½Å“Ã¥ï¿½â€¢Ã¦â€¢Â°Ã¦ï¿½Â®
 		List<MenuModel> menuList = menuEbi.getAll();
 		put("menuList",menuList);
 		
 		if(rm.getUuid()!=null){
 			rm = roleEbi.get(rm.getUuid());
-			//å°†rmå¯¹è±¡ä¸­çš„resesè½¬æ�¢ä¸ºé¡µé�¢å�¯ä»¥æŽ¥æ”¶çš„æ•°æ�®æ ¼å¼� resUuidsæ•°ç»„
-			//é›†å�ˆSet->Long[]
+			//Ã¥Â°â€ rmÃ¥Â¯Â¹Ã¨Â±Â¡Ã¤Â¸Â­Ã§Å¡â€žresesÃ¨Â½Â¬Ã¦ï¿½Â¢Ã¤Â¸ÂºÃ©Â¡ÂµÃ©ï¿½Â¢Ã¥ï¿½Â¯Ã¤Â»Â¥Ã¦Å½Â¥Ã¦â€�Â¶Ã§Å¡â€žÃ¦â€¢Â°Ã¦ï¿½Â®Ã¦Â Â¼Ã¥Â¼ï¿½ resUuidsÃ¦â€¢Â°Ã§Â»â€ž
+			//Ã©â€ºâ€ Ã¥ï¿½Ë†Set->Long[]
 			resUuids = new Long[rm.getReses().size()];
 			int i = 0;
 			for(ResModel temp: rm.getReses()){
@@ -84,7 +125,11 @@ public class RoleAction extends BaseAction{
 		return INPUT;
 	}
 
-	//åˆ é™¤
+	//Ã¥Ë†Â Ã©â„¢Â¤
+	/**
+	 * this public element is a public element
+	 *
+	 */
 	public String delete(){
 		roleEbi.delete(rm);
 		return TO_LIST;
