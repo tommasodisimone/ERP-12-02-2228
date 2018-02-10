@@ -108,8 +108,9 @@ public class ExcelUtil {
 		}
 	}
 	
-	private static Map<Integer, Alignment> alignMap = new HashMap<Integer, Alignment>();
+	private static Map<Integer, Alignment> alignMap;
 	static{
+		alignMap = new HashMap<Integer, Alignment>();
 		alignMap.put(0, Alignment.LEFT);
 		alignMap.put(1, Alignment.CENTRE);
 		alignMap.put(2, Alignment.RIGHT);
