@@ -20,7 +20,7 @@ public class SupplierModel implements Serializable{
 		needsMap.put(SUPPLIER_NEEDS_OF_NO, SUPPLIER_NEEDS_OF_NO_VIEW);
 	}
 	
-	private Long uuid;
+	private Long segreto;
 	
 	private String name;
 	private String address;
@@ -36,7 +36,7 @@ public class SupplierModel implements Serializable{
 	public Set<GoodsTypeModel> getGtms() {
 		return gtms;
 	}
-	private void setGtms(Set<GoodsTypeModel> gtms) {
+	public void setGtms(Set<GoodsTypeModel> gtms) {
 		this.gtms = gtms;
 	}
 	public String getNeedsView() {
@@ -45,38 +45,38 @@ public class SupplierModel implements Serializable{
 	public Integer getNeeds() {
 		return needs;
 	}
-	private void setNeeds(Integer needs) {
+	public void setNeeds(Integer needs) {
 		this.needs = needs;
 		this.needsView = needsMap.get(needs);
 	}
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public String getAddress() {
 		return address;
 	}
-	private void setAddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	public String getContact() {
 		return contact;
 	}
-	private void setContact(String contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 	public String getTele() {
 		return tele;
 	}
-	private void setTele(String tele) {
+	public void setTele(String tele) {
 		this.tele = tele;
 	}
 	

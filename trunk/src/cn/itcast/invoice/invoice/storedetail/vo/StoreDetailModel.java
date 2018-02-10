@@ -6,7 +6,7 @@ import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.store.vo.StoreModel;
 
 public class StoreDetailModel implements Serializable{
-	private Long uuid;
+	private Long segreto;
 	
 	private Integer num;
 	
@@ -14,27 +14,27 @@ public class StoreDetailModel implements Serializable{
 	private StoreModel sm;
 	
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public Integer getNum() {
 		return num;
 	}
-	private void setNum(Integer num) {
+	public void setNum(Integer num) {
 		this.num = num;
 	}
 	public GoodsModel getGm() {
 		return gm;
 	}
-	private void setGm(GoodsModel gm) {
+	public void setGm(GoodsModel gm) {
 		this.gm = gm;
 	}
 	public StoreModel getSm() {
 		return sm;
 	}
-	private void setSm(StoreModel sm) {
+	public void setSm(StoreModel sm) {
 		this.sm = sm;
 	}
 	

@@ -7,7 +7,7 @@ import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 
 public class GoodsTypeModel implements Serializable{
-	private Long uuid;
+	private Long segreto;
 	private String name;
 	
 	private SupplierModel sm;
@@ -17,23 +17,23 @@ public class GoodsTypeModel implements Serializable{
 		return gms;
 	}
 
-	private void setGms(Set<GoodsModel> gms) {
+	public void setGms(Set<GoodsModel> gms) {
 		this.gms = gms;
 	}
 
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
 
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -41,7 +41,7 @@ public class GoodsTypeModel implements Serializable{
 		return sm;
 	}
 
-	private void setSm(SupplierModel sm) {
+	public void setSm(SupplierModel sm) {
 		this.sm = sm;
 	}
 	

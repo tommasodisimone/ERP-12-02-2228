@@ -6,7 +6,7 @@ import java.util.Set;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 
 public class ResModel implements Serializable{
-	private Long uuid;
+	private Long segreto;
 	private String name;
 	//action访问路径
 	private String url;
@@ -17,25 +17,25 @@ public class ResModel implements Serializable{
 	public Set<RoleModel> getRoles() {
 		return roles;
 	}
-	private void setRoles(Set<RoleModel> roles) {
+	public void setRoles(Set<RoleModel> roles) {
 		this.roles = roles;
 	}
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public String getUrl() {
 		return url;
 	}
-	private void setUrl(String url) {
+	public void setUrl(String url) {
 		this.url = url;
 	}
 	

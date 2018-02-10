@@ -24,7 +24,7 @@ public class StoreOperModel implements Serializable{
 		typeMap.put(STOREOPER_TYPE_OF_OUT, STOREOPER_TYPE_OF_OUT_VIEW);
 	}
 	
-	private Long uuid;
+	private Long segreto;
 	private Long operTime;
 	private Integer num;
 	private Integer type;
@@ -40,52 +40,52 @@ public class StoreOperModel implements Serializable{
 		return typeView;
 	}
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public Long getOperTime() {
 		return operTime;
 	}
-	private void setOperTime(Long operTime) {
+	public void setOperTime(Long operTime) {
 		this.operTime = operTime;
 	}
 	public Integer getNum() {
 		return num;
 	}
-	private void setNum(Integer num) {
+	public void setNum(Integer num) {
 		this.num = num;
 	}
 	public Integer getType() {
 		return type;
 	}
-	private void setType(Integer type) {
+	public void setType(Integer type) {
 		this.type = type;
 		this.typeView = typeMap.get(type);
 	}
 	public GoodsModel getGm() {
 		return gm;
 	}
-	private void setGm(GoodsModel gm) {
+	public void setGm(GoodsModel gm) {
 		this.gm = gm;
 	}
 	public EmpModel getEm() {
 		return em;
 	}
-	private void setEm(EmpModel em) {
+	public void setEm(EmpModel em) {
 		this.em = em;
 	}
 	public OrderModel getOm() {
 		return om;
 	}
-	private void setOm(OrderModel om) {
+	public void setOm(OrderModel om) {
 		this.om = om;
 	}
 	public StoreModel getSm() {
 		return sm;
 	}
-	private void setSm(StoreModel sm) {
+	public void setSm(StoreModel sm) {
 		this.sm = sm;
 	}
 	

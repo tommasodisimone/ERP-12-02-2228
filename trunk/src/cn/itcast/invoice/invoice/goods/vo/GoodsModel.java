@@ -6,7 +6,7 @@ import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;
 import cn.itcast.invoice.util.format.FormatUtil;
 
 public class GoodsModel implements Serializable{
-	private Long uuid;
+	private Long segreto;
 	
 	private String name;
 	private String origin;
@@ -33,7 +33,7 @@ public class GoodsModel implements Serializable{
 		return maxNum;
 	}
 
-	private void setMaxNum(Integer maxNum) {
+	public void setMaxNum(Integer maxNum) {
 		this.maxNum = maxNum;
 	}
 
@@ -43,7 +43,7 @@ public class GoodsModel implements Serializable{
 	}
 
 
-	private void setMinNum(Integer minNum) {
+	public void setMinNum(Integer minNum) {
 		this.minNum = minNum;
 	}
 
@@ -57,23 +57,23 @@ public class GoodsModel implements Serializable{
 		return useNum;
 	}
 
-	private void setUseNum(Integer useNum) {
+	public void setUseNum(Integer useNum) {
 		this.useNum = useNum;
 	}
 
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
 
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -81,7 +81,7 @@ public class GoodsModel implements Serializable{
 		return origin;
 	}
 
-	private void setOrigin(String origin) {
+	public void setOrigin(String origin) {
 		this.origin = origin;
 	}
 
@@ -89,7 +89,7 @@ public class GoodsModel implements Serializable{
 		return producer;
 	}
 
-	private void setProducer(String producer) {
+	public void setProducer(String producer) {
 		this.producer = producer;
 	}
 
@@ -97,7 +97,7 @@ public class GoodsModel implements Serializable{
 		return unit;
 	}
 
-	private void setUnit(String unit) {
+	public void setUnit(String unit) {
 		this.unit = unit;
 	}
 
@@ -105,7 +105,7 @@ public class GoodsModel implements Serializable{
 		return inPrice;
 	}
 
-	private void setInPrice(Double inPrice) {
+	public void setInPrice(Double inPrice) {
 		this.inPrice = inPrice;
 		this.inPriceView = FormatUtil.formatMoney(inPrice);
 	}
@@ -114,7 +114,7 @@ public class GoodsModel implements Serializable{
 		return outPrice;
 	}
 
-	private void setOutPrice(Double outPrice) {
+	public void setOutPrice(Double outPrice) {
 		this.outPrice = outPrice;
 		this.outPriceView = FormatUtil.formatMoney(outPrice);
 	}
@@ -123,7 +123,7 @@ public class GoodsModel implements Serializable{
 		return gtm;
 	}
 
-	private void setGtm(GoodsTypeModel gtm) {
+	public void setGtm(GoodsTypeModel gtm) {
 		this.gtm = gtm;
 	}
 	

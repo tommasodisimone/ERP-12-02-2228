@@ -7,7 +7,7 @@ import cn.itcast.invoice.util.format.FormatUtil;
 
 public class OrderDetailModel implements Serializable{
 	
-	private Long uuid;
+	private Long segreto;
 	private Integer num;
 	private Integer surplus;
 	private Double price;
@@ -21,40 +21,40 @@ public class OrderDetailModel implements Serializable{
 		return priceView;
 	}
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public Integer getNum() {
 		return num;
 	}
-	private void setNum(Integer num) {
+	public void setNum(Integer num) {
 		this.num = num;
 	}
 	public Double getPrice() {
 		return price;
 	}
-	private void setPrice(Double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 		this.priceView = FormatUtil.formatMoney(price);
 	}
 	public GoodsModel getGm() {
 		return gm;
 	}
-	private void setGm(GoodsModel gm) {
+	public void setGm(GoodsModel gm) {
 		this.gm = gm;
 	}
 	public OrderModel getOm() {
 		return om;
 	}
-	private void setOm(OrderModel om) {
+	public void setOm(OrderModel om) {
 		this.om = om;
 	}
 	public Integer getSurplus() {
 		return surplus;
 	}
-	private void setSurplus(Integer surplus) {
+	public void setSurplus(Integer surplus) {
 		this.surplus = surplus;
 	}
 	
