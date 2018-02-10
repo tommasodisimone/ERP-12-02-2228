@@ -7,7 +7,10 @@ import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.auth.role.vo.RoleQueryModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements RoleDao and extends BaseDaoImpl<RoleModel>
+ *
+ */
 public class RoleDaoImpl extends BaseDaoImpl<RoleModel> implements RoleDao{
 	public void doQbc(DetachedCriteria dc,BaseQueryModel qm){
 		RoleQueryModel rqm = (RoleQueryModel) qm;

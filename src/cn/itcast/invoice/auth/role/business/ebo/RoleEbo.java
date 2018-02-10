@@ -11,7 +11,10 @@ import cn.itcast.invoice.auth.role.business.ebi.RoleEbi;
 import cn.itcast.invoice.auth.role.dao.dao.RoleDao;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements RoleEbi
+ *
+ */
 public class RoleEbo implements RoleEbi{
 	private RoleDao roleDao;
 	public void setRoleDao(RoleDao roleDao) {

@@ -10,7 +10,10 @@ import cn.itcast.invoice.auth.res.dao.dao.ResDao;
 import cn.itcast.invoice.auth.res.vo.ResModel;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements ResEbi
+ *
+ */
 public class ResEbo implements ResEbi{
 	private ResDao resDao;
 	public void setResDao(ResDao resDao) {

@@ -8,7 +8,10 @@ import cn.itcast.invoice.auth.res.vo.ResQueryModel;
 import cn.itcast.invoice.auth.role.business.ebi.RoleEbi;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseAction;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class ResAction extends BaseAction{
 	public ResModel rm = new ResModel();
 	public ResQueryModel rqm = new ResQueryModel();
@@ -24,7 +27,7 @@ public class ResAction extends BaseAction{
 		this.resEbi = resEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
 		setDataTotal(resEbi.getCount(rqm));
 		List<ResModel> resList = resEbi.getAll(rqm,pageNum,pageCount);
@@ -33,7 +36,7 @@ public class ResAction extends BaseAction{
 	}
 	
 	public Long[] roleUuids;
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(rm.getUuid()== null){
 			resEbi.save(rm,roleUuids);
@@ -43,13 +46,13 @@ public class ResAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
 		List<RoleModel> roleList = roleEbi.getAll();
 		put("roleList",roleList);
 		if(rm.getUuid()!=null){
 			rm = resEbi.get(rm.getUuid());
-			//将集合转换为数组
+			//å°†é›†å�ˆè½¬æ�¢ä¸ºæ•°ç»„
 			roleUuids = new Long[rm.getRoles().size()];
 			int i = 0;
 			for(RoleModel temp : rm.getRoles()){
@@ -59,7 +62,7 @@ public class ResAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		resEbi.delete(rm);
 		return TO_LIST;

@@ -6,7 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.invoice.auth.res.vo.ResModel;
 import cn.itcast.invoice.util.base.BaseEbi;
-
+/**
+ * this class extends BaseEbi<ResModel>
+ *
+ */
 @Transactional
 public interface ResEbi extends BaseEbi<ResModel> {
 
@@ -14,8 +17,8 @@ public interface ResEbi extends BaseEbi<ResModel> {
 
 	public void update(ResModel rm, Long[] roleUuids);
 	/**
-	 * 获取指定员工的所有可操作资源信息
-	 * @param uuid 员工uuid
+	 * èŽ·å�–æŒ‡å®šå‘˜å·¥çš„æ‰€æœ‰å�¯æ“�ä½œèµ„æº�ä¿¡æ�¯
+	 * @param uuid å‘˜å·¥uuid
 	 * @return
 	 */
 	public List<String> getAllResByEmp(Long uuid);

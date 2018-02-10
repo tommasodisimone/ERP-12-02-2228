@@ -6,28 +6,31 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.invoice.auth.menu.vo.MenuModel;
 import cn.itcast.invoice.util.base.BaseEbi;
-
+/**
+ * this interface extends BaseEbi<MenuModel>
+ *
+ */
 @Transactional
 public interface MenuEbi extends BaseEbi<MenuModel> {
 	/**
-	 * 获取所有父菜单
+	 * èŽ·å�–æ‰€æœ‰çˆ¶è�œå�•
 	 * @return
 	 */
 	public List<MenuModel> getParentMenu();
 	/**
-	 * 获取所有父亲菜单，不包含系统菜单
+	 * èŽ·å�–æ‰€æœ‰çˆ¶äº²è�œå�•ï¼Œä¸�åŒ…å�«ç³»ç»Ÿè�œå�•
 	 * @return
 	 */
 	public List<MenuModel> getParentMenu2();
 	/**
-	 * 获取指定id下的所有子菜单项
-	 * @param puuid 指定菜单uuid
+	 * èŽ·å�–æŒ‡å®šidä¸‹çš„æ‰€æœ‰å­�è�œå�•é¡¹
+	 * @param puuid æŒ‡å®šè�œå�•uuid
 	 * @return
 	 */
 	public List<MenuModel> getMenusByPuuid(Long puuid);
 	/**
-	 * 根据登陆人获取课操作菜单
-	 * @param uuid 登陆人uuid
+	 * æ ¹æ�®ç™»é™†äººèŽ·å�–è¯¾æ“�ä½œè�œå�•
+	 * @param uuid ç™»é™†äººuuid
 	 * @return
 	 */
 	public List<MenuModel> getParentMenuByEmp(Long uuid);

@@ -7,7 +7,10 @@ import cn.itcast.invoice.auth.menu.business.ebi.MenuEbi;
 import cn.itcast.invoice.auth.menu.dao.dao.MenuDao;
 import cn.itcast.invoice.auth.menu.vo.MenuModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements MenuEbi
+ *
+ */
 public class MenuEbo implements MenuEbi{
 	private MenuDao menuDao;
 	public void setMenuDao(MenuDao menuDao) {
@@ -19,8 +22,8 @@ public class MenuEbo implements MenuEbi{
 	}
 
 	public void delete(MenuModel mm) {
-		//é¡µé�¢æ”¶é›†çš„æ•°æ�®ä¸­ä»…åŒ…å�«uuid,æ­¤å¤„åˆ é™¤ä¸šåŠ¡éœ€è¦�è¿›è¡Œçº§è�”ï¼Œå¿…é¡»å…ˆå°†å…³è�”å…³ç³»æ•°æ�®åŠ è½½ä¸Š
-		//å› æ­¤åœ¨åˆ é™¤ä¹‹å‰�è¿›è¡Œä¸€æ¬¡æŸ¥è¯¢ï¼ŒåŠ è½½å…³è�”æ•°æ�®
+		//Ã©Â¡ÂµÃ©ï¿½Â¢Ã¦â€�Â¶Ã©â€ºâ€ Ã§Å¡â€žÃ¦â€¢Â°Ã¦ï¿½Â®Ã¤Â¸Â­Ã¤Â»â€¦Ã¥Å’â€¦Ã¥ï¿½Â«uuid,Ã¦Â­Â¤Ã¥Â¤â€žÃ¥Ë†Â Ã©â„¢Â¤Ã¤Â¸Å¡Ã¥Å Â¡Ã©Å“â‚¬Ã¨Â¦ï¿½Ã¨Â¿â€ºÃ¨Â¡Å’Ã§ÂºÂ§Ã¨ï¿½â€�Ã¯Â¼Å’Ã¥Â¿â€¦Ã©Â¡Â»Ã¥â€¦Ë†Ã¥Â°â€ Ã¥â€¦Â³Ã¨ï¿½â€�Ã¥â€¦Â³Ã§Â³Â»Ã¦â€¢Â°Ã¦ï¿½Â®Ã¥Å Â Ã¨Â½Â½Ã¤Â¸Å 
+		//Ã¥â€ºÂ Ã¦Â­Â¤Ã¥Å“Â¨Ã¥Ë†Â Ã©â„¢Â¤Ã¤Â¹â€¹Ã¥â€°ï¿½Ã¨Â¿â€ºÃ¨Â¡Å’Ã¤Â¸â‚¬Ã¦Â¬Â¡Ã¦Å¸Â¥Ã¨Â¯Â¢Ã¯Â¼Å’Ã¥Å Â Ã¨Â½Â½Ã¥â€¦Â³Ã¨ï¿½â€�Ã¦â€¢Â°Ã¦ï¿½Â®
 		mm = menuDao.get(mm.getUuid());
 		menuDao.delete(mm);
 	}

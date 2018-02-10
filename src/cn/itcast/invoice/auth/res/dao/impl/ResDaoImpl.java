@@ -9,7 +9,10 @@ import cn.itcast.invoice.auth.res.vo.ResModel;
 import cn.itcast.invoice.auth.res.vo.ResQueryModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements ResDao and extends BaseDaoImpl<ResModel>
+ *
+ */
 public class ResDaoImpl extends BaseDaoImpl<ResModel> implements ResDao{
 	public void doQbc(DetachedCriteria dc,BaseQueryModel qm){
 		ResQueryModel rqm = (ResQueryModel) qm;
