@@ -7,7 +7,10 @@ import cn.itcast.invoice.invoice.goods.business.ebi.GoodsEbi;
 import cn.itcast.invoice.invoice.goods.dao.dao.GoodsDao;
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements GoodsEbi
+ *
+ */
 public class GoodsEbo implements GoodsEbi{
 	private GoodsDao goodsDao;
 	public void setGoodsDao(GoodsDao goodsDao) {
