@@ -10,7 +10,6 @@ import cn.itcast.invoice.auth.res.dao.dao.ResDao;
 import cn.itcast.invoice.auth.res.vo.ResModel;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-import cn.itcast.invoice.util.exception.AppException;
 
 public class ResEbo implements ResEbi{
 	private ResDao resDao;
@@ -50,7 +49,7 @@ public class ResEbo implements ResEbi{
 		Set<RoleModel> roles = new HashSet<RoleModel>();
 		for(Long uuid:roleUuids){
 			RoleModel temp = new RoleModel();
-			temp.setUuid(uuid);
+			temp.setSegreto(uuid);
 			roles.add(temp);
 		}
 		rm.setRoles(roles);
@@ -61,7 +60,7 @@ public class ResEbo implements ResEbi{
 		Set<RoleModel> roles = new HashSet<RoleModel>();
 		for(Long uuid:roleUuids){
 			RoleModel temp = new RoleModel();
-			temp.setUuid(uuid);
+			temp.setSegreto(uuid);
 			roles.add(temp);
 		}
 		rm.setRoles(roles);

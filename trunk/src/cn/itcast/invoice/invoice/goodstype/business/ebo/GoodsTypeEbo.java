@@ -7,7 +7,6 @@ import cn.itcast.invoice.invoice.goodstype.business.ebi.GoodsTypeEbi;
 import cn.itcast.invoice.invoice.goodstype.dao.dao.GoodsTypeDao;
 import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-import cn.itcast.invoice.util.exception.AppException;
 
 public class GoodsTypeEbo implements GoodsTypeEbi{
 	private GoodsTypeDao goodsTypeDao;

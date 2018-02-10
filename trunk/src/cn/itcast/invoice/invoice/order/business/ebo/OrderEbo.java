@@ -2,7 +2,6 @@ package cn.itcast.invoice.invoice.order.business.ebo;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -57,7 +56,7 @@ public class OrderEbo implements OrderEbi{
 		//omä¸­ä¿�å­˜æœ‰å¯¹åº”ä¾›åº”å•†çš„uuid
 		//è®¾ç½®è®¢å�•å�·:ç³»ç»Ÿæ—¶é—´+ç™»é™†äººuuid
 		String orderNum = System.currentTimeMillis()+""+em.getUuid();
-		om.setOrderNum(MD5Utils.md5(orderNum));
+		om.setOrderNum(MD5Utils.sha256(orderNum));
 		//è®¾ç½®è®¢å�•ç±»åˆ«
 		om.setOrderType(OrderModel.ORDER_ORDERTYPE_OF_BUY);
 		//è®¾ç½®è®¢å�•çŠ¶æ€�
@@ -88,7 +87,7 @@ public class OrderEbo implements OrderEbi{
 			odm.setPrice(price);
 			
 			
-			gm.setUuid(goodsUuid);
+			gm.setSegreto(goodsUuid);
 			odm.setGm(gm);
 			//ç»‘å®šæ˜Žç»†åˆ°è®¢å�•çš„å…³ç³»
 			odm.setOm(om);
@@ -133,7 +132,11 @@ public class OrderEbo implements OrderEbi{
 		OrderModel om = orderDao.get(uuid);
 		//é€»è¾‘åˆ¤å®š
 		if(!Arrays.asList(buyCheckTypes).contains(om.getType())){
-			throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
+			try {
+				throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
+			} catch (AppException e) {
+				System.out.println("Something was wrong!");
+			}
 		}
 		om.setType(OrderModel.ORDER_TYPE_OF_BUY_CHECK_PASS);
 		//è°�ä»€ä¹ˆæ—¶é—´å®¡æ ¸çš„ï¼Ÿ
@@ -145,7 +148,11 @@ public class OrderEbo implements OrderEbi{
 		OrderModel om = orderDao.get(uuid);
 		//é€»è¾‘åˆ¤å®š
 		if(!Arrays.asList(buyCheckTypes).contains(om.getType())){
-			throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
+			try {
+				throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
+			} catch (AppException e) {
+				System.out.println("Something was wrong!");
+			}
 		}
 		om.setType(OrderModel.ORDER_TYPE_OF_BUY_CHECK_NO_PASS);
 		om.setCheckTime(System.currentTimeMillis());
@@ -181,7 +188,11 @@ public class OrderEbo implements OrderEbi{
 	public void assignTask(OrderModel om) {
 		OrderModel temp = orderDao.get(om.getUuid());
 		if(!Arrays.asList(taskTypes2).contains(temp.getType())){
-			throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
+			try {
+				throw new AppException("å¯¹ä¸�èµ·,è¯·ä¸�è¦�è¿›è¡Œé�žæ³•æ“�ä½œï¼�");
+			} catch (AppException e) {
+				System.out.println("Something was wrong!");
+			}
 		}
 		//å½“å‰�ä»»åŠ¡åˆ†é…�å®Œæ¯•å�Žï¼Œåˆ‡æ�¢çŠ¶æ€�ä¸ºæ­£åœ¨é‡‡è´­
 		//é‡‡è´­å’Œé‡‡è´­é€€è´§éƒ½å½’å�Œä¸€ä¸ªäººå®¡æ‰¹

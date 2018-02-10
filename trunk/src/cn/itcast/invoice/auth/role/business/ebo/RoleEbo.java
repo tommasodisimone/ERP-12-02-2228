@@ -11,7 +11,6 @@ import cn.itcast.invoice.auth.role.business.ebi.RoleEbi;
 import cn.itcast.invoice.auth.role.dao.dao.RoleDao;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-import cn.itcast.invoice.util.exception.AppException;
 
 public class RoleEbo implements RoleEbi{
 	private RoleDao roleDao;
@@ -48,14 +47,14 @@ public class RoleEbo implements RoleEbi{
 	}
 
 	public void save(RoleModel rm, Long[] resUuids, Long[] menuUuids) {
-		//将对应的资源值转换为集合，设置到角色对象中
-		//数组转集合
+		//å°†å¯¹åº”çš„èµ„æº�å€¼è½¬æ�¢ä¸ºé›†å�ˆï¼Œè®¾ç½®åˆ°è§’è‰²å¯¹è±¡ä¸­
+		//æ•°ç»„è½¬é›†å�ˆ
 		Set<ResModel> reses = new HashSet<ResModel>();
-		//数组中的数据，进入到集合中
+		//æ•°ç»„ä¸­çš„æ•°æ�®ï¼Œè¿›å…¥åˆ°é›†å�ˆä¸­
 		for(Long uuid:resUuids){
 			//uuid->reses
 			ResModel temp = new ResModel();
-			temp.setUuid(uuid);
+			temp.setSegreto(uuid);
 			reses.add(temp);
 		}
 		rm.setReses(reses);
@@ -63,7 +62,7 @@ public class RoleEbo implements RoleEbi{
 		Set<MenuModel> menus = new HashSet<MenuModel>();
 		for(Long uuid:menuUuids){
 			MenuModel temp = new MenuModel();
-			temp.setUuid(uuid);
+			temp.setSegreto(uuid);
 			menus.add(temp);
 		}
 		rm.setMenus(menus);
@@ -72,14 +71,14 @@ public class RoleEbo implements RoleEbi{
 	}
 
 	public void update(RoleModel rm, Long[] resUuids, Long[] menuUuids) {
-		//将对应的资源值转换为集合，设置到角色对象中
-		//数组转集合
+		//å°†å¯¹åº”çš„èµ„æº�å€¼è½¬æ�¢ä¸ºé›†å�ˆï¼Œè®¾ç½®åˆ°è§’è‰²å¯¹è±¡ä¸­
+		//æ•°ç»„è½¬é›†å�ˆ
 		Set<ResModel> reses = new HashSet<ResModel>();
-		//数组中的数据，进入到集合中
+		//æ•°ç»„ä¸­çš„æ•°æ�®ï¼Œè¿›å…¥åˆ°é›†å�ˆä¸­
 		for(Long uuid:resUuids){
 			//uuid->reses
 			ResModel temp = new ResModel();
-			temp.setUuid(uuid);
+			temp.setSegreto(uuid);
 			reses.add(temp);
 		}
 		rm.setReses(reses);
@@ -87,7 +86,7 @@ public class RoleEbo implements RoleEbi{
 		Set<MenuModel> menus = new HashSet<MenuModel>();
 		for(Long uuid:menuUuids){
 			MenuModel temp = new MenuModel();
-			temp.setUuid(uuid);
+			temp.setSegreto(uuid);
 			menus.add(temp);
 		}
 		rm.setMenus(menus);
