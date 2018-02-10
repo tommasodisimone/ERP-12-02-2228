@@ -8,7 +8,7 @@ import cn.itcast.invoice.auth.menu.vo.MenuModel;
 import cn.itcast.invoice.auth.res.vo.ResModel;
 
 public class RoleModel implements Serializable{
-	private Long uuid;
+	private Long segreto;
 	private String name;
 	
 	//关系
@@ -19,31 +19,31 @@ public class RoleModel implements Serializable{
 	public Set<MenuModel> getMenus() {
 		return menus;
 	}
-	private void setMenus(Set<MenuModel> menus) {
+	public void setMenus(Set<MenuModel> menus) {
 		this.menus = menus;
 	}
 	public Set<EmpModel> getEmps() {
 		return emps;
 	}
-	private void setEmps(Set<EmpModel> emps) {
+	public void setEmps(Set<EmpModel> emps) {
 		this.emps = emps;
 	}
 	public Set<ResModel> getReses() {
 		return reses;
 	}
-	private void setReses(Set<ResModel> reses) {
+	public void setReses(Set<ResModel> reses) {
 		this.reses = reses;
 	}
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	

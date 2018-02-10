@@ -5,34 +5,34 @@ import java.io.Serializable;
 import cn.itcast.invoice.auth.emp.vo.EmpModel;
 
 public class StoreModel implements Serializable{
-	private Long uuid;
+	private Long segreto;
 	private String name;
 	private String address;
 	
 	private EmpModel em;
 	
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public String getAddress() {
 		return address;
 	}
-	private void setAddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	public EmpModel getEm() {
 		return em;
 	}
-	private void setEm(EmpModel em) {
+	public void setEm(EmpModel em) {
 		this.em = em;
 	}
 	

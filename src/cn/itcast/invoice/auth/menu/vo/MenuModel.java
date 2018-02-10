@@ -6,7 +6,7 @@ import java.util.Set;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
 
 public class MenuModel implements Serializable{
-	private Long uuid;
+	private Long segreto;
 	private String name;
 	private String url;
 	
@@ -18,37 +18,37 @@ public class MenuModel implements Serializable{
 	public Set<RoleModel> getRoles() {
 		return roles;
 	}
-	private void setRoles(Set<RoleModel> roles) {
+	public void setRoles(Set<RoleModel> roles) {
 		this.roles = roles;
 	}
 	public Set<MenuModel> getChildren() {
 		return children;
 	}
-	private void setChildren(Set<MenuModel> children) {
+	public void setChildren(Set<MenuModel> children) {
 		this.children = children;
 	}
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
 	public MenuModel getParent() {
 		return parent;
 	}
-	private void setParent(MenuModel parent) {
+	public void setParent(MenuModel parent) {
 		this.parent = parent;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public String getUrl() {
 		return url;
 	}
-	private void setUrl(String url) {
+	public void setUrl(String url) {
 		this.url = url;
 	}
 	

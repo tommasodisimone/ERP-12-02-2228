@@ -74,7 +74,7 @@ public class OrderModel implements Serializable{
 	299	Ã¥Â·Â²Ã§Â»â€œÃ¥ï¿½â€¢
 	*/
 	
-	private Long uuid;
+	private Long segreto;
 	private String orderNum;
 
 	private Integer totalNum;
@@ -106,7 +106,7 @@ public class OrderModel implements Serializable{
 	public Set<OrderDetailModel> getOdms() {
 		return odms;
 	}
-	private void setOdms(Set<OrderDetailModel> odms) {
+	public void setOdms(Set<OrderDetailModel> odms) {
 		this.odms = odms;
 	}
 	
@@ -162,87 +162,87 @@ public class OrderModel implements Serializable{
 	}
 	
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 	public String getOrderNum() {
 		return orderNum;
 	}
-	private void setOrderNum(String orderNum) {
+	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
 	}
 	public Integer getTotalNum() {
 		return totalNum;
 	}
-	private void setTotalNum(Integer totalNum) {
+	public void setTotalNum(Integer totalNum) {
 		this.totalNum = totalNum;
 	}
 	public Double getTotalPrice() {
 		return totalPrice;
 	}
-	private void setTotalPrice(Double totalPrice) {
+	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 		this.totalPriceView = FormatUtil.formatMoney(totalPrice);
 	}
 	public Integer getOrderType() {
 		return orderType;
 	}
-	private void setOrderType(Integer orderType) {
+	public void setOrderType(Integer orderType) {
 		this.orderType = orderType;
 		this.orderTypeView =orderTypeMap.get(orderType);
 	}
 	public Integer getType() {
 		return type;
 	}
-	private void setType(Integer type) {
+	public void setType(Integer type) {
 		this.type = type;
 		this.typeView = typeMap.get(type);
 	}
 	public Long getCreateTime() {
 		return createTime;
 	}
-	private void setCreateTime(Long createTime) {
+	public void setCreateTime(Long createTime) {
 		this.createTime = createTime;
 		this.createTimeView = FormatUtil.formatDateTime(createTime);
 	}
 	public Long getCheckTime() {
 		return checkTime;
 	}
-	private void setCheckTime(Long checkTime) {
+	public void setCheckTime(Long checkTime) {
 		this.checkTime = checkTime;
 		this.checkTimeView = FormatUtil.formatDateTime(checkTime);
 	}
 	public Long getCompleteTime() {
 		return completeTime;
 	}
-	private void setCompleteTime(Long completeTime) {
+	public void setCompleteTime(Long completeTime) {
 		this.completeTime = completeTime;
 		this.completeTimeView = FormatUtil.formatDateTime(completeTime);
 	}
 	public EmpModel getCreater() {
 		return creater;
 	}
-	private void setCreater(EmpModel creater) {
+	public void setCreater(EmpModel creater) {
 		this.creater = creater;
 	}
 	public EmpModel getChecker() {
 		return checker;
 	}
-	private void setChecker(EmpModel checker) {
+	public void setChecker(EmpModel checker) {
 		this.checker = checker;
 	}
 	public EmpModel getCompleter() {
 		return completer;
 	}
-	private void setCompleter(EmpModel completer) {
+	public void setCompleter(EmpModel completer) {
 		this.completer = completer;
 	}
 	public SupplierModel getSm() {
 		return sm;
 	}
-	private void setSm(SupplierModel sm) {
+	public void setSm(SupplierModel sm) {
 		this.sm = sm;
 	}
 	

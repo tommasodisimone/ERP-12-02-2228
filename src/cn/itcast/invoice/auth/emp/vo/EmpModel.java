@@ -23,7 +23,7 @@ public class EmpModel implements Serializable{
 		genderMap.put(EMP_GENDER_OF_WOMAN, EMP_GENDER_OF_WOMAN_VIEW);
 	}
 	
-	private Long uuid;
+	private Long segreto;
 	//Ã§â„¢Â»Ã©â„¢â€ Ã§â€�Â¨Ã¦Ë†Â·Ã¥ï¿½ï¿½
 	private String userName;
 	//Ã¥Â¯â€ Ã§Â ï¿½
@@ -71,7 +71,7 @@ public class EmpModel implements Serializable{
 	}
 
 	public Long getUuid() {
-		return uuid;
+		return segreto;
 	}
 
 	/**
@@ -95,15 +95,15 @@ public class EmpModel implements Serializable{
 	}
 	
 
-	private void setUuid(Long uuid) {
-		this.uuid = uuid;
+	public void setSegreto(Long segreto) {
+		this.segreto = segreto;
 	}
 
 	public String getUserName() {
 		return userName;
 	}
 
-	private void setUserName(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -111,7 +111,7 @@ public class EmpModel implements Serializable{
 		return pwd;
 	}
 
-	private void setPwd(String pwd) {
+	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
 
@@ -140,20 +140,20 @@ public class EmpModel implements Serializable{
 		return toReturn;
 	}
 
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 
-	private void setEmail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	private void setTele(String tele) {
+	public void setTele(String tele) {
 		this.tele = tele;
 	}
 
-	private void setAddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
@@ -161,7 +161,7 @@ public class EmpModel implements Serializable{
 		return lastLoginIp;
 	}
 
-	private void setLastLoginIp(String lastLoginIp) {
+	public void setLastLoginIp(String lastLoginIp) {
 		this.lastLoginIp = lastLoginIp;
 	}
 
@@ -169,7 +169,7 @@ public class EmpModel implements Serializable{
 		return birthday;
 	}
 
-	private void setBirthday(Long birthday) {
+	public void setBirthday(Long birthday) {
 		this.birthday = birthday;
 		this.birthdayView = FormatUtil.formatDate(birthday);
 	}
@@ -178,7 +178,7 @@ public class EmpModel implements Serializable{
 		return lastLoginTime;
 	}
 
-	private void setLastLoginTime(Long lastLoginTime) {
+	public void setLastLoginTime(Long lastLoginTime) {
 		this.lastLoginTime = lastLoginTime;
 		this.lastLoginTimeView = FormatUtil.formatDate(lastLoginTime);
 	}
@@ -187,7 +187,7 @@ public class EmpModel implements Serializable{
 		return gender;
 	}
 
-	private void setGender(Integer gender) {
+	public void setGender(Integer gender) {
 		this.gender = gender;
 		this.genderView = genderMap.get(gender);
 	}
@@ -196,7 +196,7 @@ public class EmpModel implements Serializable{
 		return loginTimes;
 	}
 
-	private void setLoginTimes(Integer loginTimes) {
+	public void setLoginTimes(Integer loginTimes) {
 		this.loginTimes = loginTimes;
 	}
 
@@ -204,7 +204,7 @@ public class EmpModel implements Serializable{
 		return dm;
 	}
 
-	private void setDm(DepModel dm) {
+	public void setDm(DepModel dm) {
 		this.dm = dm;
 	}
 	
