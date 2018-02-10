@@ -1,5 +1,8 @@
 package cn.itcast.invoice.emp.action;
-
+/**
+ * this class is the model for the User
+ *
+ */
 public class UserModel {
 	public UserModel(){
 		System.out.println("object instance....");

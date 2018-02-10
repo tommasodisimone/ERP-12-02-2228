@@ -14,7 +14,10 @@ import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.ui.ApplicationFrame;
-
+/**
+ * this class is a demo class for testing
+ *
+ */
 public class PieChartDemo7 extends ApplicationFrame {
 	private PieChartDemo7(String paramString) {
 		super(paramString);
