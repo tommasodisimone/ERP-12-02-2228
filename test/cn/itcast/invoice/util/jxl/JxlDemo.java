@@ -1,7 +1,10 @@
 package cn.itcast.invoice.util.jxl;
 
 
-
+/**
+ * this class is a demo class
+ *
+ */
 public class JxlDemo {
 	public static void main(String[] args) throws Exception {
 		//è¯»å�–Excel
