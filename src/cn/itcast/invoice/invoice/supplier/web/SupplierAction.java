@@ -6,7 +6,10 @@ import cn.itcast.invoice.invoice.supplier.business.ebi.SupplierEbi;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierQueryModel;
 import cn.itcast.invoice.util.base.BaseAction;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class SupplierAction extends BaseAction{
 	public SupplierModel sm = new SupplierModel();
 	public SupplierQueryModel sqm = new SupplierQueryModel();
@@ -16,7 +19,7 @@ public class SupplierAction extends BaseAction{
 		this.supplierEbi = supplierEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
 		setDataTotal(supplierEbi.getCount(sqm));
 		List<SupplierModel> supplierList = supplierEbi.getAll(sqm,pageNum,pageCount);
@@ -24,7 +27,7 @@ public class SupplierAction extends BaseAction{
 		return LIST;
 	}
 
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(sm.getUuid()== null){
 			supplierEbi.save(sm);
@@ -34,7 +37,7 @@ public class SupplierAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
 		if(sm.getUuid()!=null){
 			sm = supplierEbi.get(sm.getUuid());
@@ -42,7 +45,7 @@ public class SupplierAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		supplierEbi.delete(sm);
 		return TO_LIST;

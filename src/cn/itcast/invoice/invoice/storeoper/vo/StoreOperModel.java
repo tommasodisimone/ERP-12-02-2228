@@ -8,7 +8,10 @@ import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.order.vo.OrderModel;
 import cn.itcast.invoice.invoice.store.vo.StoreModel;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class StoreOperModel implements Serializable{
 	
 	public static final Integer STOREOPER_TYPE_OF_IN = 1;

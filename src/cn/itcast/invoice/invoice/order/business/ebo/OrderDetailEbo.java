@@ -7,7 +7,10 @@ import cn.itcast.invoice.invoice.order.business.ebi.OrderDetailEbi;
 import cn.itcast.invoice.invoice.order.dao.dao.OrderDetailDao;
 import cn.itcast.invoice.invoice.order.vo.OrderDetailModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements OrderDetailEbi
+ *
+ */
 public class OrderDetailEbo implements OrderDetailEbi{
 	private OrderDetailDao orderDetailDao;
 	public void setOrderDetailDao(OrderDetailDao orderDetailDao) {

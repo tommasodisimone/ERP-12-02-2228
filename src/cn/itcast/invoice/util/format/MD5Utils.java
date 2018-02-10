@@ -1,7 +1,10 @@
 ﻿package cn.itcast.invoice.util.format;
 //fixed error id 9
 import java.security.MessageDigest;
-
+/**
+ * this class is used for the encrypting
+ *
+ */
 public class MD5Utils {
 	/**
 	 * 使用md5的算法进行加密

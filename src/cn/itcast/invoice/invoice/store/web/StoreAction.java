@@ -11,7 +11,10 @@ import cn.itcast.invoice.invoice.store.vo.StoreModel;
 import cn.itcast.invoice.invoice.store.vo.StoreQueryModel;
 import cn.itcast.invoice.util.base.BaseAction;
 import cn.itcast.invoice.util.exception.AppException;
-
+/**
+ * this class extends BaseAction
+ *
+ */
 public class StoreAction extends BaseAction{
 	public StoreModel sm = new StoreModel();
 	public StoreQueryModel sqm = new StoreQueryModel();
@@ -27,7 +30,7 @@ public class StoreAction extends BaseAction{
 		this.storeEbi = storeEbi;
 	}
 
-	//跳转到列表页面
+	//è·³è½¬åˆ°åˆ—è¡¨é¡µé�¢
 	public String list(){
 		setDataTotal(storeEbi.getCount(sqm));
 		List<StoreModel> storeList = storeEbi.getAll(sqm,pageNum,pageCount);
@@ -35,7 +38,7 @@ public class StoreAction extends BaseAction{
 		return LIST;
 	}
 
-	//保存/修改
+	//ä¿�å­˜/ä¿®æ”¹
 	public String save(){
 		if(sm.getUuid()== null){
 			storeEbi.save(sm);
@@ -45,7 +48,7 @@ public class StoreAction extends BaseAction{
 		return TO_LIST;
 	}
 
-	//跳转到添加/修改页面
+	//è·³è½¬åˆ°æ·»åŠ /ä¿®æ”¹é¡µé�¢
 	public String input(){
 		List<EmpModel> empList = empEbi.getAll();
 		put("empList",empList);
@@ -55,7 +58,7 @@ public class StoreAction extends BaseAction{
 		return INPUT;
 	}
 
-	//删除
+	//åˆ é™¤
 	public String delete(){
 		storeEbi.delete(sm);
 		return TO_LIST;

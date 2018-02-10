@@ -11,7 +11,10 @@ import cn.itcast.invoice.invoice.order.vo.OrderModel;
 import cn.itcast.invoice.invoice.order.vo.OrderQueryModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implements OrderDao and extends BaseDaoImpl<OrderModel>
+ *
+ */
 public class OrderDaoImpl extends BaseDaoImpl<OrderModel> implements OrderDao{
 	public void doQbc(DetachedCriteria dc,BaseQueryModel qm){
 		OrderQueryModel oqm = (OrderQueryModel) qm;

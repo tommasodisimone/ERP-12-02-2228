@@ -6,7 +6,10 @@ import java.util.Map;
 import java.util.Set;
 
 import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class SupplierModel implements Serializable{
 	public static final Integer SUPPLIER_NEEDS_OF_YES = 1;
 	public static final Integer SUPPLIER_NEEDS_OF_NO = 0;

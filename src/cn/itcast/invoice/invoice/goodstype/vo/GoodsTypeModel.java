@@ -5,7 +5,10 @@ import java.util.Set;
 
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class GoodsTypeModel implements Serializable{
 	private Long segreto;
 	private String name;

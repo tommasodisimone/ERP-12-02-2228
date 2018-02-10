@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.time.format.*;
 import java.text.DecimalFormat;
 
-
+/**
+ * this class is used to format all the date and time string of the project
+ *
+ */
 public class FormatUtil {
 	public static String formatDate(Long time){
 		if(time == null) return "-";

@@ -9,7 +9,10 @@ import java.util.TreeMap;
 import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.invoice.supplier.vo.SupplierModel;
 import cn.itcast.invoice.util.format.FormatUtil;
-
+/**
+ * this class implements Serializable
+ *
+ */
 public class OrderModel implements Serializable{
 	public static final Integer ORDER_TYPE_OF_BUY_NO_CHECK = 111;
 	public static final Integer ORDER_TYPE_OF_BUY_CHECK_NO_PASS = 120;

@@ -6,15 +6,18 @@ import cn.itcast.invoice.auth.emp.vo.EmpModel;
 import cn.itcast.invoice.invoice.order.vo.OrderDetailModel;
 import cn.itcast.invoice.invoice.store.vo.StoreModel;
 import cn.itcast.invoice.util.base.BaseEbi;
-
+/**
+ * this interface extends BaseEbi<StoreModel>
+ *
+ */
 @Transactional
 public interface StoreEbi extends BaseEbi<StoreModel> {
 	/**
-	 * 入库
-	 * @param odmUuid	订单明细编号 
-	 * @param goodsUuid 商品编号
-	 * @param storeUuid 仓库编号
-	 * @param num 操作数量
+	 * å…¥åº“
+	 * @param odmUuid	è®¢å�•æ˜Žç»†ç¼–å�· 
+	 * @param goodsUuid å•†å“�ç¼–å�·
+	 * @param storeUuid ä»“åº“ç¼–å�·
+	 * @param num æ“�ä½œæ•°é‡�
 	 * @param login
 	 * 
 	 */
