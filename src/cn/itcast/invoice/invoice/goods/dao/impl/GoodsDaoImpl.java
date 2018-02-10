@@ -10,7 +10,6 @@ import org.hibernate.criterion.Restrictions;
 import cn.itcast.invoice.invoice.goods.dao.dao.GoodsDao;
 import cn.itcast.invoice.invoice.goods.vo.GoodsModel;
 import cn.itcast.invoice.invoice.goods.vo.GoodsQueryModel;
-import cn.itcast.invoice.invoice.storedetail.vo.StoreDetailModel;
 import cn.itcast.invoice.util.base.BaseDaoImpl;
 import cn.itcast.invoice.util.base.BaseQueryModel;
 

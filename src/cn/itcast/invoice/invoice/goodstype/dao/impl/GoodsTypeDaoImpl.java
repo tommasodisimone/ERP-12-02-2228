@@ -3,7 +3,6 @@ package cn.itcast.invoice.invoice.goodstype.dao.impl;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import cn.itcast.invoice.invoice.goodstype.dao.dao.GoodsTypeDao;
 import cn.itcast.invoice.invoice.goodstype.vo.GoodsTypeModel;

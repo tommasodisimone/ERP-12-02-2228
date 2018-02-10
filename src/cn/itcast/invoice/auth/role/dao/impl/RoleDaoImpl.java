@@ -1,7 +1,6 @@
 package cn.itcast.invoice.auth.role.dao.impl;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import cn.itcast.invoice.auth.role.dao.dao.RoleDao;
 import cn.itcast.invoice.auth.role.vo.RoleModel;
