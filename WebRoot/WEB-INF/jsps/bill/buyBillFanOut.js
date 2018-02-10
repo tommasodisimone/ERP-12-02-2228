@@ -10,7 +10,7 @@ function dataBill(data){
 				
 				//使用上述值拼写tr
 					//添加表头
-			var	$headTr = $('<tr align="center" style="background:url(images/table_bg.gif) repeat-x;" class="ajaxMsg"><td height="30">订单号</td><td>订单时间</td><td>数量</td><td>单价</td><td>合计</td></tr>') 
+			var	$headTr = $('<tr align="center" style="background:url(images/table_bg.gif) repeat-x;" class="ajaxMsg"><td height="30">订单号</td><td>订单时间</td><td>数量</td><td>单价</td><td>合计</td></tr>'); 
 				$nowTr.after($headTr);
 			var	$nowTr = $headTr;
 				var sum = 0;

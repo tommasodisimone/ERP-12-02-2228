@@ -5,7 +5,7 @@
  */
 function preventDefault(e) {
 	if(e.preventDefault){
-		e.preventDefault()
+		e.preventDefault();
 	}else{
 		e.returnValue = false;
 	}

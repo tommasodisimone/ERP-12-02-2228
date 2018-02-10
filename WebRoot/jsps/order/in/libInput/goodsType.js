@@ -10,7 +10,7 @@ function goodsType(){
 			var $num = vars[1];
 				
 			var vars2 = goodsTypeVar2();
-			var $price = vars2[0]
+			var $price = vars2[0];
 			var $total = vars2[1];
 			var jsonParam = vars2[2];
 			var goodsUuids = "";

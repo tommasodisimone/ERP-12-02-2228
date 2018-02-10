@@ -11,7 +11,7 @@ function addFun(){
 			var jsonParam = vars[2];
 			var hasUuids = vars[3];
 			
-			forAddFun(hasUuids, goodsTypeObjs, goodsObjs)
+			forAddFun(hasUuids, goodsTypeObjs, goodsObjs);
 			
 			jsonParam["hasUuids"]= hasUuids;
 				

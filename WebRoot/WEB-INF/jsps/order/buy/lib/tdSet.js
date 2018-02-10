@@ -8,7 +8,7 @@ function tdSet(){
 	var $selectGm = $("<select name='goodsUuids' class='goods' style='width:200px'></select>");
 	for(var i = 0;i<gmList.length;i++){
 		var gm = gmList[i];
-	var	$op = $("<option value='"+gm.uuid+"'>"+gm.name+"</option>")
+	var	$op = $("<option value='"+gm.uuid+"'>"+gm.name+"</option>");
 		$selectGm.append($op);
 	}
 	$td2.append($selectGm);
