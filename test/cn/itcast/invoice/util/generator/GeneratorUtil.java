@@ -6,8 +6,6 @@ import java.io.FileWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import cn.itcast.invoice.invoice.storedetail.vo.StoreDetailModel;
-
 public class GeneratorUtil {
 	
 	

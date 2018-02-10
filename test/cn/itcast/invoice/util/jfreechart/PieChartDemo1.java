@@ -1,11 +1,6 @@
 package cn.itcast.invoice.util.jfreechart;
 
 import java.awt.Font;
-import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
