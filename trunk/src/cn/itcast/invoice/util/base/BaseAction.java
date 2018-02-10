@@ -58,7 +58,7 @@ public class BaseAction extends ActionSupport{
 	/**
 	 * this public element is a public element
 	 *
-	 */
+	 */ 
 	private String actionName;
 	
 	/**
@@ -70,7 +70,7 @@ public class BaseAction extends ActionSupport{
 		String actionName =getClass().getSimpleName();	//DepAction
 		String subName = actionName.substring(0,actionName.length()-6);
 		return subName.substring(0,1).toLowerCase()+subName.substring(1);
-	}
+	} 
 	/*
 	public static void main(String[] args) {
 		String s = "StoreDetailAction";
