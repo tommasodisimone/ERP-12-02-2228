@@ -11,7 +11,10 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import cn.itcast.invoice.invoice.bill.dao.dao.BillDao;
 import cn.itcast.invoice.invoice.bill.vo.BillQueryModel;
 import cn.itcast.invoice.invoice.order.vo.OrderDetailModel;
-
+/**
+ * this class implements BollDao and extends HibernateDaoSupport
+ *
+ */
 public class BillDaoImpl extends HibernateDaoSupport implements BillDao{
 
 	private static List<Object[]> billByGoods;

@@ -8,7 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.invoice.invoice.bill.vo.BillQueryModel;
 import cn.itcast.invoice.invoice.order.vo.OrderDetailModel;
-
+/**
+ * this interface is the model for the Bills
+ *
+ */
 @Transactional
 public interface BillEbi {
 

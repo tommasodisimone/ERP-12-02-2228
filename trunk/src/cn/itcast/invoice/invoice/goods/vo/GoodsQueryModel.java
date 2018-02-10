@@ -1,7 +1,10 @@
 package cn.itcast.invoice.invoice.goods.vo;
 
 import cn.itcast.invoice.util.base.BaseQueryModel;
-
+/**
+ * this class implementsBaseQueryModel and extends GoodsModel
+ *
+ */
 public class GoodsQueryModel extends GoodsModel implements BaseQueryModel{
 	private Double inPrice2;
 	private Double outPrice2;
