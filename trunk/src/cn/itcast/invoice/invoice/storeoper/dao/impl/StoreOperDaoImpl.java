@@ -1,7 +1,6 @@
 package cn.itcast.invoice.invoice.storeoper.dao.impl;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import cn.itcast.invoice.invoice.storeoper.dao.dao.StoreOperDao;
 import cn.itcast.invoice.invoice.storeoper.vo.StoreOperModel;

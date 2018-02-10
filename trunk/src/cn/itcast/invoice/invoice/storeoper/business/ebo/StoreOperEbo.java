@@ -7,7 +7,6 @@ import cn.itcast.invoice.invoice.storeoper.business.ebi.StoreOperEbi;
 import cn.itcast.invoice.invoice.storeoper.dao.dao.StoreOperDao;
 import cn.itcast.invoice.invoice.storeoper.vo.StoreOperModel;
 import cn.itcast.invoice.util.base.BaseQueryModel;
-import cn.itcast.invoice.util.exception.AppException;
 
 public class StoreOperEbo implements StoreOperEbi{
 	private StoreOperDao storeOperDao;

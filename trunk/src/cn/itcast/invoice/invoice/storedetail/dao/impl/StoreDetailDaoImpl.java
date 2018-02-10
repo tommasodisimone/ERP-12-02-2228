@@ -3,7 +3,6 @@ package cn.itcast.invoice.invoice.storedetail.dao.impl;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import cn.itcast.invoice.invoice.storedetail.dao.dao.StoreDetailDao;
 import cn.itcast.invoice.invoice.storedetail.vo.StoreDetailModel;

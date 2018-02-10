@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/cn/itcast/invoice/auth/emp/business/ebo/EmpEbo.java=UTF-8
+encoding//src/cn/itcast/invoice/auth/res/dao/impl/ResDaoImpl.java=UTF-8
+encoding//src/cn/itcast/invoice/auth/role/business/ebo/RoleEbo.java=UTF-8
 encoding//src/cn/itcast/invoice/invoice/order/business/ebo/OrderEbo.java=UTF-8
 encoding//src/cn/itcast/invoice/util/format/FormatUtil.java=UTF-8
 encoding//src/cn/itcast/invoice/util/listener/LoadResourceListener.java=UTF-8

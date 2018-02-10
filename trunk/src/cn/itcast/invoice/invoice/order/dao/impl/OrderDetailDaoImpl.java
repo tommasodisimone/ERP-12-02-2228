@@ -1,7 +1,6 @@
 package cn.itcast.invoice.invoice.order.dao.impl;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 
 import cn.itcast.invoice.invoice.order.dao.dao.OrderDetailDao;
 import cn.itcast.invoice.invoice.order.vo.OrderDetailModel;
