@@ -16,7 +16,7 @@ import org.jfree.data.general.PieDataset;
 import org.jfree.ui.ApplicationFrame;
 
 public class PieChartDemo7 extends ApplicationFrame {
-	public PieChartDemo7(String paramString) {
+	private PieChartDemo7(String paramString) {
 		super(paramString);
 		setContentPane(createDemoPanel());
 	}
