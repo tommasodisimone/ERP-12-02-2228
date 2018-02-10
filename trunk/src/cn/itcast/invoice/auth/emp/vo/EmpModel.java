@@ -19,9 +19,10 @@ public class EmpModel implements Serializable{
 	public static final String EMP_GENDER_OF_MAN_VIEW = "ÃƒÂ§Ã¢â‚¬ï¿½Ã‚Â·";
 	public static final String EMP_GENDER_OF_WOMAN_VIEW = "ÃƒÂ¥Ã‚Â¥Ã‚Â³";
 	
-	public static Map<Integer, String> genderMap = new HashMap<Integer, String>();
+	public static Map<Integer, String> genderMap;
 	
 	static{
+		genderMap = new HashMap<Integer, String>();
 		genderMap.put(EMP_GENDER_OF_MAN, EMP_GENDER_OF_MAN_VIEW);
 		genderMap.put(EMP_GENDER_OF_WOMAN, EMP_GENDER_OF_WOMAN_VIEW);
 	}
