@@ -58,7 +58,7 @@ public class EmpModel implements Serializable{
 		return resValue;
 	}
 
-	private void setResValue(String resValue) {
+	public void setResValue(String resValue) {
 		this.resValue = resValue;
 	}
 
@@ -66,7 +66,7 @@ public class EmpModel implements Serializable{
 		return roles;
 	}
 
-	private void setRoles(Set<RoleModel> roles) {
+	public void setRoles(Set<RoleModel> roles) {
 		this.roles = roles;
 	}
 
