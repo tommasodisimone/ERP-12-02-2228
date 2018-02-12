@@ -133,7 +133,7 @@ public class GeneratorUtil {
 	             try {
 	               bw.close(); // OK
 	             } catch (java.io.IOException e3) {
-	               System.out.println("I/O Exception");
+	               e3.printStackTrace();
 	             }
 	           }
 	         }
@@ -155,7 +155,8 @@ public class GeneratorUtil {
 		
 		bw = new BufferedWriter(new FileWriter(f));
 		
-		bw.write("package "+pkg+".web;");
+		String pack = "package "+pkg+".web;";
+		bw.write(pack);
 		bw.newLine();
 		
 		bw.newLine();
@@ -165,10 +166,12 @@ public class GeneratorUtil {
 		
 		bw.newLine();
 		
-		bw.write("import "+pkg+".business.ebi."+big+"Ebi;");
+		String impor = "import "+pkg+".business.ebi."+big+"Ebi;";
+		bw.write(impor);
 		bw.newLine();
 		
-		bw.write("import "+pkg+".vo."+big+"Model;");
+		String pkg = "import "+pkg+".vo."+big+"Model;";
+		bw.write(pkg);
 		bw.newLine();
 		
 		bw.write("import "+pkg+".vo."+big+"QueryModel;");
@@ -179,10 +182,12 @@ public class GeneratorUtil {
 		
 		bw.newLine();
 		
-		bw.write("public class "+big+"Action extends BaseAction{");
+		String big = "public class "+big+"Action extends BaseAction{";
+		bw.write(big);
 		bw.newLine();
 		
-		bw.write("	public "+big+"Model "+little+"m = new "+big+"Model();");
+		big = "	public "+big+"Model "+little+"m = new "+big+"Model();";
+		bw.write(big);
 		bw.newLine();
 		
 		bw.write("	public "+big+"QueryModel "+little+"qm = new "+big+"QueryModel();");
@@ -199,7 +204,8 @@ public class GeneratorUtil {
 		bw.write("		this."+small+"Ebi = "+small+"Ebi;");
 		bw.newLine();
 		
-		bw.write("	}");
+		big = "	}";
+		bw.write();
 		bw.newLine();
 		
 		bw.newLine();
@@ -236,7 +242,8 @@ public class GeneratorUtil {
 		bw.write("		if("+little+"m.getUuid()== null){");
 		bw.newLine();
 		
-		bw.write("			"+small+"Ebi.save("+little+"m);");
+		big = "			"+small+"Ebi.save("+little+"m);";
+		bw.write(big);
 		bw.newLine();
 		
 		bw.write("		}else{");
@@ -285,7 +292,8 @@ public class GeneratorUtil {
 		bw.write("	public String delete(){");
 		bw.newLine();
 		
-		bw.write("		"+small+"Ebi.delete("+little+"m);");
+			big = "		"+small+"Ebi.delete("+little+"m);";
+		bw.write(delete);
 		bw.newLine();
 		
 		bw.write("		return TO_LIST;");
@@ -296,13 +304,14 @@ public class GeneratorUtil {
 		
 		bw.newLine();
 		
-		bw.write("}");
+			big = "}";
+		bw.write(big);
 		bw.newLine();
 
 		bw.flush();
 		}
 		catch (java.io.FileNotFoundException e1) {
-            System.out.println("File not found");
+            e1.printStackTrace();
           } 
 		 finally {
 	           if (bw != null) {
@@ -343,7 +352,8 @@ public class GeneratorUtil {
 		bw.write("import "+pkg+".business.ebi."+big+"Ebi;");
 		bw.newLine();
 		
-		bw.write("import "+pkg+".dao.dao."+big+"Dao;");
+			big = "import "+pkg+".dao.dao."+big+"Dao;";
+		bw.write(big);
 		bw.newLine();
 		
 		bw.write("import "+pkg+".vo."+big+"Model;");
@@ -410,7 +420,8 @@ public class GeneratorUtil {
 		bw.write("	public "+big+"Model get(Serializable uuid) {");
 		bw.newLine();
 		
-		bw.write("		return "+small+"Dao.get(uuid);");
+			big = "		return "+small+"Dao.get(uuid);";
+		bw.write(big);
 		bw.newLine();
 		
 		bw.write("	}");
