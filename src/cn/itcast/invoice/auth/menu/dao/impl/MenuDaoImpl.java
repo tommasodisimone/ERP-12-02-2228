@@ -15,10 +15,11 @@ import cn.itcast.invoice.util.base.BaseQueryModel;
  *
  */
 public class MenuDaoImpl extends BaseDaoImpl<MenuModel> implements MenuDao{
+	public static long oneL = 1L;
 	public void doQbc(DetachedCriteria dc,BaseQueryModel qm){
 		MenuQueryModel mqm = (MenuQueryModel) qm;
-		//æ­¤å¤„è¿‡æ»¤æŽ‰ç³»ç»Ÿè�œå�•
-		dc.add(Restrictions.not(Restrictions.eq("uuid",1L)));
+		//Ã¦Â­Â¤Ã¥Â¤â€žÃ¨Â¿â€¡Ã¦Â»Â¤Ã¦Å½â€°Ã§Â³Â»Ã§Â»Å¸Ã¨ï¿½Å“Ã¥ï¿½â€¢
+		dc.add(Restrictions.not(Restrictions.eq("uuid",oneL)));
 
 		if(mqm.getName()!=null && mqm.getName().trim().length()>0){
 			dc.add(Restrictions.like("name", "%"+mqm.getName().trim()+"%"));
@@ -29,17 +30,17 @@ public class MenuDaoImpl extends BaseDaoImpl<MenuModel> implements MenuDao{
 		}
 		
 	}
-	//å¾…å®š
+	//Ã¥Â¾â€¦Ã¥Â®Å¡
 	public List<MenuModel> getByUuidAndPuuidIsOne() {
 		String hql = "from MenuModel where uuid = ? or parent.uuid = ?";
-		//TODO æ­¤å¤„ä½¿ç”¨çš„æ˜¯å›ºå®šå€¼ï¼ˆåŸºäºŽéœ€æ±‚å†³å®šçš„ï¼‰
-		return this.getHibernateTemplate().find(hql,1L,1L);
+		//TODO Ã¦Â­Â¤Ã¥Â¤â€žÃ¤Â½Â¿Ã§â€�Â¨Ã§Å¡â€žÃ¦ËœÂ¯Ã¥â€ºÂºÃ¥Â®Å¡Ã¥â‚¬Â¼Ã¯Â¼Ë†Ã¥Å¸ÂºÃ¤ÂºÅ½Ã©Å“â‚¬Ã¦Â±â€šÃ¥â€ Â³Ã¥Â®Å¡Ã§Å¡â€žÃ¯Â¼â€°
+		return this.getHibernateTemplate().find(hql,oneL,oneL);
 	}
 
 	public List<MenuModel> getByPuuidIsOne() {
 		String hql = "from MenuModel where parent.uuid = ?";
-		//TODO æ­¤å¤„ä½¿ç”¨çš„æ˜¯å›ºå®šå€¼ï¼ˆåŸºäºŽéœ€æ±‚å†³å®šçš„ï¼‰
-		return this.getHibernateTemplate().find(hql,1L);
+		//TODO Ã¦Â­Â¤Ã¥Â¤â€žÃ¤Â½Â¿Ã§â€�Â¨Ã§Å¡â€žÃ¦ËœÂ¯Ã¥â€ºÂºÃ¥Â®Å¡Ã¥â‚¬Â¼Ã¯Â¼Ë†Ã¥Å¸ÂºÃ¤ÂºÅ½Ã©Å“â‚¬Ã¦Â±â€šÃ¥â€ Â³Ã¥Â®Å¡Ã§Å¡â€žÃ¯Â¼â€°
+		return this.getHibernateTemplate().find(hql,oneL);
 	}
 	
 	public List<MenuModel> getByPuuid(Long puuid) {
@@ -48,17 +49,17 @@ public class MenuDaoImpl extends BaseDaoImpl<MenuModel> implements MenuDao{
 	}
 	
 	public List<MenuModel> getParentByEmpUuid(Long empUuid) {
-		//æ�¡ä»¶æ˜¯äººçš„uuid
-		//æŸ¥è¯¢çš„æ˜¯è�œå�•
+		//Ã¦ï¿½Â¡Ã¤Â»Â¶Ã¦ËœÂ¯Ã¤ÂºÂºÃ§Å¡â€žuuid
+		//Ã¦Å¸Â¥Ã¨Â¯Â¢Ã§Å¡â€žÃ¦ËœÂ¯Ã¨ï¿½Å“Ã¥ï¿½â€¢
 		//Menu->Role->Emp
 		//from MenuModel mm join mm.roles rm join rm.emps em where em.uuid = ?
 		//String hql = "select distinct mm from MenuModel mm join mm.roles rm join rm.emps em where em.uuid = ? and mm.parent.uuid = ?";
 		//return this.getHibernateTemplate().find(hql,uuid,1L);
-		return getMenusByPuuidAndEmp(1L,empUuid);
+		return getMenusByPuuidAndEmp(oneL,empUuid);
 	}
 
 	public List<MenuModel> getMenusByPuuidAndEmp(Long puuid, Long empUuid) {
-		//çˆ¶uuidæŒ‡å®šï¼Œéœ€è¦�ä½¿ç”¨ç”¨æˆ·è¿‡æ»¤ä¸€ä¸‹
+		//Ã§Ë†Â¶uuidÃ¦Å’â€¡Ã¥Â®Å¡Ã¯Â¼Å’Ã©Å“â‚¬Ã¨Â¦ï¿½Ã¤Â½Â¿Ã§â€�Â¨Ã§â€�Â¨Ã¦Ë†Â·Ã¨Â¿â€¡Ã¦Â»Â¤Ã¤Â¸â‚¬Ã¤Â¸â€¹
 		//from MenuModel mm join mm.roles rm join rm.emps em where em.uuid = ? 
 		String hql = "select distinct mm from MenuModel mm join mm.roles rm join rm.emps em where mm.parent.uuid = ? and em.uuid = ? order by mm.uuid";
 		return this.getHibernateTemplate().find(hql,puuid,empUuid);
