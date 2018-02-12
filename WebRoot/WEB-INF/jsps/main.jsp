@@ -17,7 +17,7 @@
 				<span style="font-weight:bold; color:#1f4906">欢迎您-</span><br />
 				<span style="color:#4a940d">${sessionScope['loginEm'].name}</span>
 			</div>
-			<div class="head-right">
+			<div styleclass="head-right">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 						<td width="32%">
