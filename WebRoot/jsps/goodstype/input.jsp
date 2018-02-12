@@ -28,7 +28,7 @@
 							
 								<optimyth:textOptionsList
 								property="WIDTH:190PX"
-								class="kuan"
+								styleclass="kuan"
 								value="-1"
 								value="1"
 								value="2"
@@ -51,7 +51,7 @@
 				</table>
 				
 			</div>
-			<div class="order-botton">
+			<div styleclass="order-botton">
 				<div style="margin:1px auto auto 1px;">
 					<table width="100%"  border="0" cellpadding="0" cellspacing="0">
 					  <tr>
@@ -69,6 +69,6 @@
 			</form>
 		</div><!--"square-order"end-->
 	</div><!--"content-text"end-->
-	<div class="content-bbg"><img src="../../images/content_bbg.jpg" /></div>
+	<div styleclass="content-bbg"><img src="../../images/content_bbg.jpg" /></div>
 </div>
 <%-- end of input.jsp --%>
