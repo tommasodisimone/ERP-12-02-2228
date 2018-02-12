@@ -155,7 +155,7 @@ public class GeneratorUtil {
 		
 		bw = new BufferedWriter(new FileWriter(f));
 		
-		String pack = "package "+pkg+".web;";
+		final String pack = "package "+pkg+".web;";
 		bw.write(pack);
 		bw.newLine();
 		
@@ -166,11 +166,11 @@ public class GeneratorUtil {
 		
 		bw.newLine();
 		
-		String impor = "import "+pkg+".business.ebi."+big+"Ebi;";
+		final String impor = "import "+pkg+".business.ebi."+big+"Ebi;";
 		bw.write(impor);
 		bw.newLine();
 		
-		String pkg = "import "+pkg+".vo."+big+"Model;";
+		final String pkg = "import "+pkg+".vo."+big+"Model;";
 		bw.write(pkg);
 		bw.newLine();
 		
@@ -182,11 +182,11 @@ public class GeneratorUtil {
 		
 		bw.newLine();
 		
-		String big = "public class "+big+"Action extends BaseAction{";
+		final String big = "public class "+big+"Action extends BaseAction{";
 		bw.write(big);
 		bw.newLine();
 		
-		big = "	public "+big+"Model "+little+"m = new "+big+"Model();";
+		final String big1 = "	public "+big+"Model "+little+"m = new "+big+"Model();";
 		bw.write(big);
 		bw.newLine();
 		
@@ -204,7 +204,7 @@ public class GeneratorUtil {
 		bw.write("		this."+small+"Ebi = "+small+"Ebi;");
 		bw.newLine();
 		
-		big = "	}";
+		final String big2 = "	}";
 		bw.write();
 		bw.newLine();
 		
@@ -242,7 +242,7 @@ public class GeneratorUtil {
 		bw.write("		if("+little+"m.getUuid()== null){");
 		bw.newLine();
 		
-		big = "			"+small+"Ebi.save("+little+"m);";
+		final String big3 = "			"+small+"Ebi.save("+little+"m);";
 		bw.write(big);
 		bw.newLine();
 		
@@ -292,7 +292,7 @@ public class GeneratorUtil {
 		bw.write("	public String delete(){");
 		bw.newLine();
 		
-			big = "		"+small+"Ebi.delete("+little+"m);";
+			final String big4 = "		"+small+"Ebi.delete("+little+"m);";
 		bw.write(delete);
 		bw.newLine();
 		
@@ -304,7 +304,7 @@ public class GeneratorUtil {
 		
 		bw.newLine();
 		
-			big = "}";
+			final String big5 = "}";
 		bw.write(big);
 		bw.newLine();
 
@@ -318,7 +318,7 @@ public class GeneratorUtil {
 	             try {
 	               bw.close(); // OK
 	             } catch (java.io.IOException e3) {
-	               System.out.println("I/O Exception");
+	               e3.printStackTrace();
 	             }
 	           }
 	         }
@@ -352,7 +352,7 @@ public class GeneratorUtil {
 		bw.write("import "+pkg+".business.ebi."+big+"Ebi;");
 		bw.newLine();
 		
-			big = "import "+pkg+".dao.dao."+big+"Dao;";
+			final String big6 = "import "+pkg+".dao.dao."+big+"Dao;";
 		bw.write(big);
 		bw.newLine();
 		
@@ -420,7 +420,7 @@ public class GeneratorUtil {
 		bw.write("	public "+big+"Model get(Serializable uuid) {");
 		bw.newLine();
 		
-			big = "		return "+small+"Dao.get(uuid);";
+			final String big7 = "		return "+small+"Dao.get(uuid);";
 		bw.write(big);
 		bw.newLine();
 		
@@ -468,14 +468,14 @@ public class GeneratorUtil {
 		bw.flush();
 		}
 		catch (java.io.FileNotFoundException e1) {
-            System.out.println("File not found");
+            e1.printStackTrace();
           } 
 		 finally {
 	           if (bw != null) {
 	             try {
 	               bw.close(); // OK
 	             } catch (java.io.IOException e3) {
-	               System.out.println("I/O Exception");
+	               e3.printStackTrace();
 	             }
 	           }
 	         }
