@@ -126,7 +126,7 @@ public class GeneratorUtil {
 		bw.flush();
 		}
 		catch (java.io.FileNotFoundException e1) {
-            System.out.println("File not found");
+            e1.printStackTrace();
           } 
 		 finally {
 	           if (bw != null) {
