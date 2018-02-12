@@ -9,8 +9,9 @@ function drag(evt)
 	if(dragObj)
 	{		  
 		var mousePos = mouseCoords(evt); 
-		dragObj.style.left = (mousePos.x - mouseOffset.x) + 'px';
-		dragObj.style.top  = (mousePos.y - mouseOffset.y) + 'px';	  
+		 
+		if(dragObj.style.left.className) dragObj.style.left.className += (mousePos.x - mouseOffset.x) + 'px';
+		if(dragObj.style.top.className) dragObj.style.top.className += (mousePos.y - mouseOffset.y) + 'px';
 	}
 }
 

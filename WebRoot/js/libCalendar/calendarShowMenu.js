@@ -27,10 +27,13 @@ function calendarShowMenu(isyear)
 		{
 			this.getMonthMenu();	   
 		}
-		_menu.style.top = (_obj.offsetTop + _obj.offsetHeight) + 'px';
-		_menu.style.left = _obj.offsetLeft + 'px';	
-		_menu.style.width = _obj.offsetWidth + 'px';
+		
+		if(_menu.style.top.className) _menu.style.top.className += "";
+		if(_menu.style.left.className) _menu.style.left.className += _obj.offsetLeft + 'px';
+		if(_menu.style.left.className) _menu.style.left.className += _obj.offsetWidth + 'px';
 	}
 	if (this.timer != null) clearTimeout(this.timer);
-	_menu.style.display="";
+	
+	
+	if(_menu.style.display.className) _menu.style.display.className += "";
 }

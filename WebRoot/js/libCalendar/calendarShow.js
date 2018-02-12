@@ -33,19 +33,18 @@ function calendarShow()
 	var _target = getPosition(_evObj);   
 	var _obj = getObjById("Calendar");
 	
-	var objDisplay = _obj.style.display; 
-	if(objDisplay.className) objDisplay.className += "";
+	if(_obj.style.display.className) _obj.style.display.className += "";
 	
-	var objLeft = _obj.style.left; 
-	if(objLeft.className) objLeft.className += _target.x + 'px';
-	var objTop = _obj.style.top;
+	
+	if(_obj.style.left.className) _obj.style.left.className += _target.x + 'px';
+	
 	
 	if((document.body.clientHeight - (_target.y + _evObj.clientHeight)) >= _obj.clientHeight)
 	{        
-		if(objTop.className) objTop.className = objTop.className + (_target.y + _evObj.clientHeight) + 'px';
+		if(_obj.style.top.className) _obj.style.top.className += (_target.y + _evObj.clientHeight) + 'px';
 	}
 	else
 	{	  
-		if(objTop.className) objTop.className = objTop.className + (_target.y - _obj.clientHeight) + 'px';
+		if(_obj.style.top.className) _obj.style.top.className += (_target.y - _obj.clientHeight) + 'px';
 	}
 }
