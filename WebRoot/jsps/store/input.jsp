@@ -7,7 +7,7 @@
 <div styleclass="content-right">
 	<div styleclass="content-r-pic_w">
 		<div style="margin:8px auto auto 12px;margin-top:6px">
-			<span class="page_title">仓库管理</span>
+			<span styleclass="page_title">仓库管理</span>
 		</div>
 	</div>
 	<div styleclass="content-text">
