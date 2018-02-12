@@ -11,13 +11,13 @@
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="head">
-			<div class="head-left">
+	<div styleclass="container">
+		<div styleclass="head">
+			<div styleclass="head-left">
 				<span style="font-weight:bold; color:#1f4906">欢迎您-</span><br />
 				<span style="color:#4a940d">${sessionScope['loginEm'].name}</span>
 			</div>
-			<div class="head-right">
+			<div styleclass="head-right">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 						<td width="32%">
@@ -41,8 +41,8 @@
 		</div>
 		<!--"head"end-->
 
-		<div class="content">
-			<div class="left">
+		<div styleclass="content">
+			<div styleclass="left">
 				<div style="margin-left:2px;">
 				<!-- cancellato da saverio -->
 						</table>
@@ -57,15 +57,15 @@
 			<!--"content-right"end-->
 		</div>
 		<!--"content"end-->
-		<div class="footer">
+		<div styleclass="footer">
 			<div style="margin-top:5px;">
 				<table width="98%" border="0" cellpadding="0" cellspacing="0"
 					align="center">
 					<tr>
 						<td width="82%"><img src="images/icon_1.gif" />&nbsp; <a
-							class="lanyo" href="www.itcast.cn">传智播客 蓝源信息技术 2014</a></td>
+							styleclass="lanyo" href="www.itcast.cn">传智播客 蓝源信息技术 2014</a></td>
 						<td width="18%" valign="middle"><img src="images/icon_2.gif" />&nbsp;
-							<a class="lanyo" href="#">如有疑问请与技术人员联系</a></td>
+							<a styleclass="lanyo" href="#">如有疑问请与技术人员联系</a></td>
 					</tr>
 				</table>
 			</div>

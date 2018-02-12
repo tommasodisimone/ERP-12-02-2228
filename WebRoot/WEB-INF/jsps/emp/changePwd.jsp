@@ -4,14 +4,14 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%-- Here starts the javascript call function --%>
 <link href="css/index.css" rel="stylesheet" type="text/css" />
-<div class="content-right">
-	<div class="content-r-pic_w">
+<div styleclass="content-right">
+	<div styleclass="content-r-pic_w">
 		<div style="margin:8px auto auto 12px;margin-top:6px">
-			<span class="page_title">修改密码</span>
+			<span styleclass="page_title">修改密码</span>
 		</div>
 	</div>
-	<div class="content-text">
-		<div class="square-order">
+	<div styleclass="content-text">
+		<div styleclass="square-order">
 			<s:form action="emp_changePwd" method="post">
   			<div style="border:1px solid #cecece;">
 				<table width="100%"  border="0" cellpadding="0" cellspacing="0">
@@ -49,7 +49,7 @@
 					</tr>
 				</table>
 			</div>
-			<div class="order-botton">
+			<div styleclass="order-botton">
 				<div style="margin:1px auto auto 1px;">
 					<table width="100%"  border="0" cellpadding="0" cellspacing="0">
 					  <tr>
@@ -67,6 +67,6 @@
 			</s:form>
 		</div><!--"square-order"end-->
 	</div><!--"content-text"end-->
-	<div class="content-bbg"><img src="images/content_bbg.jpg" /></div>
+	<div styleclass="content-bbg"><img src="images/content_bbg.jpg" /></div>
 </div>
 <%-- end of changePwd.jsp --%>

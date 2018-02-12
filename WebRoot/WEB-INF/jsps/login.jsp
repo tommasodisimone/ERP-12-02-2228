@@ -13,9 +13,9 @@
 </script>
 </head>
 <body>
-	<div class="container-login">
-		<div class="login-pic">
-			<div class="login-text">
+	<div styleclass="container-login">
+		<div styleclass="login-pic">
+			<div styleclass="login-text">
 				<s:form action="emp_login" method="post">
 					<table width="100%" border="0" cellpadding="0" cellspacing="0">
 						<tr>
