@@ -15,7 +15,8 @@ import cn.itcast.invoice.util.base.BaseQueryModel;
  *
  */
 public class EmpDaoImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
-	
+	public static int two = 2, zero = 0;
+	public static long eightysix = 86400000L;
 	public void addUserName(DetachedCriteria dc,EmpQueryModel eqm) {
 		if(eqm.getUserName()!=null && eqm.getUserName().trim().length()>0){
 			dc.add(Restrictions.like("userName", "%"+eqm.getUserName().trim()+"%"));
@@ -29,8 +30,8 @@ public class EmpDaoImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 	}
 	
 	public void addTele(DetachedCriteria dc,EmpQueryModel eqm) {
-		if(eqm.getPersonalInformation(2)!=null && eqm.getPersonalInformation(2).trim().length()>0){
-			dc.add(Restrictions.like("tele", "%"+eqm.getPersonalInformation(2).trim()+"%"));
+		if(eqm.getPersonalInformation(two)!=null && eqm.getPersonalInformation(two).trim().length()>zero){
+			dc.add(Restrictions.like("tele", "%"+eqm.getPersonalInformation(two).trim()+"%"));
 		}
 	}
 	
@@ -54,7 +55,7 @@ public class EmpDaoImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 	
 	public void addLastLoginTime2(DetachedCriteria dc,EmpQueryModel eqm) {
 		if(eqm.getLastLoginTime2()!=null){
-			dc.add(Restrictions.le("lastLoginTime", eqm.getLastLoginTime2()+86400000L));
+			dc.add(Restrictions.le("lastLoginTime", eqm.getLastLoginTime2()+eightysix));
 		}
 	}
 	
