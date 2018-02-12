@@ -112,6 +112,6 @@
 </div>
 </div>
 </div>
-<div class="content-bbg"><img src="../images/content_bbg.jpg" /></div>
+<div styleclass="content-bbg"><img src="../images/content_bbg.jpg" /></div>
 </div>
 <%-- end of context.jsp --%>
