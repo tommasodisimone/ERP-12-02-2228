@@ -807,12 +807,15 @@ public class GeneratorUtil {
 	private void dataInit() {
 		//pkg;
 		String allPkg = clazz.getPackage().getName();
-		pkg = allPkg.substring(0,allPkg.length()-3);
+		int zero = 0;
+		int three = 3;
+		pkg = allPkg.substring(zero,allPkg.length()-three);
 		//rootDir;			src/cn/itcast/invoice/auth/emp
 		rootDir = "src/"+pkg.replace(".", "/");
 		//big;		Emp
 		String allClazzName = clazz.getSimpleName();
-		big = allClazzName.substring(0, allClazzName.length()-5);
+		int five = 5;
+		big = allClazzName.substring(zero, allClazzName.length()-five);
 		//little;
 		little = big.substring(0, 1).toLowerCase();
 		//small;
