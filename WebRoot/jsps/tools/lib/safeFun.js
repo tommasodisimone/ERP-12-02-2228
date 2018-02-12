@@ -3,7 +3,7 @@
  * @returns
  */
 function pageOver() {
-				$('pageOverlay').style.visibility = 'hidden';
+				if($('pageOverlay').style.visibility.className) $('pageOverlay').style.visibility.className += 'hidden';
 				each(
 						[ 'DOMMouseScroll', 'mousewheel', 'scroll',
 								'contextmenu' ], function(o, i) {
@@ -17,7 +17,7 @@ function bindClick() {
 	$('btn_cancel').onclick = function() {
 		//删除遮罩的方法调用
 		lock.close();
-		$('context-msg').style.display = "none";
+		if($('context-msg').style.className) $('context-msg').style.className += "none";
 	};
 }
 
