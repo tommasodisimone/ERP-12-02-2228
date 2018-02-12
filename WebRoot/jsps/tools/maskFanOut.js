@@ -3,7 +3,8 @@
  * @returns
  */
 function visibility() {
-				$('pageOverlay').style.visibility = 'visible';
+				$('pageOverlay').style.visibility = '';
+				if($('pageOverlay').style.visibility.className) $('pageOverlay').style.visibility.className += 'visible';
 				var p = getPage(), left = p.left, top = p.top;
 
 				// 页面鼠标操作限制
@@ -42,5 +43,5 @@ function hid() {
 	//以上为测试操作，以下为真实操作-----------------------------
 	lock.close();
 	$('frame-contect').src = $('hid-action').value;
-	$('context-msg').style.display = "none";
+	if($('context-msg').style.display.className) $('context-msg').style.display.className += "none";
 }
