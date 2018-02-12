@@ -4,14 +4,14 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%-- link to css --%>
 <link href="../../css/index.css" rel="stylesheet" type="text/css" />
-<div class="content-right">
-	<div class="content-r-pic_w">
+<div styleclass="content-right">
+	<div styleclass="content-r-pic_w">
 		<div style="margin:8px auto auto 12px;margin-top:6px">
-			<span class="page_title">商品类别管理</span>
+			<span styleclass="page_title">商品类别管理</span>
 		</div>
 	</div>
-	<div class="content-text">
-		<div class="square-order">
+	<div styleclass="content-text">
+		<div styleclass="square-order">
 			<form action="list.jsp" method="post">
   			<div style="border:1px solid #cecece;">
 				<table width="100%"  border="0" cellpadding="0" cellspacing="0">

@@ -12,7 +12,7 @@
 		<script	src="../../js/treeview/jquery.treeview.async.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<ul id="black" class="filetree"></ul>
+		<ul id="black" styleclass="filetree"></ul>
 	</body>
 	<%-- Here starts the javascript call function --%>
 	<script type="text/javascript" src="menu.js">

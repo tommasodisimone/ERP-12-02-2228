@@ -13,16 +13,16 @@
 		<td width="51%">&nbsp;</td>
 		<td width="13%">共 ${dataTotal}条记录
 		<td width="6%">
-			<a id="fir" class="sye">首&nbsp;&nbsp;页</a>
+			<a id="fir" styleclass="sye">首&nbsp;&nbsp;页</a>
 		</td>
 		<td width="6%">
-			<a id="pre" class="sye">上一页</a>
+			<a id="pre" styleclass="sye">上一页</a>
 		</td>
 		<td width="6%">
-			<a id="next" class="sye">下一页</a>
+			<a id="next" styleclass="sye">下一页</a>
 		</td>
 		<td width="6%">
-			<a id="last" class="sye">末&nbsp;&nbsp;页</a>
+			<a id="last" styleclass="sye">末&nbsp;&nbsp;页</a>
 		</td>
 		<td width="12%">当前第<span style="color:red;">${pageNum}</span>/${pageCount}页</td>
 	</tr>
