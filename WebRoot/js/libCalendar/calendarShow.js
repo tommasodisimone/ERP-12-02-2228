@@ -32,14 +32,20 @@ function calendarShow()
 	this.bindDate(_date);        
 	var _target = getPosition(_evObj);   
 	var _obj = getObjById("Calendar");
-	_obj.style.display = ""; 
-	_obj.style.left = _target.x + 'px';
+	
+	var objDisplay = _obj.style.display; 
+	if(objDisplay.className) objDisplay.className += "";
+	
+	var objLeft = _obj.style.left; 
+	if(objLeft.className) objLeft.className += _target.x + 'px';
+	var objTop = _obj.style.top;
+	
 	if((document.body.clientHeight - (_target.y + _evObj.clientHeight)) >= _obj.clientHeight)
 	{        
-		_obj.style.top = (_target.y + _evObj.clientHeight) + 'px';
+		if(objTop.className) objTop.className = objTop.className + (_target.y + _evObj.clientHeight) + 'px';
 	}
 	else
 	{	  
-		_obj.style.top = (_target.y - _obj.clientHeight) + 'px';
+		if(objTop.className) objTop.className = objTop.className + (_target.y - _obj.clientHeight) + 'px';
 	}
 }
