@@ -89,7 +89,9 @@ public class ExcelUtil {
 	 */
 	public static void sRowSize(WritableSheet s,int idx,int height){
 		try {
-			s.setRowView(idx-1, height*20);
+			int one = 1;
+			int twenty = 20;
+			s.setRowView(idx-one, height*twenty);
 		} catch (Exception e) {
 			 System.out.println("Something was wrong");
 		}
@@ -115,7 +117,8 @@ public class ExcelUtil {
 		alignMap = new HashMap<Integer, Alignment>();
 		alignMap.put(0, Alignment.LEFT);
 		alignMap.put(1, Alignment.CENTRE);
-		alignMap.put(2, Alignment.RIGHT);
+		Integer two = 2;
+		alignMap.put(two , Alignment.RIGHT);
 	}
 	
 	private static WritableCellFormat setBorderTop(char value, WritableCellFormat wcf) throws WriteException {
