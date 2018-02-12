@@ -19,6 +19,7 @@ import cn.itcast.invoice.util.format.MD5Utils;
  *
  */
 public class EmpEbo implements EmpEbi{
+	public static int two = 2, three = 3;
 	private EmpDao empDao;
 	private ResDao resDao;
 	
@@ -51,8 +52,8 @@ public class EmpEbo implements EmpEbi{
 		//Ã¥Â°â€ Ã§Â¼ÂºÃ¥Â°â€˜Ã§Å¡â€žÃ¥â‚¬Â¼Ã¥â€¦Â¨Ã©Æ’Â¨Ã¨Âµâ€¹Ã¥â‚¬Â¼Ã¤Â¸Å Ã¥Å½Â»
 		temp.setName(em.getPersonalInformation(0));
 		temp.setEmail(em.getPersonalInformation(1));
-		temp.setTele(em.getPersonalInformation(2));
-		temp.setAddress(em.getPersonalInformation(3));
+		temp.setTele(em.getPersonalInformation(two));
+		temp.setAddress(em.getPersonalInformation(three));
 		temp.setBirthday(em.getBirthday());
 		temp.setGender(em.getGender());
 		temp.setDm(em.getDm());
@@ -152,8 +153,8 @@ public class EmpEbo implements EmpEbi{
 		//Ã¥Â°â€ Ã§Â¼ÂºÃ¥Â°â€˜Ã§Å¡â€žÃ¥â‚¬Â¼Ã¥â€¦Â¨Ã©Æ’Â¨Ã¨Âµâ€¹Ã¥â‚¬Â¼Ã¤Â¸Å Ã¥Å½Â»
 		temp.setName(em.getPersonalInformation(0));
 		temp.setEmail(em.getPersonalInformation(1));
-		temp.setTele(em.getPersonalInformation(2));
-		temp.setAddress(em.getPersonalInformation(3));
+		temp.setTele(em.getPersonalInformation(two));
+		temp.setAddress(em.getPersonalInformation(three));
 		temp.setBirthday(em.getBirthday());
 		temp.setGender(em.getGender());
 		temp.setDm(em.getDm());
