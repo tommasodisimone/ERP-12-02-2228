@@ -11,13 +11,13 @@
 <script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="head">
-			<div class="head-left">
+	<div styleclass="container">
+		<div styleclass="head">
+			<div styleclass="head-left">
 				<span style="font-weight:bold; color:#1f4906">欢迎您-</span><br />
 				<span style="color:#4a940d">登录人</span>
 			</div>
-			<div class="head-right">
+			<div styleclass="head-right">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 						<td width="32%">
@@ -41,105 +41,105 @@
 		</div>
 		<!--"head"end-->
 
-		<div class="content">
-			<div class="left">
-				<div style="margin-left:2px;">
+		<div styleclass="content">
+			<div styleclass="left">
+				<div styleclass="margin-left:2px;">
 					<img src="../images/left-top.gif" width="162" height="25" />
 				</div>
-				<div class="left-bottom">
+				<div styleclass="left-bottom">
 						<table width="100%" border="0" cellpadding="0" cellspacing="0">
 							<tr>
-								<td><a class="hei" target="main" href="#">商品管理</a></td>
+								<td><a styleclass="hei" target="main" href="#">商品管理</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="supplier/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;供应商</a></td>
+								<td><a styleclass="hei" target="main" href="supplier/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;供应商</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="goodstype/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;商品类别</a></td>
+								<td><a styleclass="hei" target="main" href="goodstype/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;商品类别</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="goods/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;商品</a></td>
+								<td><a styleclass="hei" target="main" href="goods/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;商品</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">采购管理</a></td>
+								<td><a styleclass="hei" target="main" href="#">采购管理</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="order/in/inList.jsp">&nbsp;&nbsp;&nbsp;&nbsp;采购订单</a></td>
+								<td><a styleclass="hei" target="main" href="order/in/inList.jsp">&nbsp;&nbsp;&nbsp;&nbsp;采购订单</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;采购退货</a></td>
+								<td><a styleclass="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;采购退货</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="order/in/inApproveList.jsp">&nbsp;&nbsp;&nbsp;&nbsp;采购审批</a></td>
+								<td><a styleclass="hei" target="main" href="order/in/inApproveList.jsp">&nbsp;&nbsp;&nbsp;&nbsp;采购审批</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">销售管理</a></td>
+								<td><a styleclass="hei" target="main" href="#">销售管理</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售订单</a></td>
+								<td><a styleclass="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售订单</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售退货</a></td>
+								<td><a styleclass="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售退货</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售审批</a></td>
+								<td><a styleclass="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售审批</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">商品运输</a></td>
+								<td><a styleclass="hei" target="main" href="#">商品运输</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="order/transport/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;运输任务指派</a></td>
+								<td><a styleclass="hei" target="main" href="order/transport/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;运输任务指派</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="order/transport/tasks.jsp">&nbsp;&nbsp;&nbsp;&nbsp;运输任务查询</a></td>
+								<td><a styleclass="hei" target="main" href="order/transport/tasks.jsp">&nbsp;&nbsp;&nbsp;&nbsp;运输任务查询</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">仓库管理</a></td>
+								<td><a styleclass="hei" target="main" href="#">仓库管理</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="store/detail/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;库存查询</a></td>
+								<td><a styleclass="hei" target="main" href="store/detail/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;库存查询</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="store/in/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;入库</a></td>
+								<td><a styleclass="hei" target="main" href="store/in/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;入库</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;出库</a></td>
+								<td><a styleclass="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;出库</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="store/oper/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;仓库操作明细</a></td>
+								<td><a styleclass="hei" target="main" href="store/oper/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;仓库操作明细</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">报表中心</a></td>
+								<td><a styleclass="hei" target="main" href="#">报表中心</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="bill/in/inGoods.jsp">&nbsp;&nbsp;&nbsp;&nbsp;进货报表</a></td>
+								<td><a styleclass="hei" target="main" href="bill/in/inGoods.jsp">&nbsp;&nbsp;&nbsp;&nbsp;进货报表</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售报表</a></td>
+								<td><a styleclass="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;销售报表</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;仓库报表</a></td>
+								<td><a styleclass="hei" target="main" href="#">&nbsp;&nbsp;&nbsp;&nbsp;仓库报表</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="#">基础维护</a></td>
+								<td><a styleclass="hei" target="main" href="#">基础维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="department/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;部门维护</a></td>
+								<td><a styleclass="hei" target="main" href="department/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;部门维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="employee/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;员工维护</a></td>
+								<td><a styleclass="hei" target="main" href="employee/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;员工维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="role/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;角色维护</a></td>
+								<td><a styleclass="hei" target="main" href="role/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;角色维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="resource/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;资源维护</a></td>
+								<td><a styleclass="hei" target="main" href="resource/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;资源维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="menu/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;菜单维护</a></td>
+								<td><a styleclass="hei" target="main" href="menu/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;菜单维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="store/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;仓库管理</a></td>
+								<td><a styleclass="hei" target="main" href="store/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;仓库管理</a></td>
 							</tr>
 						</table>
 				</div>
@@ -153,15 +153,15 @@
 			<!--"content-right"end-->
 		</div>
 		<!--"content"end-->
-		<div class="footer">
+		<div styleclass="footer">
 			<div style="margin-top:5px;">
 				<table width="98%" border="0" cellpadding="0" cellspacing="0"
 					align="center">
 					<tr>
 						<td width="82%"><img src="../images/icon_1.gif" />&nbsp; <a
-							class="lanyo" href="www.itcast.cn">传智播客 蓝源信息技术 2014</a></td>
+							styleclass="lanyo" href="www.itcast.cn">传智播客 蓝源信息技术 2014</a></td>
 						<td width="18%" valign="middle"><img src="../images/icon_2.gif" />&nbsp;
-							<a class="lanyo" href="#">如有疑问请与技术人员联系</a></td>
+							<a styleclass="lanyo" href="#">如有疑问请与技术人员联系</a></td>
 					</tr>
 				</table>
 			</div>
